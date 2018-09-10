@@ -117,7 +117,8 @@
                         <div class="row lato list-about"><!-- list grp -->
                             <div class="col-4">
                                 <div class="list-group" id="list-tab" role="tablist">
-                                <a class="list-group-item list-group-item-action active" id="list-mission-list" data-toggle="list" href="#list-mission" role="tab" aria-controls="mission">Mission and Vision</a>
+                                <a class="list-group-item list-group-item-action active" id="list-mission-list" data-toggle="list" href="#list-mission" role="tab" aria-controls="mission">Mission</a>
+                                <a class="list-group-item list-group-item-action" id="list-vision-list" data-toggle="list" href="#list-vision" role="tab" aria-controls="vision">Vision</a>
                                 <a class="list-group-item list-group-item-action" id="list-history-list" data-toggle="list" href="#list-history" role="tab" aria-controls="history">History</a>
                                 <a class="list-group-item list-group-item-action" id="list-program-list" data-toggle="list" href="#list-program" role="tab" aria-controls="program">Program Educational Objectives</a>
                                 <a class="list-group-item list-group-item-action" id="list-orgChart-list" data-toggle="list" href="#list-orgChart" role="tab" aria-controls="orgChart">Organizational Chart</a>
@@ -134,7 +135,9 @@
                                         <h2 class="lato alumni-heading"><b>Mission</b></h2>
                                         We commit ourselves in the formation of top-notch competent, committed, and compassionate Thomasian Tourism and Hospitality professionals for the service of the
                                         Church, the nation, and the global community<br><br>
-                                        <h2 class="lato"><b>Vision</b></h2>
+                                    </div>
+                                    <div class="tab-pane fade show active" id="list-vision" role="tabpanel" aria-labelledby="list-vision-list">
+                                        <h2 class="lato alumni-heading"><b>Vision</b></h2>
                                         We envision a premiere College of Tourism and Hospitality Management in the country
                                         recognized for its outstanding programs, producing world-class professionals
                                     </div>

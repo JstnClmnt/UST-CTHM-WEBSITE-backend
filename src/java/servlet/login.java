@@ -50,13 +50,11 @@ public class login extends HttpServlet {
                 RequestDispatcher view=request.getRequestDispatcher("/cms/carousel.jsp");
                 view.forward(request,response);
             } catch (WrongPasswordException ex) {
-                request.setAttribute("error", "Wrong Password!");
-                RequestDispatcher view=request.getRequestDispatcher("cmsindex.jsp");
-                view.forward(request,response);
+                session.setAttribute("error", "Wrong Password!");
+                response.sendRedirect("cms/login.jsp");
             } catch (WrongUsernameException ex) {
-                request.setAttribute("error", "Incorrect Credentials");
-                RequestDispatcher view=request.getRequestDispatcher("cmsindex.jsp");
-                view.forward(request,response);
+                session.setAttribute("error", "Incorrect Credentials");
+                response.sendRedirect("cms/login.jsp");
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
             }
