@@ -6,6 +6,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="bean.About"%>
+<%@page import="bean.Image"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -117,8 +119,17 @@
                         <div class="row lato list-about"><!-- list grp -->
                             <div class="col-4">
                                 <div class="list-group" id="list-tab" role="tablist">
-                                <a class="list-group-item list-group-item-action active" id="list-mission-list" data-toggle="list" href="#list-mission" role="tab" aria-controls="mission">Mission</a>
-                                <a class="list-group-item list-group-item-action" id="list-vision-list" data-toggle="list" href="#list-vision" role="tab" aria-controls="vision">Vision</a>
+                                    <c:forEach items="${abouts}" varStatus="loop" var="about" >
+                                        <c:choose>
+                                        <c:when test="${loop.first}">
+                                            <a class="list-group-item list-group-item-action active" id="list-${about.title}-list" data-toggle="list" href="#list-${about.title}" role="tab" aria-controls="${about.title}">${about.title}</a>
+                                        </c:when>
+                                        <c:otherwise>
+                                             <a class="list-group-item list-group-item-action" id="list-${about.title}-list" data-toggle="list" href="#list-${about.title}" role="tab" aria-controls="${about.title}">${about.title}</a>
+                                        </c:otherwise>
+                                        </c:choose>
+                                       
+                                    </c:forEach>
                                 <a class="list-group-item list-group-item-action" id="list-history-list" data-toggle="list" href="#list-history" role="tab" aria-controls="history">History</a>
                                 <a class="list-group-item list-group-item-action" id="list-program-list" data-toggle="list" href="#list-program" role="tab" aria-controls="program">Program Educational Objectives</a>
                                 <a class="list-group-item list-group-item-action" id="list-orgChart-list" data-toggle="list" href="#list-orgChart" role="tab" aria-controls="orgChart">Organizational Chart</a>
@@ -131,16 +142,22 @@
                             </div>
                             <div class="col-8">
                                 <div class="tab-content" id="nav-tabContent">
-                                    <div class="tab-pane fade show active" id="list-mission" role="tabpanel" aria-labelledby="list-mission-list">
-                                        <h2 class="lato alumni-heading"><b>Mission</b></h2>
-                                        We commit ourselves in the formation of top-notch competent, committed, and compassionate Thomasian Tourism and Hospitality professionals for the service of the
-                                        Church, the nation, and the global community<br><br>
-                                    </div>
-                                    <div class="tab-pane fade show active" id="list-vision" role="tabpanel" aria-labelledby="list-vision-list">
-                                        <h2 class="lato alumni-heading"><b>Vision</b></h2>
-                                        We envision a premiere College of Tourism and Hospitality Management in the country
-                                        recognized for its outstanding programs, producing world-class professionals
-                                    </div>
+                                    <c:forEach items="${abouts}" varStatus="loop" var="about" >
+                                        <c:choose>
+                                        <c:when test="${loop.first}">
+                                            <div class="tab-pane fade show active" id="list-${about.title}" role="tabpanel" aria-labelledby="list-${about.title}-list">
+                                                <h2 class="lato alumni-heading"><b>${about.title}</b></h2>
+                                                ${about.description}
+                                            </div>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <div class="tab-pane fade" id="list-${about.title}" role="tabpanel" aria-labelledby="list-${about.title}-list">
+                                            <h2 class="lato alumni-heading"><b>${about.title}</b></h2>
+                                            ${about.description}
+                                            </div>
+                                        </c:otherwise>
+                                        </c:choose>
+                                    </c:forEach>
                                     <div class="tab-pane fade" id="list-history" role="tabpanel" aria-labelledby="list-history-list">
                                         <h2 class="lato alumni-heading"><b>History</b></h2>
                                         The idea of forming an Institution was conceived by the Tourism and HRM Departments during late 1990’s with the strong support and unwavering efforts of the College of Education. The need for establishing an Institute was realized by two departments because of the fast-paced changes and growth of the industry that greatly influenced the tourism and hospitality education. Likewise, by merging the two programs, student would be able to specialize and dedicate themselves in enhancing their knowledge and skills that would respond to the needs of the industry. Series of departmental meetings and brainstorming were conducted with the vision of forming a new academic unit in the University. The idea was presented to the Tourism and HRM Faculty until such time thatthe College of Education decided to merge the programs by having one Department In its initial stage, the Tourism and HRM Departments were temporarily relocated at the College of Education’s Mini-hotel in the year 2002. This was considered as the dry run to assess the viability of separating the departments from College of Education. Three years later, a formal proposal for institutionalization was submitted to the Academic Council. A thorough procedure that included meetings, deliberation and election were carried out. April 28, 2006 marked the establishment of the Tourism and HRM Departments as an Institution. Upon the approval of the College of Regents dated November 19, 2008; by the Academic Senate dated December 16, 2008; and the Board of Trustees dated January 20, 2009, the institute of Tourism and Hospitality Management was finally converted in to the College of Tourism and Hospitality Management. In 2015, both programs of the CTHM (Hotel and Restaurant Management and Travel Management) received the coveted Center of Excellence distinction from the Commission on Higher Education.

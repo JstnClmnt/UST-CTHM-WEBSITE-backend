@@ -25,6 +25,7 @@ CREATE TABLE ABOUT(
     PRIMARY KEY(post_id),
 	FOREIGN KEY(img_id) REFERENCES IMAGE(img_id)
 );
-
-INSERT INTO About(title,description) VALUES('Vision','We envision a premiere College of Tourism and Hospitality Management in the country recognized for its outstanding programs, producing world-class professionals');
+SELECT * FROM ABOUT;
+DROP TABLE ABOUT;
 INSERT INTO About(title,description) VALUES('Mission','We commit ourselves in the formation of top-notch competent, committed, and compassionate Thomasian Tourism and Hospitality professionals for the service of the Church, the nation, and the global community<br><br>');
+INSERT INTO About(title,description) VALUES('Vision','We envision a premiere College of Tourism and Hospitality Management in the country recognized for its outstanding programs, producing world-class professionals');

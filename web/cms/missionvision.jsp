@@ -1,19 +1,23 @@
 <%-- 
-    Document   : carousel
-    Created on : Sep 8, 2018, 4:52:08 PM
+    Document   : missionvision
+    Created on : Sep 13, 2018, 3:27:37 AM
     Author     : Justine Clemente
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="bean.About"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home</title>
+        <title>About Us - Mission & Vision</title>
         <!--CSS--><!-- Latest compiled and minified CSS -->
         <link href="cms/css/style.css" rel="stylesheet" type="text/css" media="all">
         <link rel="stylesheet" href="cms/css/font-awesome-4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="cms/css/bootstrap.min.css">
+
+        <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+        <script>tinymce.init({ selector:'textarea' });</script>
     </head>
     <body>
         <nav class="navbar navbar-default bar-nav">
@@ -115,55 +119,23 @@
             <div class="content-wrap">
                 <div class="col-sm-12" id="content">
                     <div class="title">
-                        <h2 class="heading">Banner</h2>
+                        <h2 class="heading">Mission & Vision</h2>
                         &emsp;<a href="#">View Page</a>
                     </div>
                     <hr>
                     <div>
-                        <div>
-                            <img src="img/car2.jpg" class="home-img"/>
-                        </div>
-                        <br>
-                        <form>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="well">
-                                            <label for="exampleInputFile">Banner 1</label>
-                                            <input type="file" id="exampleInputFile">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6"></div>
-                                    <div class="col-sm-2">
-                                        &emsp;&nbsp;
-                                        <button type="button" class="btn btn-primary">Save Changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
+                        <h3>Mission</h3>
+                        <form action="editabout?postid=1" method="POST">
+                            <textarea name="description" class="form-control" cols="10" rows="6" placeholder="Enter mission...">${mission.description}</textarea>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
                         </form>
-                        <br><br>
-                        <div>
-                            <img src="img/car2.jpg" class="home-img"/>
-                        </div>
-                        <br>
-                        <form>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="well">
-                                            <label for="exampleInputFile">Banner 1</label>
-                                            <input type="file" id="exampleInputFile">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6"></div>
-                                    <div class="col-sm-2">
-                                        &emsp;&nbsp;
-                                        <button type="button" class="btn btn-primary">Save Changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
+                    </div>
+                    <br><br>
+                    <div>
+                        <h3>Vision</h3>
+                        <form action="editabout?postid=2" method="POST">
+                            <textarea id="description" class="form-control" cols="10" rows="6" placeholder="Enter vision...">${vision.description}</textarea>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
                         </form>
                     </div>
                 </div>
@@ -176,6 +148,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="cms/js/script.js"></script>
+    <script type="text/javascript" src="cms/js/cmsabout.js"></script>
     <script type="text/javascript" src="cms/js/bootstrap.min.js"></script>
 
     </body>
