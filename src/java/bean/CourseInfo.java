@@ -12,33 +12,31 @@ import java.sql.SQLException;
  *
  * @author Justine Clemente
  */
-public class About {
-    private int post_id;
+public class CourseInfo {
+    private int courseInfoID;
     private String title;
     private String description;
-    private Image img;
 
-    public About(int post_id, String title, String description,Image img) {
-        this.post_id = post_id;
-        this.title = title;
-        this.description = description;
-        this.img=img;
-    }
-
-    public About(String title, String description) {
+    public CourseInfo(int courseInfoID, String title, String description) {
+        this.courseInfoID = courseInfoID;
         this.title = title;
         this.description = description;
     }
-
-    public About(ResultSet rs) throws SQLException{
-        this(rs.getInt("post_id"),rs.getString("title"),rs.getString("description"),new Image(rs));
-    }
-    public int getPost_id() {
-        return post_id;
+    
+    public CourseInfo(String title, String description) {
+        this.title = title;
+        this.description = description;
     }
 
-    public void setPost_id(int post_id) {
-        this.post_id = post_id;
+    public CourseInfo(ResultSet rs) throws SQLException{
+        this(rs.getInt("program_info_id"),rs.getString("pic_title"),rs.getString("description"));
+    }
+    public int getCourseInfoID() {
+        return courseInfoID;
+    }
+
+    public void setCourseInfoID(int courseInfoID) {
+        this.courseInfoID = courseInfoID;
     }
 
     public String getTitle() {
@@ -56,13 +54,6 @@ public class About {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public Image getImg() {
-        return img;
-    }
-
-    public void setImg(Image img) {
-        this.img = img;
-    }
+    
     
 }

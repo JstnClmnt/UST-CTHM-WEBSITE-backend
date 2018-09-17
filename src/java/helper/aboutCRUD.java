@@ -41,7 +41,7 @@ public class aboutCRUD {
     
     public static ArrayList<About> listAbout(Connection con) throws SQLException {
         ArrayList<About> abouts = new ArrayList<>();
-        try (PreparedStatement stmt = con.prepareStatement("SELECT * FROM About")) {
+        try (PreparedStatement stmt = con.prepareStatement("SELECT * FROM ABOUT a LEFT JOIN IMAGE i on i.img_id=a.img_id ORDER BY post_id;")) {
             try (ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
                     abouts.add(new About(rs));

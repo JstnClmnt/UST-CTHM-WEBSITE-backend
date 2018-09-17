@@ -20,7 +20,7 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">
-                        <img class="shs-logo" alt="Brand" src="img\ust-cthm-logo.PNG" height="45px">
+                        <img class="shs-logo" alt="Brand" src="cms\img\ust-cthm-logo.PNG" height="45px">
                     </a>
                 </div>
             </div>
