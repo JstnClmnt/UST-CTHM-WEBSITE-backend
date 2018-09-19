@@ -8,19 +8,21 @@ package bean;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
+/** 
  *
  * @author Justine Clemente
  */
 public class CourseInfo {
     private int courseInfoID;
+    private int categoryID;
     private String title;
     private String description;
 
-    public CourseInfo(int courseInfoID, String title, String description) {
+    public CourseInfo(int courseInfoID, int categoryID,String title, String description) {
         this.courseInfoID = courseInfoID;
         this.title = title;
         this.description = description;
+        this.categoryID=categoryID;
     }
     
     public CourseInfo(String title, String description) {
@@ -29,7 +31,7 @@ public class CourseInfo {
     }
 
     public CourseInfo(ResultSet rs) throws SQLException{
-        this(rs.getInt("program_info_id"),rs.getString("pic_title"),rs.getString("description"));
+        this(rs.getInt("program_info_id"),rs.getInt("pic_id"),rs.getString("pic_title"),rs.getString("description"));
     }
     public int getCourseInfoID() {
         return courseInfoID;
@@ -37,6 +39,14 @@ public class CourseInfo {
 
     public void setCourseInfoID(int courseInfoID) {
         this.courseInfoID = courseInfoID;
+    }
+
+    public int getCategoryID() {
+        return categoryID;
+    }
+
+    public void setCategoryID(int categoryID) {
+        this.categoryID = categoryID;
     }
 
     public String getTitle() {

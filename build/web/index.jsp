@@ -10,10 +10,12 @@
 <html>
     <head>
         <title>UST-CTHM | Home</title>
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -24,8 +26,16 @@
             });
         </script>
     </head>
-    <body>
-        <div class="green-bg header">
+    <body class="bigger-font">
+        <!-- The social media icon bar -->
+        <div class="icon-bar">
+            <a href="#" class="facebook"><i class="fab fa-facebook"></i></a> 
+            <a href="#" class="twitter"><i class="fab fa-twitter"></i></a> 
+            <a href="#" class="google"><i class="fab fa-google"></i></a> 
+            <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="youtube"><i class="fab fa-youtube"></i></a> 
+        </div>
+        <div class="gradient-bg header">
             <div>
                 <a class="header-link" href="index.html">
                     <div class="row header-content">
@@ -43,62 +53,100 @@
                 </a>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg white-bg sticky-top lato">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active-tab" href="index.html" id="HomeLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Home
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="HomeLink">
-                            <a class="dropdown-item" href="index.html#announcements">Announcements</a>
-                            <a class="dropdown-item" href="index.html#news">News and Updates</a>
-                            <a class="dropdown-item" href="index.html#events">Events</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="aboutUs.html">About Us</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="TourMgmtLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Tourism Management
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="TourMgmtLink">
-                        <a class="dropdown-item" href="travelOps.html">Travel Operations and Service Management</a>
-                        <a class="dropdown-item" href="recreationLeisure.html">Recreation and Leisure Management</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="HosMgmtLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Hospitality Management
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="HosMgmtLink">
-                        <a class="dropdown-item" href="culinaryEntrep.html">Culinary Entrepreneurship</a>
-                        <a class="dropdown-item" href="hospitalityLead.html">Hospitality Leadership</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="StakeholdersLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Stakeholders
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="StakeholdersLink">
-                        <a class="dropdown-item" href="students.html">Students</a>
-                        <a class="dropdown-item" href="alumni.html">Alumni</a>
-                        <a class="dropdown-item" href="industry.html">Industry</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="support.html">Support Service</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <div class="white-bg navcol">
+            <nav class="navbar navbar-expand-lg sticky-top lato bigger-font">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active-tab" href="index.html">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="news.html">News</a>
+                        </li>
+                        <!-- <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="news" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                News
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="HomeLink">
+                                <a class="dropdown-item" href="news.html">News and Updates</a>
+                                <a class="dropdown-item" href="events.html">Events</a>
+                            </div>
+                        </li> -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="TourMgmtLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Tourism Management
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="TourMgmtLink">
+                            <a class="dropdown-item" href="courses?course_id=1&major_id=1">Travel Operations and Service Management</a>
+                            <a class="dropdown-item" href="courses?course_id=1&major_id=2">Recreation and Leisure Management</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="HosMgmtLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Hospitality Management
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="HosMgmtLink">
+                                <a class="dropdown-item" href="courses?course_id=2&major_id=3">Culinary Entrepreneurship</a>
+                                <a class="dropdown-item" href="courses?course_id=2&major_id=4">Hospitality Leadership</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="StakeholdersLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Stakeholders
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="StakeholdersLink">
+                            <a class="dropdown-item" href="students.html">Students</a>
+                            <a class="dropdown-item" href="alumni.html">Alumni</a>
+                            <a class="dropdown-item" href="industry.html">Industry</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="support.html">Support Service</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
 
+        <!--ON PAGE LOAD MODAL (ito yung nagpopopup sa homepage)-->
+        <div id="myModal" class="modal fade" tabindex="-1" role="dialog" >
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Welcome to UST-CTHM Official Website!</h5>
+                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button> -->
+                    </div>
+                    <div class="modal-body">
+                        <center>
+                            <p class="lato">Continue as...</p>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <button type="button" data-dismiss="modal" class="btn btn-primary btn-block">&nbsp;Guest&nbsp;</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a href="#" class="btn btn-success btn-block">Alumni</a>
+                                </div>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--./ON PAGE LOAD MODAL-->
+    
         <div>
             <div>
+                <!--Carousel Pictures (ito yung may slider ng pictures)-->
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -134,12 +182,14 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
+                <!--./Carousel Pictures-->
             </div>
 
             <div class="content-wrap">
                 <div class="inner-content">
-                    <div id="announcements"> <!--****** Announcements ******-->
-                        <h2 class="merriweather">Announcements</h2><hr>
+                <!--****** Announcements ******-->
+                    <div id="announcements"> 
+                        <h2 class="merriweather"><i class="fas fa-bullhorn"></i> Announcements</h2><hr>
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="card bg-light mb-3" style="max-width: 21rem;">
@@ -165,10 +215,12 @@
                                     </div>
                                 </div>
                             </div>
-                        </div><!--****** ./Announcements ******-->
+                        </div>
+                    <!--****** ./Announcements ******-->
                         <br><br>
                         <div id="news">
-                            <h2 class="merriweather">News and Updates</h2><hr><!--****** News ******-->
+                        <!--****** News ******-->
+                            <h2 class="merriweather"><i class="far fa-newspaper"></i> News and Updates</h2><hr>
                             <div class="row">
                                 <div class="col-sm-4">
                                     <div class="card" style="width: 21rem;">
@@ -176,7 +228,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title"><b>May 9, 2018</b></h5>
                                             <p class="card-text">CTHM admin, faculty become Certified Hospitality Educators by the American Hotel and Lodging Educational Institute</p>
-                                            <a href="#" class="btn btn-primary">Read More</a>
+                                            <a href="newsPage.html" class="btn btn-primary">Read More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -186,7 +238,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title"><b>December 14, 2017</b></h5>
                                             <p class="card-text">UST reaps seven awards in PACUCOA assembly, recognized with highest number of accredited programs in the country</p>
-                                            <a href="#" class="btn btn-primary">Read More</a>
+                                            <a href="newsPage.html" class="btn btn-primary">Read More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -196,15 +248,16 @@
                                         <div class="card-body">
                                             <h5 class="card-title"><b>October 10, 2017</b></h5>
                                             <p class="card-text">CTHM admin, faculty become Certified Hospitality Educators by the American Hotel and Lodging Educational Institute</p>
-                                            <a href="#" class="btn btn-primary">Read More</a>
+                                            <a href="newsPage.html" class="btn btn-primary">Read More</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div><!--****** ./News ******-->
+                        </div>
+                    <!--****** ./News ******-->
                         <br><br>
                         <div id="events"><!--****** Events ******-->
-                            <h2 class="merriweather">Upcoming Events</h2><hr><br>
+                            <h2 class="merriweather"><i class="far fa-calendar-alt"></i> Upcoming Events</h2><hr><br>
                             <nav>
                                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                     <a class="nav-item nav-link active" id="nav-jan-tab" data-toggle="tab" href="#nav-jan" role="tab" aria-controls="nav-jan" aria-selected="true">Jan</a>
@@ -233,7 +286,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="container-fluid green-bg">
+        <footer class="container-fluid blue-bg">
             <div class="row footer-text-wrap">
                 <div class="col-sm-6 footer-left lato white-text">
                     <h4><b>Contact Us</b></h4>

@@ -12,7 +12,7 @@ import java.sql.SQLException;
  *
  * @author Justine Clemente
  */
-class Major {
+public class Major {
     private int majorID;
     private String majorName;
 

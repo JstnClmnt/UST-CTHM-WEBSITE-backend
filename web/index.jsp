@@ -85,8 +85,8 @@
                                 Tourism Management
                             </a>
                             <div class="dropdown-menu" aria-labelledby="TourMgmtLink">
-                            <a class="dropdown-item" href="travelOps.html">Travel Operations and Service Management</a>
-                            <a class="dropdown-item" href="recreationLeisure.html">Recreation and Leisure Management</a>
+                            <a class="dropdown-item" href="courses?course_id=1&major_id=1">Travel Operations and Service Management</a>
+                            <a class="dropdown-item" href="courses?course_id=1&major_id=2">Recreation and Leisure Management</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -94,8 +94,8 @@
                                 Hospitality Management
                             </a>
                             <div class="dropdown-menu" aria-labelledby="HosMgmtLink">
-                            <a class="dropdown-item" href="culinaryEntrep.html">Culinary Entrepreneurship</a>
-                            <a class="dropdown-item" href="hospitalityLead.html">Hospitality Leadership</a>
+                                <a class="dropdown-item" href="courses?course_id=2&major_id=3">Culinary Entrepreneurship</a>
+                                <a class="dropdown-item" href="courses?course_id=2&major_id=4">Hospitality Leadership</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">

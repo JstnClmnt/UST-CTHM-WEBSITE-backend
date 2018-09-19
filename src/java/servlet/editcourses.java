@@ -5,12 +5,11 @@
  */
 package servlet;
 
-import bean.User;
-import helper.WrongPasswordException;
-import helper.WrongUsernameException;
-import helper.loginHelper;
+import helper.CourseInfoCRUD;
+import helper.jdbc.JDBC;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -18,14 +17,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 
 /**
  *
  * @author Justine Clemente
  */
-public class login extends HttpServlet {
+public class editcourses extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,21 +38,17 @@ public class login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String username=request.getParameter("uname"); 
-            String password=request.getParameter("pw"); 
-            HttpSession session=request.getSession();
-            User user=new User();
+            String x=request.getParameter("buttonvar");
+            String[] y=x.split(",");
+            int majorid=Integer.parseInt(y[0]);
+            int categoryid=Integer.parseInt(y[1]);
+            int courseid=Integer.parseInt(y[2]);
+            String description=request.getParameter(categoryid+"description");
             try {
-                user=loginHelper.loginAuth(username, password);
-                response.sendRedirect("cms/carouselcms");
-            } catch (WrongPasswordException ex) {
-                session.setAttribute("error", "Wrong Password!");
-                response.sendRedirect("cms/login.jsp");
-            } catch (WrongUsernameException ex) {
-                session.setAttribute("error", "Incorrect Credentials");
-                response.sendRedirect("cms/login.jsp");
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+                CourseInfoCRUD.updateCourseInfo(JDBC.getCon(), majorid, categoryid, description);
+                response.sendRedirect("coursescms?course_id="+courseid+"&major_id="+majorid);
+            } catch (SQLException ex) {
+                Logger.getLogger(editcourses.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

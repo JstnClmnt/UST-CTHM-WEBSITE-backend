@@ -5,27 +5,19 @@
  */
 package servlet;
 
-import bean.User;
-import helper.WrongPasswordException;
-import helper.WrongUsernameException;
-import helper.loginHelper;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 
 /**
  *
  * @author Justine Clemente
  */
-public class login extends HttpServlet {
+public class carouselcms extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,22 +33,8 @@ public class login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String username=request.getParameter("uname"); 
-            String password=request.getParameter("pw"); 
-            HttpSession session=request.getSession();
-            User user=new User();
-            try {
-                user=loginHelper.loginAuth(username, password);
-                response.sendRedirect("cms/carouselcms");
-            } catch (WrongPasswordException ex) {
-                session.setAttribute("error", "Wrong Password!");
-                response.sendRedirect("cms/login.jsp");
-            } catch (WrongUsernameException ex) {
-                session.setAttribute("error", "Incorrect Credentials");
-                response.sendRedirect("cms/login.jsp");
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            RequestDispatcher view=request.getRequestDispatcher("carousel.jsp");
+            view.forward(request, response);
         }
     }
 

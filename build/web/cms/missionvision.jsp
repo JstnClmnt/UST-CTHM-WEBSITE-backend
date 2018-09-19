@@ -1,26 +1,30 @@
 <%-- 
-    Document   : carousel
-    Created on : Sep 8, 2018, 4:52:08 PM
+    Document   : missionvision
+    Created on : Sep 13, 2018, 3:27:37 AM
     Author     : Justine Clemente
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="bean.About"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home</title>
+        <title>About Us - Mission & Vision</title>
         <!--CSS--><!-- Latest compiled and minified CSS -->
-        <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
-        <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link href="cms/css/style.css" rel="stylesheet" type="text/css" media="all">
+        <link rel="stylesheet" href="cms/css/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="cms/css/bootstrap.min.css">
+
+        <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+        <script>tinymce.init({ selector:'textarea' });</script>
     </head>
     <body>
         <nav class="navbar navbar-default bar-nav">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">
-                        <img class="shs-logo" alt="Brand" src="img\ust-cthm-logo.PNG" height="45px">
+                        <img class="shs-logo" alt="Brand" src="cms\img\ust-cthm-logo.PNG" height="45px">
                     </a>
                 </div>
             </div>
@@ -62,15 +66,15 @@
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-A"><i class="fa fa-fw fa-plane"></i>  TOURISM MGMT <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-A" class="collapse">
-                        <li><a href="coursescms?course_id=1&major_id=1"><i class="fa fa-angle-double-right"></i> Travel Operations</a></li>
-                        <li><a href="coursescms?course_id=1&major_id=2"><i class="fa fa-angle-double-right"></i> Recreation and Leisure</a></li>
+                        <li><a href="travelOps.html"><i class="fa fa-angle-double-right"></i> Travel Operations</a></li>
+                        <li><a href="recLeisure.html"><i class="fa fa-angle-double-right"></i> Recreation and Leisure</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-B"><i class="fa fa-fw fa-building-o"></i>  HOSPITALITY MGMT <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-B" class="collapse">
-                        <li><a href="coursescms?course_id=2&major_id=3"><i class="fa fa-angle-double-right"></i> Culinary Entrep</a></li>
-                        <li><a href="coursescms?course_id=2&major_id=4"><i class="fa fa-angle-double-right"></i> Hospitality Leadership</a></li>
+                        <li><a href="culinaryEntrep.html"><i class="fa fa-angle-double-right"></i> Culinary Entrep</a></li>
+                        <li><a href="hospitalityLead.html"><i class="fa fa-angle-double-right"></i> Hospitality Leadership</a></li>
                     </ul>
                 </li>
                 <li>
@@ -115,55 +119,23 @@
             <div class="content-wrap">
                 <div class="col-sm-12" id="content">
                     <div class="title">
-                        <h2 class="heading">Banner</h2>
+                        <h2 class="heading">Mission & Vision</h2>
                         &emsp;<a href="#">View Page</a>
                     </div>
                     <hr>
                     <div>
-                        <div>
-                            <img src="img/car2.jpg" class="home-img"/>
-                        </div>
-                        <br>
-                        <form>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="well">
-                                            <label for="exampleInputFile">Banner 1</label>
-                                            <input type="file" id="exampleInputFile">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6"></div>
-                                    <div class="col-sm-2">
-                                        &emsp;&nbsp;
-                                        <button type="button" class="btn btn-primary">Save Changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
+                        <h3>Mission</h3>
+                        <form action="editabout?postid=1" method="POST">
+                            <textarea name="description" class="form-control" cols="10" rows="6" placeholder="Enter mission...">${mission.description}</textarea>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
                         </form>
-                        <br><br>
-                        <div>
-                            <img src="img/car2.jpg" class="home-img"/>
-                        </div>
-                        <br>
-                        <form>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="well">
-                                            <label for="exampleInputFile">Banner 1</label>
-                                            <input type="file" id="exampleInputFile">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6"></div>
-                                    <div class="col-sm-2">
-                                        &emsp;&nbsp;
-                                        <button type="button" class="btn btn-primary">Save Changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
+                    </div>
+                    <br><br>
+                    <div>
+                        <h3>Vision</h3>
+                        <form action="editabout?postid=2" method="POST">
+                            <textarea id="description" class="form-control" cols="10" rows="6" placeholder="Enter vision...">${vision.description}</textarea>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
                         </form>
                     </div>
                 </div>
@@ -175,8 +147,9 @@
 </div><!-- /#wrapper -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="cms/js/script.js"></script>
+    <script type="text/javascript" src="cms/js/cmsabout.js"></script>
+    <script type="text/javascript" src="cms/js/bootstrap.min.js"></script>
 
     </body>
 </html>

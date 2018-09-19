@@ -35,8 +35,8 @@ public class Course {
         this.courseinfo=courseinfo;
     }
 
-    public Course(ResultSet rs) throws SQLException{
-        this(rs.getInt("course_id"),rs.getString("course_title"),new Major(rs),CourseInfoCRUD.readCourseInfo(JDBC.getCon(), rs.getInt("major_id")));
+    public Course(ResultSet rs,int majorID) throws SQLException{
+        this(rs.getInt("course_id"),rs.getString("course_title"),new Major(rs),CourseInfoCRUD.readCourseInfo(JDBC.getCon(), majorID));
     }
 
     public int getCourseID() {
