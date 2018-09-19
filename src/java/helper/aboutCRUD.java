@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 public class aboutCRUD {
     public static About readAbout(Connection con,int aboutId) throws SQLException{
-        try (PreparedStatement stmt = con.prepareStatement("SELECT * FROM About WHERE post_id = ?")) {
+        try (PreparedStatement stmt = con.prepareStatement("SELECT * FROM ABOUT a LEFT JOIN IMAGE i on i.img_id=a.img_id WHERE post_id=?;")) {
             stmt.setInt(1, aboutId);
             try (ResultSet rs = stmt.executeQuery()) {
                 rs.next();
