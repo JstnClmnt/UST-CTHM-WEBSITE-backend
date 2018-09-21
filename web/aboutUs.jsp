@@ -8,6 +8,7 @@
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="bean.About"%>
 <%@page import="bean.Image"%>
+<%@page import="bean.Administration"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -130,11 +131,6 @@
                                         </c:choose>
                                        
                                     </c:forEach>
-                                <a class="list-group-item list-group-item-action" id="list-awards-list" data-toggle="list" href="#list-awards" role="tab" aria-controls="awards">Awards and Recognition</a>
-                                <a class="list-group-item list-group-item-action" id="list-team-list" data-toggle="list" href="#list-team" role="tab" aria-controls="team">CTHM Team</a>
-                                <a class="list-group-item list-group-item-action" id="list-facilities-list" data-toggle="list" href="#list-facilities" role="tab" aria-controls="facilities">Facilities</a>
-                                <a class="list-group-item list-group-item-action" id="list-linkages-list" data-toggle="list" href="#list-linkages" role="tab" aria-controls="linkages">Linkages</a>
-                                <a class="list-group-item list-group-item-action" id="list-location-list" data-toggle="list" href="#list-location" role="tab" aria-controls="location">Location Map and Contact Details</a>
                                 </div>
                             </div>
                             <div class="col-8">
@@ -147,11 +143,38 @@
                                                 ${about.description}
                                             </div>
                                         </c:when>
-                                        <c:when test="true">
+                                        <c:when test="${about.title=='Organizational Chart'}">
                                              <div class="tab-pane fade" id="list-${about.title}" role="tabpanel" aria-labelledby="list-${about.title}-list">
                                                 <h2 class="lato alumni-heading"><b>${about.title}</b></h2>
-                                                <img class="orgChart" src="${about.img.imgFilePath}">
+                                                <img class="orgChart" src="ImageServlet?imgId=${about.img.imageId}">
                                                 <p>${about.description}</p>
+                                            </div>
+                                        </c:when>
+                                        <c:when test="${about.title=='Location Map and Contact Details'}">
+                                             <div class="tab-pane fade" id="list-${about.title}" role="tabpanel" aria-labelledby="list-${about.title}-list">
+                                                <h2 class="lato alumni-heading"><b>${about.title}</b></h2>
+                                                <img class="map" src="ImageServlet?imgId=${about.img.imageId}">
+                                                <p>${about.description}</p>
+                                            </div>
+                                        </c:when>
+                                        <c:when test="${about.title=='CTHM Team'}">
+                                            <div class="tab-pane fade" id="list-${about.title}" role="tabpanel" aria-labelledby="list-${about.title}-list">
+                                            <h2 class="lato alumni-heading"><b>CTHM Administration</b></h2>
+                                                <div>
+                                                    <c:forEach items="${cthmteam}" var="admin">
+                                                    <div class="clearfix">
+                                                        <img class="team" src="ImageServlet?imgId=${admin.image.imageId}">
+                                                        <p class="team-name">
+                                                            <b>${admin.fullName}</b><br>
+                                                            ${admin.position}
+                                                        </p>
+                                                    </div>
+                                                    </c:forEach>
+                                                </div><br><br>
+                                                 <div>
+                                                <h4 class="merriweather"><b>Support Staff</b></h4>
+                                                ${about.description}
+                                                </div>
                                             </div>
                                         </c:when>
                                         <c:otherwise>
@@ -162,108 +185,6 @@
                                         </c:otherwise>
                                         </c:choose>
                                     </c:forEach>
-                                    <div class="tab-pane fade" id="list-awards" role="tabpanel" aria-labelledby="list-awards-list">
-                                        <h2 class="lato alumni-heading"><b>Awards and Recognition</b></h2>
-                                        The FAQ title can be adjusted in the settings tab of the App Settings. You can also remove the title by unchecking its checkbox To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.in the settings tab.
-                                    </div>
-                                    <div class="tab-pane fade" id="list-team" role="tabpanel" aria-labelledby="list-team-list">
-                                        <h2 class="lato alumni-heading"><b>CTHM Team</b></h2>
-                                        <div>
-                                            <div class="clearfix">
-                                                <img class="team" src="img/aboutUs/0.jpg">
-                                                <p class="team-name">
-                                                    <b>REV. FR. MAXIMO P. GATELA, O.P., PhL</b><br>
-                                                    Regent, UST-College of Tourism and Hospitality Management<br>
-                                                    Member, CTHM College Council
-                                                </p>
-                                            </div>
-                                            <div class="clearfix">
-                                                <img class="team" src="img/aboutUs/1.jpg">
-                                                <p class="team-name">
-                                                    <b>ASST. PROF. MARIA CECILIA A. TIO CUISON, MEd, CHE, CGSP</b><br>
-                                                    Dean, UST-College of Tourism and Hospitality Management<br>
-                                                    Chair, CTHM College Council
-                                                </p>
-                                            </div>
-                                            <div class="clearfix">
-                                                <img class="team" src="img/aboutUs/2.jpg">
-                                                <p class="team-name">
-                                                    <b>ASSOC. PROF. AMY MIA R. TURARAY, LPT, MEd, CHE, CGSP</b><br>
-                                                    Assistant Dean, UST-College of Tourism and Hospitality Management<br>
-                                                    Member, CTHM College Council
-                                                </p>
-                                            </div>
-                                            <div class="clearfix">
-                                                <img class="team" src="img/aboutUs/3.jpg">
-                                                <p class="team-name">
-                                                    <b>MS. JOREEN T. ROCAMORA, MSHRM</b><br>
-                                                    UST-College of Tourism and Hospitality Management<br>
-                                                    Member, CTHM College Council
-                                                </p>
-                                            </div>
-                                            <div class="clearfix">
-                                                <img class="team" src="img/aboutUs/4.jpg">
-                                                <p class="team-name">
-                                                    <b>ASSOC. PROF. EVANGELINE E. TIMBANG, MBA, CHE, CGSP</b><br>
-                                                    Chairperson, UST-CTHM Department of Hospitality Management<br>
-                                                    Member, CTHM College Council
-                                                </p>
-                                            </div>
-                                        </div><br><br>
-                                        <div>
-                                            <h4 class="merriweather"><b>Support Staff</b></h4>
-                                            <ul>
-                                                <li>
-                                                    <b>CTHM Cafeteria and Coffee Shop Attendants</b><br>
-                                                    &emsp; <b>ERNANDEZ, Kathleen A. (CGSP) </b> - Latin Quarter / Readers’ Café Coffee Shops <br>
-                                                    &emsp; <b>MAGPILI, Gerlie G</b> - Latin Quarter / Readers’ Café Coffee Shops<br>
-                                                    &emsp; <b>VALDEZ, Rhayan Q</b> - Latin Quarter / Readers’ Café Coffee Shops<br>
-                                                    &emsp; <b>ARCEGA, Consuelo M</b> - Cafeteria<br>
-                                                    &emsp; <b>MENDOZA, Jane R</b> - Cafeteria<br>
-                                                </li><br>
-                                                <li>
-                                                    <b>Laboratory Technicians</b><br>
-                                                    &emsp; <b>CONDOL, Marvincent G</b> - Equipment Room / Computer Technician<br>
-                                                    &emsp; <b>BANAAG, Mario B</b> - Food Laboratory<br>
-                                                    &emsp; <b>DELA CRUZ, Mark Jacob I</b> - Food Laboratory<br>
-                                                    &emsp; <b>LABAY, Rosario C</b> - LABAY, Rosario C<br>
-                                                </li><br>
-                                                <li>
-                                                    <b>Office Clerks</b><br>
-                                                    &emsp; <b>ABANADOR, Ma. Theresa H</b><br>
-                                                    &emsp; <b>ANIVES, Cyrene R. CGSP</b><br>
-                                                    &emsp; <b>LUCINA, Ruby Ann I. CGSP</b><br>
-                                                </li><br>
-                                                <li>
-                                                    <b>Hotel Attendant</b><br>
-                                                    &emsp; <b>VICENTE, Jeferson E</b> - Domus Mariae International Residence and Hotel 1611<br>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="list-facilities" role="tabpanel" aria-labelledby="list-facilities-list">
-                                        <h2 class="lato alumni-heading"><b>Facilities</b></h2>
-                                        To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.
-                                    </div>
-                                    <div class="tab-pane fade" id="list-linkages" role="tabpanel" aria-labelledby="list-linkages-list">
-                                        <h2 class="lato alumni-heading"><b>Linkages</b></h2>
-                                        To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.
-                                    </div>
-                                    <div class="tab-pane fade" id="list-location" role="tabpanel" aria-labelledby="list-location-list">
-                                        <h2 class="lato alumni-heading"><b>Location Map and Contact Details</b></h2>
-                                        <div class="clearfix">
-                                            <img class="map" src="img/aboutUs/map.png"><br><br>
-                                            <p>
-                                                <b>Office Address</b><br>
-                                                Office of the Dean<br>
-                                                Ground Floor, Albertus Magnus Building<br>
-                                                University of Santo Tomas<br>
-                                                España Boulevard, Sampaloc, Manila 1008<br><br>
-                                                <b>Contact Numbers</b><br>
-                                                Telephone: +63-2-406-1611 loc. 4488
-                                            </p>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div><!-- ./list grp -->

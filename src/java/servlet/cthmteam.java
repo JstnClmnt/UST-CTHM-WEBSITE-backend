@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Justine Clemente
  */
-public class about extends HttpServlet {
+public class cthmteam extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,13 +40,13 @@ public class about extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             try {
                 /* TODO output your page here. You may use following sample code. */
-                request.setAttribute("abouts", aboutCRUD.listAbout(JDBC.getCon()));
                 request.setAttribute("cthmteam",AdminCRUD.listAdministration(JDBC.getCon()));
-                RequestDispatcher view=request.getRequestDispatcher("aboutUs.jsp");
-                view.forward(request,response);
+                request.setAttribute("supportstaff",aboutCRUD.readAbout(JDBC.getCon(), 6));
             } catch (SQLException ex) {
-                Logger.getLogger(about.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(cthmteam.class.getName()).log(Level.SEVERE, null, ex);
             }
+            RequestDispatcher view=request.getRequestDispatcher("cthmteam.jsp");
+            view.forward(request,response);
         }
     }
 

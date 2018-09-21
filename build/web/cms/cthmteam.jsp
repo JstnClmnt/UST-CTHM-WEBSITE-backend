@@ -1,11 +1,13 @@
 <%-- 
-    Document   : carousel
-    Created on : Sep 8, 2018, 4:52:08 PM
+    Document   : cthmteam
+    Created on : Sep 21, 2018, 2:49:46 AM
     Author     : Justine Clemente
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="bean.About"%>
+<%@page import="bean.Administration"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,6 +16,8 @@
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
         <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+        <script>tinymce.init({ selector:'textarea' });</script>
     </head>
     <body>
         <nav class="navbar navbar-default bar-nav">
@@ -115,63 +119,127 @@
             <div class="content-wrap">
                 <div class="col-sm-12" id="content">
                     <div class="title">
-                        <h2 class="heading">Banner</h2>
+                        <h2 class="heading">CTHM Team</h2>
                         &emsp;<a href="#">View Page</a>
                     </div>
                     <hr>
                     <div>
-                        <div>
-                            <img src="img/car2.jpg" class="home-img"/>
-                        </div>
-                        <br>
                         <form>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="well">
-                                            <label for="exampleInputFile">Banner 1</label>
-                                            <input type="file" id="exampleInputFile">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6"></div>
-                                    <div class="col-sm-2">
-                                        &emsp;&nbsp;
-                                        <button type="button" class="btn btn-primary">Save Changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addMemModal"><i class="fa fa-plus"></i> &nbsp;Add Member</button>
                         </form>
-                        <br><br>
-                        <div>
-                            <img src="img/car2.jpg" class="home-img"/>
-                        </div>
-                        <br>
-                        <form>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="well">
-                                            <label for="exampleInputFile">Banner 1</label>
-                                            <input type="file" id="exampleInputFile">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6"></div>
-                                    <div class="col-sm-2">
-                                        &emsp;&nbsp;
-                                        <button type="button" class="btn btn-primary">Save Changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                        </form>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Image</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach items="${cthmteam}" varStatus="loop" var="admin" >
+                                <tr>
+                                    <td>${admin.fullName}</td>
+                                    <td${admin.position}</td>
+                                    <td>${admin.image.description}</td>
+                                    <td><button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#editMemModal">Edit</button></td>
+                                    <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteMemModal">Delete</button></td>
+                                </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
                     </div>
+                    <br>
+                    <br>
+                    <br>
+                    <form>
+                        <h3>Support Staff</h3>
+                        <textarea name="description" class="form-control" cols="10" rows="6" placeholder="Enter Support Staff">${supportstaff.description}</textarea>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </form>
                 </div>
             </div>
         </div>
         <!-- /.container-fluid -->
     </div>
     <!-- /#page-wrapper -->
+    <!-- Add Member Modal -->
+    <div class="modal fade" id="addMemModal" tabindex="-1" role="dialog" aria-labelledby="addEventModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myAddMemModalLabel">Add Member</h4>
+                </div>
+                <form action="addadmin" method="post" enctype = "multipart/form-data">
+                <div class="modal-body">
+                        <div class="form-group">
+                            <input name="fullName" type="text" class="form-control" placeholder="Name"/>
+                        </div>
+                        <div class="form-group">
+                            <input name="position" type="text" class="form-control" placeholder="Position"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Image</label>
+                            <input name="file" type="file" id="exampleInputFile">
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div><!-- ./Add Member Modal -->
+    <!-- Edit Member Modal -->
+    <div class="modal fade" id="editMemModal" tabindex="-1" role="dialog" aria-labelledby="editMemModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myEditMemModalLabel">Edit Member</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Name"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Position"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Image</label>
+                            <input type="file" id="exampleInputFile">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div><!-- ./Edit Member Modal -->
+    <!-- Delete Member Modal -->
+    <div class="modal fade" id="deleteMemModal" tabindex="-1" role="dialog" aria-labelledby="deleteMemModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myAddNewsModalLabel">Delete Member</h4>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this member?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">Yes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div><!-- ./Delete Member Modal -->
 </div><!-- /#wrapper -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

@@ -5,8 +5,13 @@
  */
 package servlet;
 
+import helper.aboutCRUD;
+import helper.jdbc.JDBC;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,8 +39,14 @@ public class editabout extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
                 String description=request.getParameter("description");
                 int post_id=Integer.parseInt(request.getParameter("postid"));
-                System.out.println(description);
-                System.out.println(post_id);
+                if(post_id!=10||post_id!=5){
+                    try {
+                        aboutCRUD.editAbout(JDBC.getCon(), post_id, description);
+                        response.sendRedirect("aboutcms?aboutId="+post_id);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(editabout.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
         }
     }
 

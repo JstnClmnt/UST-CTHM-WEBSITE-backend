@@ -1,19 +1,23 @@
 <%-- 
-    Document   : carousel
-    Created on : Sep 8, 2018, 4:52:08 PM
+    Document   : aboutdefault
+    Created on : Sep 22, 2018, 4:21:59 AM
     Author     : Justine Clemente
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="bean.About"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home</title>
+        <title>About Us - ${about.title}</title>
         <!--CSS--><!-- Latest compiled and minified CSS -->
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
         <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
+
+        <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+        <script>tinymce.init({ selector:'textarea' });</script>
     </head>
     <body>
         <nav class="navbar navbar-default bar-nav">
@@ -62,15 +66,15 @@
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-A"><i class="fa fa-fw fa-plane"></i>  TOURISM MGMT <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-A" class="collapse">
-                        <li><a href="coursescms?course_id=1&major_id=1"><i class="fa fa-angle-double-right"></i> Travel Operations</a></li>
-                        <li><a href="coursescms?course_id=1&major_id=2"><i class="fa fa-angle-double-right"></i> Recreation and Leisure</a></li>
+                        <li><a href="travelOps.html"><i class="fa fa-angle-double-right"></i> Travel Operations</a></li>
+                        <li><a href="recLeisure.html"><i class="fa fa-angle-double-right"></i> Recreation and Leisure</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-B"><i class="fa fa-fw fa-building-o"></i>  HOSPITALITY MGMT <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-B" class="collapse">
-                        <li><a href="coursescms?course_id=2&major_id=3"><i class="fa fa-angle-double-right"></i> Culinary Entrep</a></li>
-                        <li><a href="coursescms?course_id=2&major_id=4"><i class="fa fa-angle-double-right"></i> Hospitality Leadership</a></li>
+                        <li><a href="culinaryEntrep.html"><i class="fa fa-angle-double-right"></i> Culinary Entrep</a></li>
+                        <li><a href="hospitalityLead.html"><i class="fa fa-angle-double-right"></i> Hospitality Leadership</a></li>
                     </ul>
                 </li>
                 <li>
@@ -115,55 +119,14 @@
             <div class="content-wrap">
                 <div class="col-sm-12" id="content">
                     <div class="title">
-                        <h2 class="heading">Banner</h2>
+                        <h2 class="heading">${about.title}</h2>
                         &emsp;<a href="#">View Page</a>
                     </div>
                     <hr>
                     <div>
-                        <div>
-                            <img src="img/car2.jpg" class="home-img"/>
-                        </div>
-                        <br>
-                        <form>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="well">
-                                            <label for="exampleInputFile">Banner 1</label>
-                                            <input type="file" id="exampleInputFile">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6"></div>
-                                    <div class="col-sm-2">
-                                        &emsp;&nbsp;
-                                        <button type="button" class="btn btn-primary">Save Changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                        </form>
-                        <br><br>
-                        <div>
-                            <img src="img/car2.jpg" class="home-img"/>
-                        </div>
-                        <br>
-                        <form>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="well">
-                                            <label for="exampleInputFile">Banner 1</label>
-                                            <input type="file" id="exampleInputFile">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6"></div>
-                                    <div class="col-sm-2">
-                                        &emsp;&nbsp;
-                                        <button type="button" class="btn btn-primary">Save Changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
+                        <form action="editabout?postid=${about.post_id}" method="POST">
+                            <textarea name="description" class="form-control" cols="10" rows="6" placeholder="Enter ${about.title}...">${about.description}</textarea>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
                         </form>
                     </div>
                 </div>

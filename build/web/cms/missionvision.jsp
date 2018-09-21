@@ -12,9 +12,9 @@
     <head>
         <title>About Us - Mission & Vision</title>
         <!--CSS--><!-- Latest compiled and minified CSS -->
-        <link href="cms/css/style.css" rel="stylesheet" type="text/css" media="all">
-        <link rel="stylesheet" href="cms/css/font-awesome-4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="cms/css/bootstrap.min.css">
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+        <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
 
         <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
         <script>tinymce.init({ selector:'textarea' });</script>
@@ -24,7 +24,7 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">
-                        <img class="shs-logo" alt="Brand" src="cms\img\ust-cthm-logo.PNG" height="45px">
+                        <img class="shs-logo" alt="Brand" src="img\ust-cthm-logo.PNG" height="45px">
                     </a>
                 </div>
             </div>
@@ -52,29 +52,29 @@
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-info-circle"></i>  ABOUT US<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-1" class="collapse">
-                        <li><a href="missionvisioncms"><i class="fa fa-angle-double-right"></i> Mission and Vision</a></li>
-                        <li><a href="history.html"><i class="fa fa-angle-double-right"></i> History</a></li>
-                        <li><a href="program.html"><i class="fa fa-angle-double-right"></i> Program</a></li>
-                        <li><a href="orgChart.html"><i class="fa fa-angle-double-right"></i> Organizational Chart</a></li>
-                        <li><a href="awards.html"><i class="fa fa-angle-double-right"></i> Awards</a></li>
-                        <li><a href="cthmTeam.html"><i class="fa fa-angle-double-right"></i> CTHM Team</a></li>
-                        <li><a href="facilities.html"><i class="fa fa-angle-double-right"></i> Facilities</a></li>
-                        <li><a href="linkages.html"><i class="fa fa-angle-double-right"></i> Linkages</a></li>
-                        <li><a href="location.html"><i class="fa fa-angle-double-right"></i> Location</a></li>
+                        <li><a href="aboutcms?aboutId=1"><i class="fa fa-angle-double-right"></i> Mission and Vision</a></li>
+                        <li><a href="aboutcms?aboutId=3"><i class="fa fa-angle-double-right"></i> History</a></li>
+                        <li><a href="aboutcms?aboutId=4"><i class="fa fa-angle-double-right"></i> Program</a></li>
+                        <li><a href="aboutcms?aboutId=5"><i class="fa fa-angle-double-right"></i> Organizational Chart</a></li>
+                        <li><a href="aboutcms?aboutId=6"><i class="fa fa-angle-double-right"></i> Awards</a></li>
+                        <li><a href="aboutcms?aboutId=7"><i class="fa fa-angle-double-right"></i> CTHM Team</a></li>
+                        <li><a href="aboutcms?aboutId=8"><i class="fa fa-angle-double-right"></i> Facilities</a></li>
+                        <li><a href="aboutcms?aboutId=9"><i class="fa fa-angle-double-right"></i> Linkages</a></li>
+                        <li><a href="aboutcms?aboutId=10"><i class="fa fa-angle-double-right"></i> Location</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-A"><i class="fa fa-fw fa-plane"></i>  TOURISM MGMT <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-A" class="collapse">
-                        <li><a href="travelOps.html"><i class="fa fa-angle-double-right"></i> Travel Operations</a></li>
-                        <li><a href="recLeisure.html"><i class="fa fa-angle-double-right"></i> Recreation and Leisure</a></li>
+                        <li><a href="coursescms?course_id=1&major_id=1"><i class="fa fa-angle-double-right"></i> Travel Operations</a></li>
+                        <li><a href="coursescms?course_id=1&major_id=2"><i class="fa fa-angle-double-right"></i> Recreation and Leisure</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-B"><i class="fa fa-fw fa-building-o"></i>  HOSPITALITY MGMT <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-B" class="collapse">
-                        <li><a href="culinaryEntrep.html"><i class="fa fa-angle-double-right"></i> Culinary Entrep</a></li>
-                        <li><a href="hospitalityLead.html"><i class="fa fa-angle-double-right"></i> Hospitality Leadership</a></li>
+                        <li><a href="coursescms?course_id=2&major_id=3"><i class="fa fa-angle-double-right"></i> Culinary Entrep</a></li>
+                        <li><a href="coursescms?course_id=2&major_id=4"><i class="fa fa-angle-double-right"></i> Hospitality Leadership</a></li>
                     </ul>
                 </li>
                 <li>
@@ -147,9 +147,9 @@
 </div><!-- /#wrapper -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script type="text/javascript" src="cms/js/script.js"></script>
-    <script type="text/javascript" src="cms/js/cmsabout.js"></script>
-    <script type="text/javascript" src="cms/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/cmsabout.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
     </body>
 </html>

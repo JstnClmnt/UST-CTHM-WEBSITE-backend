@@ -37,6 +37,9 @@ public class Image {
              rs.getString("img_description"));
     }
 
+    public Image() {
+    }
+
     
     
     public int getImageId() {

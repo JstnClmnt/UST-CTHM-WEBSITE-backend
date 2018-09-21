@@ -1,19 +1,23 @@
 <%-- 
-    Document   : carousel
-    Created on : Sep 8, 2018, 4:52:08 PM
+    Document   : location
+    Created on : Sep 22, 2018, 4:32:26 AM
     Author     : Justine Clemente
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="bean.About"%>
+<%@page import="bean.Image"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home</title>
+        <title>About Us-${about.title}</title>
         <!--CSS--><!-- Latest compiled and minified CSS -->
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
         <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+        <script>tinymce.init({ selector:'textarea' });</script>
     </head>
     <body>
         <nav class="navbar navbar-default bar-nav">
@@ -115,13 +119,13 @@
             <div class="content-wrap">
                 <div class="col-sm-12" id="content">
                     <div class="title">
-                        <h2 class="heading">Banner</h2>
+                        <h2 class="heading">${about.title}</h2>
                         &emsp;<a href="#">View Page</a>
                     </div>
                     <hr>
                     <div>
                         <div>
-                            <img src="img/car2.jpg" class="home-img"/>
+                            <img src="../ImageServlet?imgId=${about.img.imageId}" class="home-img"/>
                         </div>
                         <br>
                         <form>
@@ -129,39 +133,16 @@
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <div class="well">
-                                            <label for="exampleInputFile">Banner 1</label>
-                                            <input type="file" id="exampleInputFile">
+                                            <label for="exampleInputFile">Location Image</label>
+                                            <input type="file" id="exampleInputFile">${about.img.description}</input>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6"></div>
-                                    <div class="col-sm-2">
-                                        &emsp;&nbsp;
-                                        <button type="button" class="btn btn-primary">Save Changes</button>
-                                    </div>
+                                    <div class="col-sm-8"></div>
                                 </div>
-                            </div>
-                            <br>
-                        </form>
-                        <br><br>
-                        <div>
-                            <img src="img/car2.jpg" class="home-img"/>
-                        </div>
-                        <br>
-                        <form>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="well">
-                                            <label for="exampleInputFile">Banner 1</label>
-                                            <input type="file" id="exampleInputFile">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6"></div>
-                                    <div class="col-sm-2">
-                                        &emsp;&nbsp;
-                                        <button type="button" class="btn btn-primary">Save Changes</button>
-                                    </div>
-                                </div>
+                                <hr>
+                                <h3>Address</h3>
+                                <textarea name="${about.post_id}description" class="form-control" cols="10" rows="10" placeholder="Enter Address...">${about.description}</textarea><br>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
                             </div>
                             <br>
                         </form>

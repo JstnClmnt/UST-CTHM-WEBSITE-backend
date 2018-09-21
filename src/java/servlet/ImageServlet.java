@@ -5,15 +5,17 @@
  */
 package servlet;
 
-import helper.AdminCRUD;
-import helper.aboutCRUD;
+import bean.Image;
+import helper.ImageCRUD;
 import helper.jdbc.JDBC;
+import java.io.File;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.nio.file.Files;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Justine Clemente
  */
-public class about extends HttpServlet {
+public class ImageServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,17 +38,26 @@ public class about extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            try {
-                /* TODO output your page here. You may use following sample code. */
-                request.setAttribute("abouts", aboutCRUD.listAbout(JDBC.getCon()));
-                request.setAttribute("cthmteam",AdminCRUD.listAdministration(JDBC.getCon()));
-                RequestDispatcher view=request.getRequestDispatcher("aboutUs.jsp");
-                view.forward(request,response);
-            } catch (SQLException ex) {
-                Logger.getLogger(about.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            response.setContentType("image/*");
+            try(OutputStream out=response.getOutputStream()){
+                try{
+                    System.out.println(request.getParameter("imgId"));
+                    int id=Integer.parseInt(request.getParameter("imgId"));
+                    try {
+                        System.out.println(id);
+                        Image img=ImageCRUD.readImage(JDBC.getCon(), id);
+                        System.out.println(img.getImgFilePath());
+                        File imageFile=new File(img.getImgFilePath());
+                        out.write(Files.readAllBytes(imageFile.toPath()));
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ImageServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
+                }
+                catch(NumberFormatException ex){
+                    Logger.getLogger(ImageServlet.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            
         }
     }
 
