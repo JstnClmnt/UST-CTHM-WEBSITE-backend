@@ -5,17 +5,16 @@
  */
 package servlet;
 
-import bean.Administration;
 import bean.Image;
-import helper.AdminCRUD;
+import bean.StudentOrg;
 import helper.ImageCRUD;
+import helper.StudentOrgCRUD;
 import helper.jdbc.JDBC;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,12 +22,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-
 /**
  *
  * @author Justine Clemente
  */
-public class CMSAddAdmin extends HttpServlet {
+public class addstudentorg extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,7 +37,6 @@ public class CMSAddAdmin extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     private boolean isMultipart;
     private String filePath;
     private int maxFileSize = 50 * 1024 *1000;
@@ -87,9 +84,12 @@ public class CMSAddAdmin extends HttpServlet {
 	
          // Process the uploaded file items
          Iterator i = fileItems.iterator();
-         String fullName="";
-         String position="";
-         String cars="";
+         String orgName="";
+         String orgAbout="";
+         String orgObjectives="";
+         String orgOffices="";
+         String orgPhone="";
+         String orgActivities="";
          String fileName="";
          String fieldName;
          fileName=""; 
@@ -100,15 +100,24 @@ public class CMSAddAdmin extends HttpServlet {
          while ( i.hasNext () ) {
             FileItem fi = (FileItem)i.next();
             if(fi.isFormField()){
-                 if(fi.getFieldName().equals("fullName")){
-                     fullName=fi.getString();
+                 if(fi.getFieldName().equals("orgname")){
+                     orgName=fi.getString();
                  }
-                 else if(fi.getFieldName().equals("position")){
-                     position=fi.getString();
+                 else if(fi.getFieldName().equals("orgabout")){
+                     orgAbout=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("orgobjectives")){
+                     orgObjectives=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("orgoffices")){
+                     orgOffices=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("orgphone")){
+                     orgPhone=fi.getString();
                  }
                  else
                  {
-                     cars=fi.getString();
+                     orgActivities=fi.getString();
                  }
              }
             
@@ -120,7 +129,6 @@ public class CMSAddAdmin extends HttpServlet {
                sizeInBytes = fi.getSize();
                System.out.println(sizeInBytes);
                 if(sizeInBytes!=0){
-                    System.out.println("hello");
                     // Write the file
                      if( fileName.lastIndexOf("\\") >= 0 ) {
                         file = new File( filePath + fileName.substring( fileName.lastIndexOf("\\"))) ;
@@ -136,10 +144,16 @@ public class CMSAddAdmin extends HttpServlet {
 
             }
             
-         }  
-         Administration administration=new Administration(fullName,position,image);
-         AdminCRUD.createAdministration(JDBC.getCon(), administration);
-         response.sendRedirect("cthmteam");
+         }
+         System.out.println(orgName);
+         System.out.println(orgAbout);
+         System.out.println(orgObjectives);
+         System.out.println(orgOffices);
+         System.out.println(orgPhone);
+         System.out.println(orgActivities);
+         StudentOrg studentorg=new StudentOrg(orgName,orgAbout,orgObjectives,orgOffices,orgPhone,orgActivities,image);
+         StudentOrgCRUD.createStudentOrg(JDBC.getCon(), studentorg);
+         response.sendRedirect("studentcms");
 
          } catch(Exception ex) {
             ex.printStackTrace();

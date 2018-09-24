@@ -17,6 +17,8 @@ CREATE TABLE IMAGE(
 );
 INSERT INTO IMAGE(img_filepath,img_description) VALUES('D:\\NetBeans\\USTCTHMWebsite\\web\\img\\orgChart.jpg','Organizational-Chart');
 INSERT INTO IMAGE(img_filepath,img_description) VALUES('D:\\NetBeans\\USTCTHMWebsite\\web\\img\\map.png','Map');
+INSERT INTO IMAGE(img_filepath,img_description) VALUES('D:\\NetBeans\\USTCTHMWebsite\\web\\img\\socc.jpg','socc.jpg');
+INSERT INTO IMAGE(img_filepath,img_description) VALUES('D:\\NetBeans\\USTCTHMWebsite\\web\\img\\main-bldg.jpg','main-bldg.jpg');
 CREATE TABLE ABOUT(
 	post_id int not null auto_increment,
     title varchar(150) not null,
@@ -400,3 +402,42 @@ INSERT INTO STUDENT_SERVICES(icon,title,description) VALUES('<i class="fas fa-he
 INSERT INTO STUDENT_SERVICES(icon,title,description) VALUES('<i class="fas fa-book"></i>&emsp;','Central Library','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean accumsan, justo in ultrices scelerisque, dui nisl dignissim purus, eu accumsan neque urna eget purus. Donec gravida auctor condimentum. Suspendisse potenti. Aliquam erat volutpat. Aliquam vehicula purus nisi, at efficitur justo vestibulum ut. Praesent ornare tortor eu scelerisque pulvinar. Vivamus id scelerisque leo. Sed lacinia pellentesque est eu accumsan. Proin mauris purus, laoreet ac magna a, gravida finibus ligula. Ut viverra faucibus metus, ut varius turpis tincidunt a.'); 
 INSERT INTO STUDENT_SERVICES(icon,title,description) VALUES('<i class="fas fa-medkit"></i>&emsp;','Health Services','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean accumsan, justo in ultrices scelerisque, dui nisl dignissim purus, eu accumsan neque urna eget purus. Donec gravida auctor condimentum. Suspendisse potenti. Aliquam erat volutpat. Aliquam vehicula purus nisi, at efficitur justo vestibulum ut. Praesent ornare tortor eu scelerisque pulvinar. Vivamus id scelerisque leo. Sed lacinia pellentesque est eu accumsan. Proin mauris purus, laoreet ac magna a, gravida finibus ligula. Ut viverra faucibus metus, ut varius turpis tincidunt a.');          
 			
+            
+CREATE TABLE STUDENT_ORG(
+	org_id int not null auto_increment,
+    org_name text not null,
+    org_about text not null,
+    org_objectives text not null,
+    org_offices text not null,
+    org_phone text not null,
+    org_activities text not null,
+    img_id int,
+    PRIMARY KEY(org_id),
+    FOREIGN KEY(img_id)REFERENCES IMAGE(img_id)
+);
+INSERT INTO STUDENT_ORG(org_name,org_about,org_objectives,org_offices,org_phone,org_activities,img_id) VALUES('SOCC','Tell people more about this item. What\'s it about and what makes it interesting? To make this item your own click here > Add & Manage Items.Tell people more about this item. What\'s it about and what makes it interesting? To make this item your own click here > Add & Manage Items.Tell people more about this item. What\'s it about and what makes it interesting? To make this item your own click here > Add & Manage Items.','Tell people more about this item. What\'s it about and what makes it interesting? To make this item your own click here > Add & Manage Items.Tell people more about this item. What\'s it about and what makes it interesting? To make this item your own click here > Add & Manage Items.Tell people more about this item. What\'s it about and what makes it interesting? To make this item your own click here > Add & Manage Items.','Tell people more about this item. What\'s it about and what makes it interesting? To make this item your own click here > Add & Manage Items.Tell people more about this item. What\'s it about and what makes it interesting? To make this item your own click here > Add & Manage Items.Tell people more about this item. What\'s it about and what makes it interesting? To make this item your own click here > Add & Manage Items.','Tell people more about this item. What\'s it about and what makes it interesting? To make this item your own click here > Add & Manage Items.Tell people more about this item. What\'s it about and what makes it interesting? To make this item your own click here > Add & Manage Items.Tell people more about this item. What\'s it about and what makes it interesting? To make this item your own click here > Add & Manage Items.','Tell people more about this item. What\'s it about and what makes it interesting? To make this item your own click here > Add & Manage Items.Tell people more about this item. What\'s it about and what makes it interesting? To make this item your own click here > Add & Manage Items.Tell people more about this item. What\'s it about and what makes it interesting? To make this item your own click here > Add & Manage Items.',3);
+
+CREATE TABLE NEWS(
+	news_id int not null auto_increment,
+    published_date timestamp not null,
+    news_title varchar(500) not null,
+    news_author varchar(500) not null,
+    news_description text,
+    img_id int,
+    PRIMARY KEY(news_id),
+    FOREIGN KEY(img_id) REFERENCES IMAGE(img_id)
+);
+INSERT INTO	NEWS(published_date,news_title,news_author,news_description,img_id) VALUES(NOW(),'This is a sample headline','John Doe','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius vulputate mi, eu aliquam felis dictum eget. Vestibulum convallis nisl sit amet consequat dapibus. Vestibulum a nisi et erat pellentesque egestas. Aenean mi enim, rhoncus eu nibh id, posuere varius ante. Sed non erat vel libero molestie dapibus. Proin nisi leo, fringilla sollicitudin arcu non, hendrerit placerat diam. Etiam rutrum ligula non massa elementum varius. In ut libero euismod, tristique sapien gravida, dapibus arcu. Vivamus nec aliquam enim. Etiam vel augue vitae massa sodales luctus et eu lectus. Proin et maximus felis. Morbi rutrum eros a pulvinar ultricies. Quisque feugiat nisi sed tortor vehicula, a facilisis turpis elementum. Nunc placerat ac sapien ac volutpat. Suspendisse nisi nibh, efficitur ac tortor id, facilisis venenatis arcu. ',7);
+
+CREATE TABLE ANNOUNCEMENTS(
+	announcement_id int not null auto_increment,
+    published_date timestamp not null,
+    title varchar(500) not null,
+    description text,
+    PRIMARY KEY(announcement_id)
+);
+
+INSERT INTO ANNOUNCEMENTS(published_date,title,description) VALUES(NOW(),'NOW HIRING','CTHM is hiring for male and female professors.');
+INSERT INTO ANNOUNCEMENTS(published_date,title,description) VALUES(NOW(),'SUSPENSION OF CLASSES','Classes are suspended today 09 May 2018 due to inclement weather');
+INSERT INTO ANNOUNCEMENTS(published_date,title,description) VALUES(NOW(),'THIRD TERM ENROLLMENT','Fees for 3rd term are now uploaded to Blackboard.');
+SELECT * FROM ANNOUNCEMENTS ORDER BY published_date DESC limit 3;

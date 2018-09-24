@@ -6,6 +6,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="bean.StudentOrg"%>
+<%@page import="bean.Image"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -140,63 +142,85 @@
                     <div class="row lato">
                         <div class="col-4">
                             <div class="list-group" id="list-tab" role="tablist">
-                            <a class="list-group-item list-group-item-action active" id="list-socc-list" data-toggle="list" href="#list-socc" role="tab" aria-controls="socc">SOCC</a>
-                            <a class="list-group-item list-group-item-action" id="list-sc-list" data-toggle="list" href="#list-sc" role="tab" aria-controls="sc">CTHM SC</a>
-                            <a class="list-group-item list-group-item-action" id="list-csc-list" data-toggle="list" href="#list-csc" role="tab" aria-controls="csc">CSC</a>
-                            <a class="list-group-item list-group-item-action" id="list-mtn-list" data-toggle="list" href="#list-mtn" role="tab" aria-controls="mtn">MOUNTAINEERING</a>
-                            <a class="list-group-item list-group-item-action" id="list-pax-list" data-toggle="list" href="#list-pax" role="tab" aria-controls="pax">PAX ROMANA</a>
-                            <a class="list-group-item list-group-item-action" id="list-scarlet-list" data-toggle="list" href="#list-scarlet" role="tab" aria-controls="scarlet">SCARLET</a>
-                            <a class="list-group-item list-group-item-action" id="list-gawi-list" data-toggle="list" href="#list-gawi" role="tab" aria-controls="gawi">SALINGGAWI</a>
+                            <c:forEach items="${students}" var="student" varStatus="loop">
+                                <c:choose>
+                                    <c:when test="${loop.first}">
+                                        <a class="list-group-item list-group-item-action active" id="list-${student.orgName}-list" data-toggle="list" href="#list-${student.orgName}" role="tab" aria-controls="${student.orgName}">${student.orgName}</a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a class="list-group-item list-group-item-action" id="list-${student.orgName}-list" data-toggle="list" href="#list-${student.orgName}" role="tab" aria-controls="${student.orgName}">${student.orgName}</a>
+                                    </c:otherwise>
+                                </c:choose>
+
+                            </c:forEach>
                             </div>
                         </div>
                         <div class="col-8">
                             <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="list-socc" role="tabpanel" aria-labelledby="list-socc-list">
-                                <h3 class="merriweather center">SOCC</h3><br>
-                                <img class="featured-img" src="img/home/main-bldg.jpg"><br><br>
-                                <h4 class="lato bold">About</h4>
-                                <p>
-                                    Tell people more about this item. What's it about and what makes it interesting? To make this item your own click here > Add & Manage Items.Tell people more about this item. What's it about and what makes it interesting? To make this item your own click here > Add & Manage Items.Tell people more about this item. What's it about and what makes it interesting? To make this item your own click here > Add & Manage Items.
-                                </p>
-                                <hr>
-                                <h4 class="lato bold">Objectives</h4>
-                                <p>
-                                    Tell people more about this item. What's it about and what makes it interesting? To make this item your own click here > Add & Manage Items.Tell people more about this item. What's it about and what makes it interesting? To make this item your own click here > Add & Manage Items.Tell people more about this item. What's it about and what makes it interesting? To make this item your own click here > Add & Manage Items.
-                                </p>
-                                <hr>
-                                <h4 class="lato bold">Offices</h4>
-                                <p>
-                                    Tell people more about this item. What's it about and what makes it interesting? To make this item your own click here > Add & Manage Items.Tell people more about this item. What's it about and what makes it interesting? To make this item your own click here > Add & Manage Items.Tell people more about this item. What's it about and what makes it interesting? To make this item your own click here > Add & Manage Items.
-                                </p>
-                                <hr>
-                                <h4 class="lato bold">Phone</h4>
-                                <p>
-                                    Tell people more about this item. What's it about and what makes it interesting? To make this item your own click here > Add & Manage Items.Tell people more about this item. What's it about and what makes it interesting? To make this item your own click here > Add & Manage Items.Tell people more about this item. What's it about and what makes it interesting? To make this item your own click here > Add & Manage Items.
-                                </p>
-                                <hr>
-                                <h4 class="lato bold">Activities</h4>
-                                <p>
-                                    Tell people more about this item. What's it about and what makes it interesting? To make this item your own click here > Add & Manage Items.Tell people more about this item. What's it about and what makes it interesting? To make this item your own click here > Add & Manage Items.Tell people more about this item. What's it about and what makes it interesting? To make this item your own click here > Add & Manage Items.
-                                </p>
-                            </div>
-                            <div class="tab-pane fade" id="list-sc" role="tabpanel" aria-labelledby="list-sc-list">
-                                sc
-                            </div>
-                            <div class="tab-pane fade" id="list-csc" role="tabpanel" aria-labelledby="list-csc-list">
-                                csc
-                            </div>
-                            <div class="tab-pane fade" id="list-mtn" role="tabpanel" aria-labelledby="list-mtn-list">
-                                MOUNTAINEERING
-                            </div>
-                            <div class="tab-pane fade" id="list-pax" role="tabpanel" aria-labelledby="list-pax-list">
-                                PAX ROMANA
-                            </div>
-                            <div class="tab-pane fade" id="list-scarlet" role="tabpanel" aria-labelledby="list-scarlet-list">
-                                SCARLET
-                            </div>
-                            <div class="tab-pane fade" id="list-gawi" role="tabpanel" aria-labelledby="list-gawi-list">
-                                SALINGGAWI
-                            </div>
+                            <c:forEach items="${students}" var="student" varStatus="loop">
+                                <c:choose>
+                                    <c:when test="${loop.first}">
+                                        <div class="tab-pane fade show active" id="list-${student.orgName}" role="tabpanel" aria-labelledby="list-${student.orgName}-list">
+                                            <h3 class="merriweather center">${student.orgName}</h3><br>
+                                            <img class="featured-img" src="ImageServlet?imgId=${student.image.imageId}"><br><br>
+                                            <h4 class="lato bold">About</h4>
+                                            <p>
+                                                ${student.orgAbout}
+                                            </p>
+                                            <hr>
+                                            <h4 class="lato bold">Objectives</h4>
+                                            <p>
+                                                ${student.orgObjectives}
+                                            </p>
+                                            <hr>
+                                            <h4 class="lato bold">Offices</h4>
+                                            <p>
+                                                ${student.orgOffices}
+                                            </p>
+                                            <hr>
+                                            <h4 class="lato bold">Phone</h4>
+                                            <p>
+                                                ${student.orgPhone}
+                                            </p>
+                                            <hr>
+                                            <h4 class="lato bold">Activities</h4>
+                                            <p>
+                                                ${student.orgActivities}
+                                            </p>
+                                        </div>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <div class="tab-pane fade" id="list-${student.orgName}" role="tabpanel" aria-labelledby="list-${student.orgName}-list">
+                                            <h3 class="merriweather center">${student.orgName}</h3><br>
+                                            <img class="featured-img" src="ImageServlet?imgId=${student.image.imageId}"><br><br>
+                                            <h4 class="lato bold">About</h4>
+                                            <p>
+                                                ${student.orgAbout}
+                                            </p>
+                                            <hr>
+                                            <h4 class="lato bold">Objectives</h4>
+                                            <p>
+                                                ${student.orgObjectives}
+                                            </p>
+                                            <hr>
+                                            <h4 class="lato bold">Offices</h4>
+                                            <p>
+                                                ${student.orgOffices}
+                                            </p>
+                                            <hr>
+                                            <h4 class="lato bold">Phone</h4>
+                                            <p>
+                                                ${student.orgPhone}
+                                            </p>
+                                            <hr>
+                                            <h4 class="lato bold">Activities</h4>
+                                            <p>
+                                                ${student.orgActivities}
+                                            </p>
+                                        </div>
+                                    </c:otherwise>
+                                </c:choose>
+                            </c:forEach>
                             </div>
                         </div>
                     </div>
