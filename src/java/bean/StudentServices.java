@@ -8,48 +8,38 @@ package bean;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/** 
+/**
  *
  * @author Justine Clemente
  */
-public class CourseInfo {
-    private int courseInfoID;
-    private int categoryID;
+public class StudentServices {
+    private int serviceID;
     private String title;
     private String description;
     private String icon;
 
-    public CourseInfo(int courseInfoID, int categoryID,String title, String description,String icon) {
-        this.courseInfoID = courseInfoID;
+    public StudentServices(int serviceID, String title, String description, String icon) {
+        this.serviceID = serviceID;
         this.title = title;
         this.description = description;
-        this.categoryID=categoryID;
-        this.icon=icon;
+        this.icon = icon;
+    }
+
+    public StudentServices(String title, String description) {
+        this.title = title;
+        this.description = description;
     }
     
-    public CourseInfo(String title, String description,String icon) {
-        this.title = title;
-        this.description = description;
-        this.icon=icon;
+    public StudentServices(ResultSet rs) throws SQLException{
+        this(rs.getInt("service_id"),rs.getString("title"),rs.getString("description"),rs.getString("icon"));
     }
 
-    public CourseInfo(ResultSet rs) throws SQLException{
-        this(rs.getInt("program_info_id"),rs.getInt("pic_id"),rs.getString("pic_title"),rs.getString("description"),rs.getString("icon"));
-    }
-    public int getCourseInfoID() {
-        return courseInfoID;
+    public int getServiceID() {
+        return serviceID;
     }
 
-    public void setCourseInfoID(int courseInfoID) {
-        this.courseInfoID = courseInfoID;
-    }
-
-    public int getCategoryID() {
-        return categoryID;
-    }
-
-    public void setCategoryID(int categoryID) {
-        this.categoryID = categoryID;
+    public void setServiceID(int serviceID) {
+        this.serviceID = serviceID;
     }
 
     public String getTitle() {
@@ -75,6 +65,7 @@ public class CourseInfo {
     public void setIcon(String icon) {
         this.icon = icon;
     }
+    
     
     
 }

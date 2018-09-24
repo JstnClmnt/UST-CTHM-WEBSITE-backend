@@ -18,7 +18,7 @@ public class CourseInfoCRUD {
     
     public static ArrayList<CourseInfo> readCourseInfo(Connection con,int majorID) throws SQLException{
         ArrayList<CourseInfo> courseinfo=new ArrayList<CourseInfo>();
-        try (PreparedStatement stmt = con.prepareStatement("SELECT program_info_id,p.pic_id,major_id,description,pic_title FROM Program_Information p JOIN Program_Info_Category c ON c.pic_id=p.pic_id WHERE p.major_id=?;")) {
+        try (PreparedStatement stmt = con.prepareStatement("SELECT program_info_id,p.pic_id,major_id,description,pic_title,c.icon FROM Program_Information p JOIN Program_Info_Category c ON c.pic_id=p.pic_id WHERE p.major_id=?;")) {
             stmt.setInt(1, majorID);
             try (ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {

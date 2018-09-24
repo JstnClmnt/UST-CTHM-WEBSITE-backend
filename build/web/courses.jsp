@@ -71,7 +71,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="aboutUs.html">About Us</a>
+                            <a class="nav-link" href="about">About Us</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="news.html">News</a>
@@ -140,7 +140,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="support.html">Support Service</a>
+                            <a class="nav-link" href="studentservices">Support Service</a>
                         </li>
                     </ul>
                 </div>
@@ -194,10 +194,10 @@
                             <c:forEach items="${course.courseinfo}" varStatus="loop" var="category">
                                 <c:choose>
                                     <c:when test="${loop.first}">
-                                        <a class="list-group-item list-group-item-action active" id="list-${category.title}-list" data-toggle="list" href="#list-${category.title}" role="tab" aria-controls="${category.title}">&emsp;${category.title}</a>
+                                        <a class="list-group-item list-group-item-action active" id="list-${category.title}-list" data-toggle="list" href="#list-${category.title}" role="tab" aria-controls="${category.title}">${category.icon}${category.title}</a>
                                    </c:when>
                                     <c:otherwise>
-                                        <a class="list-group-item list-group-item-action" id="list-${category.title}-list" data-toggle="list" href="#list-${category.title}" role="tab" aria-controls="${category.title}">&emsp;${category.title}</a>
+                                        <a class="list-group-item list-group-item-action" id="list-${category.title}-list" data-toggle="list" href="#list-${category.title}" role="tab" aria-controls="${category.title}">${category.icon}${category.title}</a>
                                     </c:otherwise>
                                 </c:choose>
                             </c:forEach>

@@ -16,7 +16,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -51,51 +51,59 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="index.html" id="HomeLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Home
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="HomeLink">
-                            <a class="dropdown-item" href="index.html#announcements">Announcements</a>
-                            <a class="dropdown-item" href="index.html#news">News and Updates</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active-tab" href="aboutUs.html">About Us</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="TourMgmtLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Tourism Management
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="TourMgmtLink">
-                        <a class="dropdown-item" href="travelOps.html">Travel Operations and Service Management</a>
-                        <a class="dropdown-item" href="recreationLeisure.html">Recreation and Leisure Management</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="HosMgmtLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Hospitality Management
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="HosMgmtLink">
-                        <a class="dropdown-item" href="culinaryEntrep.html">Culinary Entrepreneurship</a>
-                        <a class="dropdown-item" href="hospitalityLead.html">Hospitality Leadership</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="StakeholdersLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Stakeholders
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="StakeholdersLink">
-                        <a class="dropdown-item" href="students.html">Students</a>
-                        <a class="dropdown-item" href="alumni.html">Alumni</a>
-                        <a class="dropdown-item" href="industry.html">Industry</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="support.html">Support Service</a>
-                    </li>
-                </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active-tab" href="index.html">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="news.html">News</a>
+                        </li>
+                        <!-- <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="news" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                News
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="HomeLink">
+                                <a class="dropdown-item" href="news.html">News and Updates</a>
+                                <a class="dropdown-item" href="events.html">Events</a>
+                            </div>
+                        </li> -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="TourMgmtLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Tourism Management
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="TourMgmtLink">
+                            <a class="dropdown-item" href="courses?course_id=1&major_id=1">Travel Operations and Service Management</a>
+                            <a class="dropdown-item" href="courses?course_id=1&major_id=2">Recreation and Leisure Management</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="HosMgmtLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Hospitality Management
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="HosMgmtLink">
+                                <a class="dropdown-item" href="courses?course_id=2&major_id=3">Culinary Entrepreneurship</a>
+                                <a class="dropdown-item" href="courses?course_id=2&major_id=4">Hospitality Leadership</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="StakeholdersLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Stakeholders
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="StakeholdersLink">
+                            <a class="dropdown-item" href="students.html">Students</a>
+                            <a class="dropdown-item" href="alumni.html">Alumni</a>
+                            <a class="dropdown-item" href="industry.html">Industry</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="studentservices">Support Service</a>
+                        </li>
+                    </ul>
             </div>
         </nav>
 
@@ -123,10 +131,10 @@
                                     <c:forEach items="${abouts}" varStatus="loop" var="about" >
                                         <c:choose>
                                         <c:when test="${loop.first}">
-                                            <a class="list-group-item list-group-item-action active" id="list-${about.title}-list" data-toggle="list" href="#list-${about.title}" role="tab" aria-controls="${about.title}">${about.title}</a>
+                                            <a class="list-group-item list-group-item-action active" id="list-${about.title}-list" data-toggle="list" href="#list-${about.title}" role="tab" aria-controls="${about.title}">${about.icon}${about.title}</a>
                                         </c:when>
                                         <c:otherwise>
-                                             <a class="list-group-item list-group-item-action" id="list-${about.title}-list" data-toggle="list" href="#list-${about.title}" role="tab" aria-controls="${about.title}">${about.title}</a>
+                                             <a class="list-group-item list-group-item-action" id="list-${about.title}-list" data-toggle="list" href="#list-${about.title}" role="tab" aria-controls="${about.title}">${about.icon}${about.title}</a>
                                         </c:otherwise>
                                         </c:choose>
                                        

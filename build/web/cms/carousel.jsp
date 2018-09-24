@@ -45,7 +45,7 @@
                         <li><a href="announcements.html"><i class="fa fa-angle-double-right"></i> Announcements</a></li>
                     </ul>
                 </li>     
-                <li>
+                               <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-info-circle"></i>  ABOUT US<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-1" class="collapse">
                         <li><a href="aboutcms?aboutId=1"><i class="fa fa-angle-double-right"></i> Mission and Vision</a></li>
@@ -76,13 +76,13 @@
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-support"></i>  SUPPORT SERVICES <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-2" class="collapse">
-                        <li><a href="admission.html"><i class="fa fa-angle-double-right"></i> Admission</a></li>
-                        <li><a href="studentWelfare.html"><i class="fa fa-angle-double-right"></i> Student Welfare</a></li>
-                        <li><a href="internationalization.html"><i class="fa fa-angle-double-right"></i> Internationalization</a></li>
-                        <li><a href="community.html"><i class="fa fa-angle-double-right"></i> Community</a></li>
-                        <li><a href="counseling.html"><i class="fa fa-angle-double-right"></i> Counseling</a></li>
-                        <li><a href="centralLib.html"><i class="fa fa-angle-double-right"></i> Central Library</a></li>
-                        <li><a href="healthService.html"><i class="fa fa-angle-double-right"></i> Health Service</a></li>
+                        <li><a href="supportcms?serviceId=1"><i class="fa fa-angle-double-right"></i> Admission</a></li>
+                        <li><a href="supportcms?serviceId=2"><i class="fa fa-angle-double-right"></i> Student Welfare</a></li>
+                        <li><a href="supportcms?serviceId=3"><i class="fa fa-angle-double-right"></i> Internationalization</a></li>
+                        <li><a href="supportcms?serviceId=4"><i class="fa fa-angle-double-right"></i> Community</a></li>
+                        <li><a href="supportcms?serviceId=5"><i class="fa fa-angle-double-right"></i> Counseling</a></li>
+                        <li><a href="supportcms?serviceId=6"><i class="fa fa-angle-double-right"></i> Central Library</a></li>
+                        <li><a href="supportcms?serviceId=7"><i class="fa fa-angle-double-right"></i> Health Service</a></li>
                     </ul>
                 </li>
                 <li>

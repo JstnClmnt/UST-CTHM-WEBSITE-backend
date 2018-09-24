@@ -109,7 +109,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="support.html">Support Service</a>
+                            <a class="nav-link" href="studentservices">Support Service</a>
                         </li>
                     </ul>
                 </div>

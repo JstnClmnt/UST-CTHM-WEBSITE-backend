@@ -21,7 +21,7 @@ public class JDBC {
     //for development purposes only. will delete on deployment.
     static {
         try {
-            initConfig("com.mysql.jdbc.Driver","jdbc:mysql://127.0.0.1/USTCTHM","ustcthm","cthmwebsite");
+            initConfig("com.mysql.jdbc.Driver","jdbc:mysql://127.0.0.1/CTHMWebsite","ustcthm","cthmwebsite");
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("EXCEPTION: " + ex.getMessage());
         }
