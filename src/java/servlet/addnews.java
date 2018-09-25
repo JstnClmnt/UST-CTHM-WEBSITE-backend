@@ -6,9 +6,9 @@
 package servlet;
 
 import bean.Image;
-import bean.StudentOrg;
+import bean.News;
 import helper.ImageCRUD;
-import helper.StudentOrgCRUD;
+import helper.NewsCRUD;
 import helper.jdbc.JDBC;
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +26,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
  *
  * @author Justine Clemente
  */
-public class addstudentorg extends HttpServlet {
+public class addnews extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -84,12 +84,10 @@ public class addstudentorg extends HttpServlet {
 	
          // Process the uploaded file items
          Iterator i = fileItems.iterator();
-         String orgName="";
-         String orgAbout="";
-         String orgObjectives="";
-         String orgOffices="";
-         String orgPhone="";
-         String orgActivities="";
+         String title="";
+         String date="";
+         String author="";
+         String description="";
          String fileName="";
          String fieldName;
          fileName=""; 
@@ -100,24 +98,18 @@ public class addstudentorg extends HttpServlet {
          while ( i.hasNext () ) {
             FileItem fi = (FileItem)i.next();
             if(fi.isFormField()){
-                 if(fi.getFieldName().equals("orgname")){
-                     orgName=fi.getString();
+                 if(fi.getFieldName().equals("title")){
+                     title=fi.getString();
                  }
-                 else if(fi.getFieldName().equals("orgabout")){
-                     orgAbout=fi.getString();
+                 else if(fi.getFieldName().equals("date")){
+                     date=fi.getString();
                  }
-                 else if(fi.getFieldName().equals("orgobjectives")){
-                     orgObjectives=fi.getString();
-                 }
-                 else if(fi.getFieldName().equals("orgoffices")){
-                     orgOffices=fi.getString();
-                 }
-                 else if(fi.getFieldName().equals("orgphone")){
-                     orgPhone=fi.getString();
+                 else if(fi.getFieldName().equals("author")){
+                     author=fi.getString();
                  }
                  else
                  {
-                     orgActivities=fi.getString();
+                    description=fi.getString();
                  }
              }
             
@@ -145,9 +137,13 @@ public class addstudentorg extends HttpServlet {
             }
             
          }
-         StudentOrg studentorg=new StudentOrg(orgName,orgAbout,orgObjectives,orgOffices,orgPhone,orgActivities,image);
-         StudentOrgCRUD.createStudentOrg(JDBC.getCon(), studentorg);
-         response.sendRedirect("studentcms");
+        System.out.println(title);
+        System.out.println(date);
+        System.out.println(author);
+        System.out.println(description);
+        News news=new News(date,title,author,description,image);    
+        NewsCRUD.createNews(JDBC.getCon(), news);
+        response.sendRedirect("newscms");
 
          } catch(Exception ex) {
             ex.printStackTrace();

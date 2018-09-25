@@ -50,6 +50,16 @@ public class AnnouncementCRUD {
                 }
         }
     }
+    
+    public static Announcements readAnnouncements(Connection con,int announcementID) throws SQLException {
+        try (PreparedStatement stmt = con.prepareStatement("SELECT * FROM ANNOUNCEMENTS WHERE announcement_id=?;")) {
+            stmt.setInt(1, announcementID);
+                try (ResultSet rs = stmt.executeQuery()) {
+                    rs.next();
+                    return new Announcements(rs);
+                }
+        }
+    }
     public static int createAnnouncement(Connection con,Announcements announcement) throws SQLException{
         try (PreparedStatement stmt = con.prepareStatement("INSERT INTO ANNOUNCEMENTS(published_date,title,description) VALUES(?,?,?);")) {
             stmt.setString(1, announcement.getPublishedDate());

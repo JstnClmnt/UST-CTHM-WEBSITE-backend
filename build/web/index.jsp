@@ -6,6 +6,9 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@page import="bean.Announcements"%>
+<%@page import="bean.News"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -61,7 +64,7 @@
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active-tab" href="index.html">
+                            <a class="nav-link dropdown-toggle active-tab" href="home">
                                 Home
                             </a>
                         </li>
@@ -69,7 +72,7 @@
                             <a class="nav-link" href="about">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="news.html">News</a>
+                            <a class="nav-link" href="news">News</a>
                         </li>
                         <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="news" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -103,7 +106,7 @@
                                 Stakeholders
                             </a>
                             <div class="dropdown-menu" aria-labelledby="StakeholdersLink">
-                            <a class="dropdown-item" href="students.html">Students</a>
+                            <a class="dropdown-item" href="students">Students</a>
                             <a class="dropdown-item" href="alumni.html">Alumni</a>
                             <a class="dropdown-item" href="industry.html">Industry</a>
                             </div>
@@ -191,30 +194,16 @@
                     <div id="announcements"> 
                         <h2 class="merriweather"><i class="fas fa-bullhorn"></i> Announcements</h2><hr>
                         <div class="row">
+                            <c:forEach items="${announcements}" var="announcement">
                             <div class="col-sm-4">
                                 <div class="card bg-light mb-3" style="max-width: 21rem;">
-                                    <div class="card-header"><b>NOW HIRING</b></div>
+                                    <div class="card-header"><b>${announcement.announcement}</b></div>
                                     <div class="card-body">
-                                        <p class="card-text">CTHM is hiring for male and female professors.</p>
+                                        <p class="card-text">${announcement.description}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
-                                <div class="card bg-light mb-3" style="max-width: 21rem;">
-                                    <div class="card-header"><b>SUSPENSION OF CLASSES</b></div>
-                                    <div class="card-body">
-                                        <p class="card-text">Classes are suspended today 09 May 2018 due to inclement weather</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="card bg-light mb-3" style="max-width: 21rem;">
-                                    <div class="card-header"><b>THIRD TERM ENROLLMENT</b></div>
-                                    <div class="card-body">
-                                        <p class="card-text">Fees for 3rd term are now uploaded to Blackboard.</p>
-                                    </div>
-                                </div>
-                            </div>
+                            </c:forEach>
                         </div>
                     <!--****** ./Announcements ******-->
                         <br><br>
@@ -222,36 +211,18 @@
                         <!--****** News ******-->
                             <h2 class="merriweather"><i class="far fa-newspaper"></i> News and Updates</h2><hr>
                             <div class="row">
+                                <c:forEach items="${news}" var="newses">
                                 <div class="col-sm-4">
                                     <div class="card" style="width: 21rem;">
-                                        <img class="card-img-top" src="img/home/main-bldg.jpg" alt="Card image cap">
+                                        <img class="card-img-top" src="ImageServlet?imgId=${newses.image.imageId}" alt="Card image cap">
                                         <div class="card-body">
-                                            <h5 class="card-title"><b>May 9, 2018</b></h5>
-                                            <p class="card-text">CTHM admin, faculty become Certified Hospitality Educators by the American Hotel and Lodging Educational Institute</p>
-                                            <a href="newsPage.html" class="btn btn-primary">Read More</a>
+                                            <h5 class="card-title"><b>${newses.publishedDate}</b></h5>
+                                            <p class="card-text">${fn:substring(newses.newsDescription, 0, 25)}</p>
+                                            <a href="newsPage?news_id=${newses.newsID}" class="btn btn-primary">Read More</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
-                                    <div class="card" style="width: 21rem;">
-                                        <img class="card-img-top" src="img/home/main-bldg.jpg" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title"><b>December 14, 2017</b></h5>
-                                            <p class="card-text">UST reaps seven awards in PACUCOA assembly, recognized with highest number of accredited programs in the country</p>
-                                            <a href="newsPage.html" class="btn btn-primary">Read More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card" style="width: 21rem;">
-                                        <img class="card-img-top" src="img/home/main-bldg.jpg" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title"><b>October 10, 2017</b></h5>
-                                            <p class="card-text">CTHM admin, faculty become Certified Hospitality Educators by the American Hotel and Lodging Educational Institute</p>
-                                            <a href="newsPage.html" class="btn btn-primary">Read More</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                </c:forEach>
                             </div>
                         </div>
                     <!--****** ./News ******-->

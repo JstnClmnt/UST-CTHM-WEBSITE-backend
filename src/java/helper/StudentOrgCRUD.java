@@ -55,4 +55,16 @@ public class StudentOrgCRUD {
             }
         }
     }
+    
+    
+    public static StudentOrg readStudentOrg(Connection con,int org_id) throws SQLException {
+        try (PreparedStatement stmt = con.prepareStatement("SELECT * FROM Student_Org s JOIN Image i WHERE s.img_id=i.img_id AND org_id=? ;")) {
+            stmt.setInt(1, org_id);
+                try (ResultSet rs = stmt.executeQuery()) {
+                    rs.next();
+                    return new StudentOrg(rs);
+                }
+        }
+    }
 }
+

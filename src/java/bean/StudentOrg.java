@@ -5,6 +5,7 @@
  */
 package bean;
 
+import helper.JsonObject;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -31,6 +32,19 @@ public class StudentOrg {
         this.orgPhone = orgPhone;
         this.orgActivities = orgActivities;
         this.image = image;
+    }    
+    public JsonObject getJSON() {
+        JsonObject json = new JsonObject();
+        json.addData("orgID", orgID);
+        json.addData("orgName", orgName);
+        json.addData("orgAbout", orgAbout);
+        json.addData("orgObjectives",orgObjectives);
+        json.addData("orgOffices", orgOffices);
+        json.addData("orgPhone", orgPhone);
+        json.addData("orgActivities",orgActivities);
+        json.addData("imageID",image.getImageId());
+        json.addData("imageName",image.getDescription());
+        return json;
     }
     
     public StudentOrg(ResultSet rs) throws SQLException{

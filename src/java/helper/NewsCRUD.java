@@ -50,4 +50,28 @@ public class NewsCRUD {
         }
         return newses;
     }
+     
+    public static int createNews(Connection con,News news) throws SQLException{
+        try (PreparedStatement stmt = con.prepareStatement("INSERT INTO	NEWS(published_date,news_title,news_author,news_description,img_id) VALUES(?,?,?,?,?);")) {
+            stmt.setString(1, news.getPublishedDate());
+            stmt.setString(2, news.getNewsTitle());
+            stmt.setString(3, news.getNewsAuthor());
+            stmt.setString(4, news.getNewsDescription());
+            stmt.setInt(5, news.getImage().getImageId());
+            stmt.executeUpdate();
+            return readNews(con,news);  
+        }
+    }
+    public static int readNews(Connection con, News news) throws SQLException {
+        try (PreparedStatement stmt = con.prepareStatement("SELECT news_id FROM News WHERE news_title = ?")) {
+            stmt.setString(1, news.getNewsTitle());
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("news_id");
+                } else {
+                    return -1;
+                }
+            }
+        }
+    }  
 }
