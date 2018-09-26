@@ -66,17 +66,17 @@
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="index.html">
+                            <a class="nav-link dropdown-toggle active-tab" href="home">
                                 Home
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="aboutUs.html">About Us</a>
+                            <a class="nav-link" href="about">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active-tab" href="news.html">News</a>
+                            <a class="nav-link" href="news">News</a>
                         </li>
-                        <!--<li class="nav-item dropdown">
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="news" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 News
                             </a>
@@ -84,14 +84,14 @@
                                 <a class="dropdown-item" href="news.html">News and Updates</a>
                                 <a class="dropdown-item" href="events.html">Events</a>
                             </div>
-                        </li>-->
+                        </li> -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="TourMgmtLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Tourism Management
                             </a>
                             <div class="dropdown-menu" aria-labelledby="TourMgmtLink">
-                            <a class="dropdown-item" href="travelOps.html">Travel Operations and Service Management</a>
-                            <a class="dropdown-item" href="recreationLeisure.html">Recreation and Leisure Management</a>
+                            <a class="dropdown-item" href="courses?course_id=1&major_id=1">Travel Operations and Service Management</a>
+                            <a class="dropdown-item" href="courses?course_id=1&major_id=2">Recreation and Leisure Management</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -99,8 +99,8 @@
                                 Hospitality Management
                             </a>
                             <div class="dropdown-menu" aria-labelledby="HosMgmtLink">
-                            <a class="dropdown-item" href="culinaryEntrep.html">Culinary Entrepreneurship</a>
-                            <a class="dropdown-item" href="hospitalityLead.html">Hospitality Leadership</a>
+                                <a class="dropdown-item" href="courses?course_id=2&major_id=3">Culinary Entrepreneurship</a>
+                                <a class="dropdown-item" href="courses?course_id=2&major_id=4">Hospitality Leadership</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -108,13 +108,13 @@
                                 Stakeholders
                             </a>
                             <div class="dropdown-menu" aria-labelledby="StakeholdersLink">
-                            <a class="dropdown-item" href="students.html">Students</a>
+                            <a class="dropdown-item" href="students">Students</a>
                             <a class="dropdown-item" href="alumni.html">Alumni</a>
                             <a class="dropdown-item" href="industry.html">Industry</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="support.html">Support Service</a>
+                            <a class="nav-link" href="studentservices">Support Service</a>
                         </li>
                     </ul>
                 </div>

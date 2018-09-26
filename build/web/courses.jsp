@@ -66,7 +66,7 @@
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="index.html">
+                            <a class="nav-link dropdown-toggle active-tab" href="home">
                                 Home
                             </a>
                         </li>
@@ -74,7 +74,7 @@
                             <a class="nav-link" href="about">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="news.html">News</a>
+                            <a class="nav-link" href="news">News</a>
                         </li>
                         <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="news" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -86,17 +86,6 @@
                             </div>
                         </li> -->
                         <li class="nav-item dropdown">
-                            <c:choose>
-                            <c:when test="${course.courseID==1}">
-                            <a class="nav-link dropdown-toggle active-tab" href="#" id="TourMgmtLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Tourism Management
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="TourMgmtLink">
-                            <a class="dropdown-item" href="courses?course_id=1&major_id=1">Travel Operations and Service Management</a>
-                            <a class="dropdown-item" href="courses?course_id=1&major_id=2">Recreation and Leisure Management</a>
-                            </div>
-                            </c:when>
-                            <c:otherwise>
                             <a class="nav-link dropdown-toggle" href="#" id="TourMgmtLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Tourism Management
                             </a>
@@ -104,37 +93,22 @@
                             <a class="dropdown-item" href="courses?course_id=1&major_id=1">Travel Operations and Service Management</a>
                             <a class="dropdown-item" href="courses?course_id=1&major_id=2">Recreation and Leisure Management</a>
                             </div>
-                            </c:otherwise>
-                            </c:choose>
                         </li>
                         <li class="nav-item dropdown">
-                            <c:choose>
-                            <c:when test="${course.courseID==2}">
-                                <a class="nav-link dropdown-toggle active-tab" href="#" id="HosMgmtLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Hospitality Management
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="HosMgmtLink">
+                            <a class="nav-link dropdown-toggle" href="#" id="HosMgmtLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Hospitality Management
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="HosMgmtLink">
                                 <a class="dropdown-item" href="courses?course_id=2&major_id=3">Culinary Entrepreneurship</a>
                                 <a class="dropdown-item" href="courses?course_id=2&major_id=4">Hospitality Leadership</a>
-                                </div>
-                            </c:when>
-                            <c:otherwise>
-                                <a class="nav-link dropdown-toggle" href="#" id="HosMgmtLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Hospitality Management
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="HosMgmtLink">
-                                <a class="dropdown-item" href="courses?course_id=2&major_id=3">Culinary Entrepreneurship</a>
-                                <a class="dropdown-item" href="courses?course_id=2&major_id=4">Hospitality Leadership</a>
-                                </div>    
-                            </c:otherwise>
-                            </c:choose>
+                            </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="StakeholdersLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Stakeholders
                             </a>
                             <div class="dropdown-menu" aria-labelledby="StakeholdersLink">
-                            <a class="dropdown-item" href="students.html">Students</a>
+                            <a class="dropdown-item" href="students">Students</a>
                             <a class="dropdown-item" href="alumni.html">Alumni</a>
                             <a class="dropdown-item" href="industry.html">Industry</a>
                             </div>

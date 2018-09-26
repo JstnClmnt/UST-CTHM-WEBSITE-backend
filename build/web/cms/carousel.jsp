@@ -39,13 +39,13 @@
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-0"><i class="fa fa-home"></i> HOME<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-0" class="collapse">
-                        <li><a href="carousel.html"><i class="fa fa-angle-double-right"></i> Banner</a></li>
-                        <li><a href="newsUpdates.html"><i class="fa fa-angle-double-right"></i> News and Updates</a></li>
+                        <li><a href="carouselcms"><i class="fa fa-angle-double-right"></i> Banner</a></li>
+                        <li><a href="newscms"><i class="fa fa-angle-double-right"></i> News and Updates</a></li>
                         <li><a href="calendar.html"><i class="fa fa-angle-double-right"></i> Calendar of Events</a></li>
-                        <li><a href="announcements.html"><i class="fa fa-angle-double-right"></i> Announcements</a></li>
+                        <li><a href="announcementscms"><i class="fa fa-angle-double-right"></i> Announcements</a></li>
                     </ul>
                 </li>     
-                               <li>
+                <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-info-circle"></i>  ABOUT US<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-1" class="collapse">
                         <li><a href="aboutcms?aboutId=1"><i class="fa fa-angle-double-right"></i> Mission and Vision</a></li>
@@ -88,7 +88,7 @@
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-fw fa-users"></i>  STAKEHOLDERS <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-3" class="collapse">
-                        <li><a href="students.html"><i class="fa fa-angle-double-right"></i> Students</a></li>
+                        <li><a href="studentcms"><i class="fa fa-angle-double-right"></i> Students</a></li>
                         <li><a href="alumni.html"><i class="fa fa-angle-double-right"></i> Alumni</a></li>
                         <li><a href="industry.html"><i class="fa fa-angle-double-right"></i> Industry</a></li>
                     </ul>
