@@ -190,7 +190,7 @@
                         <h4 class="modal-title" id="myAddAnnouncementModalLabel">Edit Announcement</h4>
                     </div>
                     <div class="modal-body">
-                        <form action="editannouncements" method="POST">
+                        <form action="editannouncementinfo" method="POST">
                             <div class="form-group">
                                 <input id="edittitle" name="edittitle" type="text" class="form-control" placeholder="Title"/>
                             </div>

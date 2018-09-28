@@ -47,6 +47,11 @@ public class editabout extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+       
+    public void init( ){
+      // Get the file location where it would be stored.
+      filePath = getServletContext().getInitParameter("file-upload"); 
+    }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -108,6 +113,7 @@ public class editabout extends HttpServlet {
                      long sizeInBytes =0;
                      while ( i.hasNext () ) {
                         FileItem fi = (FileItem)i.next();
+                        System.out.println(fi.getFieldName());
                         if(fi.isFormField()){
                              if(post_id==10){
                                  String description="";

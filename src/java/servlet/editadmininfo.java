@@ -7,28 +7,41 @@ package servlet;
 
 import bean.Administration;
 import bean.Image;
+import bean.User;
 import helper.AdminCRUD;
 import helper.ImageCRUD;
 import helper.jdbc.JDBC;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Iterator;
-import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Justine Clemente
  */
-public class CMSAddAdmin extends HttpServlet {
+public class editadmininfo extends HttpServlet {
+   private boolean isMultipart;
+   private String filePath;
+   private int maxFileSize = 50 * 1024 *1000;
+   private int maxMemSize = 4 * 1024* 10;
+   private File file ;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,13 +52,7 @@ public class CMSAddAdmin extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
-    private boolean isMultipart;
-    private String filePath;
-    private int maxFileSize = 50 * 1024 *1000;
-    private int maxMemSize = 4 * 1024* 10;
-    private File file ;
-    
+       
     public void init( ){
       // Get the file location where it would be stored.
       filePath = getServletContext().getInitParameter("file-upload"); 
@@ -89,7 +96,7 @@ public class CMSAddAdmin extends HttpServlet {
          Iterator i = fileItems.iterator();
          String fullName="";
          String position="";
-         String cars="";
+         int adminID=0;
          String fileName="";
          String fieldName;
          fileName=""; 
@@ -99,28 +106,30 @@ public class CMSAddAdmin extends HttpServlet {
          long sizeInBytes =0;
          while ( i.hasNext () ) {
             FileItem fi = (FileItem)i.next();
+            System.out.println(fi.getFieldName());
             if(fi.isFormField()){
-                 if(fi.getFieldName().equals("fullName")){
+                 if(fi.getFieldName().equals("editname")){
                      fullName=fi.getString();
                  }
-                 else if(fi.getFieldName().equals("position")){
+                 else if(fi.getFieldName().equals("editpos")){
                      position=fi.getString();
                  }
                  else
                  {
-                     cars=fi.getString();
+                     adminID=Integer.parseInt(fi.getString());
                  }
              }
-            
             else{
+               System.out.println("HELLO???");
                fieldName = fi.getFieldName();
                fileName = fi.getName();
                contentType = fi.getContentType();
                isInMemory = fi.isInMemory();
                sizeInBytes = fi.getSize();
-               System.out.println(sizeInBytes);
+               System.out.println(fileName);
                 if(sizeInBytes!=0){
-                    System.out.println("hello");
+                    System.out.println("With Image");
+                    System.out.println(adminID);
                     // Write the file
                      if( fileName.lastIndexOf("\\") >= 0 ) {
                         file = new File( filePath + fileName.substring( fileName.lastIndexOf("\\"))) ;
@@ -132,21 +141,25 @@ public class CMSAddAdmin extends HttpServlet {
                      image=new Image(file.getAbsolutePath(),fileName);
                      int imgId=ImageCRUD.createImage(JDBC.getCon(), image);
                      image.setImageId(imgId);
-                     Administration administration=new Administration(fullName,position,image);
-                     AdminCRUD.createAdministration(JDBC.getCon(), administration);
-                     response.sendRedirect("cthmteam");
+                     Administration administration=new Administration(adminID,fullName,position,image);
+                     AdminCRUD.editAdmin(JDBC.getCon(), administration);
                }
-               else{
-                    Administration administration=new Administration(fullName,position);
-                    AdminCRUD.createAdministrationNoImage(JDBC.getCon(), administration);
-                    response.sendRedirect("cthmteam");
+                else{
+                    System.out.println("No Image");
+                    System.out.println(fullName);
+                    System.out.println(position);
+                    System.out.println(adminID);
+                    Administration administration=new Administration(adminID,fullName,position,null);
+                    AdminCRUD.editAdminNoImage(JDBC.getCon(), administration);
                 
-               }
+                }
 
-            }
+            }                    
             
          }  
-
+                    RequestDispatcher view=request.getRequestDispatcher("cthmteam");
+                    view.forward(request,response);
+                    return;
 
          } catch(Exception ex) {
             ex.printStackTrace();

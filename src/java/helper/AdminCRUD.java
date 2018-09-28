@@ -80,4 +80,27 @@ public class AdminCRUD {
         }
     }
     
+    public static int editAdminNoImage(Connection con, Administration administration) throws SQLException{
+        try (PreparedStatement stmt = con.prepareStatement("UPDATE ADMINISTRATION SET full_name=?,position=? WHERE admin_id=?;")) {
+            stmt.setString(1, administration.getFullName());
+            stmt.setString(2, administration.getPosition());
+            stmt.setInt(3, administration.getAdminId());
+            System.out.println(stmt.toString());
+            stmt.executeUpdate();
+            return 1;  
+        }
+    }
+    
+    public static int editAdmin(Connection con, Administration administration) throws SQLException{
+        try (PreparedStatement stmt = con.prepareStatement("UPDATE ADMINISTRATION SET full_name=?,position=?,img_id=? WHERE admin_id=?;")) {
+            stmt.setString(1, administration.getFullName());
+            stmt.setString(2, administration.getPosition());
+            stmt.setInt(3, administration.getImage().getImageId());
+            stmt.setInt(4, administration.getAdminId());
+            System.out.println(stmt.toString());
+            stmt.executeUpdate();
+            return 1;  
+        }
+    }
+    
 }

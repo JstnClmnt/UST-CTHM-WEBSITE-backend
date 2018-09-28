@@ -202,23 +202,25 @@
                     <h4 class="modal-title" id="myEditMemModalLabel">Edit Member</h4>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <img name="editimg" id="editimg" class="img-responsive" style="margin:0 auto;"  src="">
+                    <br></br>
+                    <form action="editadmininfo" method="post" enctype = "multipart/form-data">
                         <div class="form-group">
                             <input name="editname" id="editname" type="text" class="form-control" placeholder="Name"/>
                         </div>
                         <div class="form-group">
                             <input name="editpos" id="editpos" type="text" class="form-control" placeholder="Position"/>
                         </div>
+                        <input type="hidden" id="adminid" name="adminid" value="">
                         <div class="form-group">
-                            <img name="editimg" id="editimg" class="img-responsive" style="margin:0 auto;"  src="">
                             <label for="exampleInputFile">Image</label>
-                            <input type="file" id="exampleInputFile">
+                            <input id="file" name="file" type="file" id="exampleInputFile">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" value="" class="btn btn-primary">Save Changes</button>
                         </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save Changes</button>
                 </div>
             </div>
         </div>

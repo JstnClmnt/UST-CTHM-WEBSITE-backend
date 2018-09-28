@@ -5,27 +5,24 @@
  */
 package servlet;
 
-import bean.User;
-import helper.AdminCRUD;
-import helper.aboutCRUD;
+import bean.Announcements;
+import helper.AnnouncementCRUD;
 import helper.jdbc.JDBC;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Justine Clemente
  */
-public class cthmteam extends HttpServlet {
+public class editannouncementinfo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,15 +37,18 @@ public class cthmteam extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            int announcement_id=Integer.parseInt(request.getParameter("buttonshit"));
+            String title=request.getParameter("edittitle");
+            String desc=request.getParameter("editdescription");
+            String date=request.getParameter("editdate");
+            Announcements announcement=new Announcements(announcement_id,title,date,desc);
             try {
-                /* TODO output your page here. You may use following sample code. */
-                request.setAttribute("cthmteam",AdminCRUD.listAdministration(JDBC.getCon()));
-                request.setAttribute("supportstaff",aboutCRUD.readAbout(JDBC.getCon(), 6));
+                AnnouncementCRUD.editAnnouncement(JDBC.getCon(), announcement);
             } catch (SQLException ex) {
-                Logger.getLogger(cthmteam.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(editannouncementinfo.class.getName()).log(Level.SEVERE, null, ex);
             }
-            RequestDispatcher view=request.getRequestDispatcher("cthmteam.jsp");
-            view.forward(request,response);
+            response.sendRedirect("announcementscms");
         }
     }
 

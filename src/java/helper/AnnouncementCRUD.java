@@ -69,4 +69,16 @@ public class AnnouncementCRUD {
             return readAnnouncements(con,announcement);  
         }
     }
+    
+    public static int editAnnouncement(Connection con,Announcements announcement) throws SQLException{
+            try (PreparedStatement stmt = con.prepareStatement("UPDATE Announcements SET published_date=?,title=?,description=? WHERE announcement_id=?;")) {
+            stmt.setString(1, announcement.getPublishedDate());
+            stmt.setString(2, announcement.getAnnouncement());
+            stmt.setString(3, announcement.getDescription());
+            stmt.setInt(4, announcement.getAnnouncementID());
+            System.out.println(stmt.toString());
+            stmt.executeUpdate();
+            return 1;  
+        }
+    }
 }
