@@ -27,23 +27,8 @@
         </script>
     </head>
     <body>
-        <div class="green-bg header">
-            <div>
-                <a class="header-link" href="index.html">
-                    <div class="row header-content">
-                        <div class="col-sm-2">
-                            <img class="ust-logo" src="img/ust-logo.png">
-                        </div>
-                        <div class="col-sm-8 header-text">
-                            <p class="lato ust-text">University of Santo Tomas</p><br>
-                            <p class="merriweather cthm-text">COLLEGE OF TOURISM AND HOSPITALITY MANAGEMENT</p>
-                        </div>
-                        <div class="col-sm-2">
-                            <img class="cthm-logo" src="img/cthm-logo.png">
-                        </div>
-                    </div>
-                </a>
-            </div>
+        <div>
+            <img class="header-img img-fluid" src="img/cthm-header-img.png" />
         </div>
         <nav class="navbar navbar-expand-lg white-bg sticky-top lato">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +37,7 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active-tab" href="home">
+                            <a class="nav-link dropdown-toggle" href="home">
                                 Home
                             </a>
                         </li>
@@ -89,7 +74,7 @@
                                 <a class="dropdown-item" href="courses?course_id=2&major_id=4">Hospitality Leadership</a>
                             </div>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown active-tab">
                             <a class="nav-link dropdown-toggle" href="#" id="StakeholdersLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Stakeholders
                             </a>

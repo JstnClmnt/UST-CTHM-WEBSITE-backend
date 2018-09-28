@@ -141,9 +141,9 @@
                                 <c:forEach items="${cthmteam}" varStatus="loop" var="admin" >
                                 <tr>
                                     <td>${admin.fullName}</td>
-                                    <td${admin.position}</td>
+                                    <td>${admin.position}</td>
                                     <td>${admin.image.description}</td>
-                                    <td><button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#editMemModal">Edit</button></td>
+                                    <td><button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#editMemModal" onclick="editAdmin(${admin.adminId})">Edit</button></td>
                                     <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteMemModal">Delete</button></td>
                                 </tr>
                                 </c:forEach>
@@ -204,12 +204,13 @@
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Name"/>
+                            <input name="editname" id="editname" type="text" class="form-control" placeholder="Name"/>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Position"/>
+                            <input name="editpos" id="editpos" type="text" class="form-control" placeholder="Position"/>
                         </div>
                         <div class="form-group">
+                            <img name="editimg" id="editimg" class="img-responsive" style="margin:0 auto;"  src="">
                             <label for="exampleInputFile">Image</label>
                             <input type="file" id="exampleInputFile">
                         </div>
@@ -242,6 +243,7 @@
     </div><!-- ./Delete Member Modal -->
 </div><!-- /#wrapper -->
 
+  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>

@@ -126,19 +126,19 @@
                                 <img src="../ImageServlet?imgId=${about.img.imageId}" class="orgChart">
                             </div>
                             <br>
-                            <form>
+                            <form action="editabout?postid=${about.post_id}" method="POST" enctype = "multipart/form-data">
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <div class="well">
                                                 <label for="exampleInputFile">${about.title}</label>
-                                                <input type="file" id="exampleInputFile">${about.img.description}
+                                                <input name="file" type="file" id="exampleInputFile">${about.img.description}
                                             </div>
                                         </div>
                                         <div class="col-sm-6"></div>
                                         <div class="col-sm-2">
                                             &emsp;&nbsp;
-                                            <button type="button" class="btn btn-primary">Save Changes</button>
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
                                         </div>
                                     </div>
                                 </div>

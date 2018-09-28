@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import bean.User;
 import helper.AdminCRUD;
 import helper.aboutCRUD;
 import helper.jdbc.JDBC;
@@ -18,6 +19,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -38,6 +40,13 @@ public class cthmteam extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            HttpSession session=request.getSession();
+            User logged=(User)session.getAttribute("user");
+            if(logged==null){
+                session.setAttribute("error","You must login first");
+                response.sendRedirect("../cms");
+                return;
+            }
             try {
                 /* TODO output your page here. You may use following sample code. */
                 request.setAttribute("cthmteam",AdminCRUD.listAdministration(JDBC.getCon()));

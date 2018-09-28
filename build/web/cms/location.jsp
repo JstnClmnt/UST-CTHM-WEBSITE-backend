@@ -128,20 +128,20 @@
                             <img src="../ImageServlet?imgId=${about.img.imageId}" class="home-img"/>
                         </div>
                         <br>
-                        <form>
+                        <form action="editabout?postid=${about.post_id}" method="POST" enctype = "multipart/form-data">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <div class="well">
                                             <label for="exampleInputFile">Location Image</label>
-                                            <input type="file" id="exampleInputFile">${about.img.description}</input>
+                                            <input name="file" type="file" id="exampleInputFile">${about.img.description}</input>
                                         </div>
                                     </div>
                                     <div class="col-sm-8"></div>
                                 </div>
                                 <hr>
                                 <h3>Address</h3>
-                                <textarea name="${about.post_id}description" class="form-control" cols="10" rows="10" placeholder="Enter Address...">${about.description}</textarea><br>
+                                <textarea name="description" class="form-control" cols="10" rows="10" placeholder="Enter Address...">${about.description}</textarea><br>
                                 <button type="submit" class="btn btn-primary">Save Changes</button>
                             </div>
                             <br>

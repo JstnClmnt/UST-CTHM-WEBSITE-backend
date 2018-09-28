@@ -9,16 +9,16 @@
 <html>
     <head>
         <title>UST-CTHM CMS | Login</title>
-        <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="cms/css/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="cms/css/bootstrap.min.css">
+        <link rel="stylesheet" href="cms/css/style.css">
     </head>
     <body style="background-color: #fff">
         <div class="login-form">
             <div class="login-label">
                 <h3>SYSTEM LOGIN</h3>
             </div>
-            <form class="form" action="../login" method="POST">
+            <form class="form" action="login" method="POST">
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group">
@@ -47,6 +47,6 @@
                 </div>
             </form>
         <div>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="cms/js/bootstrap.min.js"></script>
     </body>
 </html>

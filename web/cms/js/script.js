@@ -75,3 +75,25 @@ function editNews(newsID){
         });
     
 }
+
+function editAdmin(adminID){
+        $.ajax({
+            url: 'editadmin',
+            type: "post",
+            cache: false,
+            data: {
+                admin_id: adminID
+            },
+            success: function (responseText) {
+                alert(responseText);
+                var x=JSON.parse(responseText.replace(/\uFFFD/g, ''));
+                document.getElementById("editname").value=x.fullName;
+                document.getElementById("editpos").value=x.position;
+                document.getElementById("editimg").src="../ImageServlet?imgId="+x.imageID;
+            }
+       });
+    
+}
+
+
+    

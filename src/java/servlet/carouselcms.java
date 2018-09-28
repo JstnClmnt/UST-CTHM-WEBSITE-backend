@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import bean.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -12,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -33,8 +35,18 @@ public class carouselcms extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            RequestDispatcher view=request.getRequestDispatcher("carousel.jsp");
-            view.forward(request, response);
+            HttpSession session=request.getSession();
+            User logged=(User)session.getAttribute("user");
+            if(logged==null){
+                session.setAttribute("error","You must login first");
+                response.sendRedirect("../cms");
+                return;
+            }
+            else{
+                RequestDispatcher view=request.getRequestDispatcher("carousel.jsp");
+                view.forward(request, response);
+                return;
+            }
         }
     }
 

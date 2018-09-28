@@ -72,14 +72,13 @@ INSERT INTO ABOUT(icon,title,description) VALUES('<i class="fas fa-users"></i>&e
 INSERT INTO ABOUT(icon,title,description) VALUES('<i class="fas fa-flask"></i>&emsp;','Awards and Recognition','The FAQ title can be adjusted in the settings tab of the App Settings. You can also remove the title by unchecking its checkbox To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.in the settings tab.');
 INSERT INTO ABOUT(icon,title,description) VALUES('<i class="fas fa-link"></i>&emsp;','Facilities','To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.');
 INSERT INTO ABOUT(icon,title,description) VALUES('<i class="fas fa-map-marker-alt"></i>&emsp;','Linkages','To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.');
-INSERT INTO ABOUT(icon,title,description,img_id) VALUES('Location Map and Contact Details','                                                <b>Office Address</b><br>
+INSERT INTO ABOUT(icon,title,description,img_id) VALUES('<i class="fas fa-map-marker-alt"></i>&emsp;','Location Map and Contact Details','                                                <b>Office Address</b><br>
                                                 Office of the Dean<br>
                                                 Ground Floor, Albertus Magnus Building<br>
                                                 University of Santo Tomas<br>
                                                 España Boulevard, Sampaloc, Manila 1008<br><br>
                                                 <b>Contact Numbers</b><br>
-                                                Telephone: +63-2-406-1611 loc. 4488',2);   
-                                        
+                                                Telephone: +63-2-406-1611 loc. 4488',2);    
 CREATE TABLE COURSES(
 	course_id int not null auto_increment,
     course_title varchar(150),
@@ -109,12 +108,12 @@ CREATE TABLE PROGRAM_INFO_CATEGORY(
 
 INSERT INTO PROGRAM_INFO_CATEGORY(pic_title,icon) VALUES('Introduction','<i class="fas fa-info"></i>&emsp;');
 INSERT INTO PROGRAM_INFO_CATEGORY(pic_title,icon) VALUES('Program Description','<i class="fas fa-graduation-cap"></i>&emsp;');
-INSERT INTO PROGRAM_INFO_CATEGORY(pic_title,icon) VALUES('Program Intended Learning Outcomes','<i class="fas fa-star"></i>&emsp');
+INSERT INTO PROGRAM_INFO_CATEGORY(pic_title,icon) VALUES('Program Intended Learning Outcomes','<i class="fas fa-star"></i>&emsp;');
 INSERT INTO PROGRAM_INFO_CATEGORY(pic_title,icon) VALUES('Career Opportunities','<i class="fas fa-briefcase"></i>&emsp;');
 INSERT INTO PROGRAM_INFO_CATEGORY(pic_title,icon) VALUES('Curriculum','<i class="fas fa-chalkboard"></i>&emsp;');
 INSERT INTO PROGRAM_INFO_CATEGORY(pic_title,icon) VALUES('Student Activities','<i class="fas fa-calendar-alt"></i>&emsp;');
 INSERT INTO PROGRAM_INFO_CATEGORY(pic_title,icon) VALUES('Facilities','<i class="fas fa-flask"></i>&emsp;');
-
+SELECT * FROM ABOUT;
 CREATE TABLE PROGRAM_INFORMATION(
 	program_info_id int not null auto_increment,
     pic_id int not null,

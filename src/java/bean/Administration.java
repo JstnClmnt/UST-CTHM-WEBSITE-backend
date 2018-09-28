@@ -1,10 +1,11 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package bean;
 
+import helper.JsonObject;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -25,7 +26,7 @@ public class Administration {
         this.position = position;
         this.image=image;
     }
-    
+
 //for createAdministrator
 
     public Administration(String fullName, String position, Image image) {
@@ -79,5 +80,13 @@ public class Administration {
     public void setImgId(Image image) {
         this.image=image;
     }
-
+    public JsonObject getJSON() {
+        JsonObject json = new JsonObject();
+        json.addData("adminID", adminId);
+        json.addData("fullName", fullName);
+        json.addData("position",position);
+        json.addData("imageID",image.getImageId());
+        json.addData("imageName",image.getDescription());
+        return json;
+    }
 }

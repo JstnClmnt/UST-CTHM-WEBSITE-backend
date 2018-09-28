@@ -39,23 +39,8 @@
             <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
             <a href="#" class="youtube"><i class="fab fa-youtube"></i></a> 
         </div>
-        <div class="gradient-bg header">
-            <div>
-                <a class="header-link" href="index.html">
-                    <div class="row header-content">
-                        <div class="col-sm-2">
-                            <img class="ust-logo" src="img/ust-logo.png">
-                        </div>
-                        <div class="col-sm-8 header-text">
-                            <p class="lato ust-text">University of Santo Tomas</p><br>
-                            <p class="merriweather cthm-text">COLLEGE OF TOURISM AND HOSPITALITY MANAGEMENT</p>
-                        </div>
-                        <div class="col-sm-2">
-                            <img class="cthm-logo" src="img/cthm-logo.png">
-                        </div>
-                    </div>
-                </a>
-            </div>
+        <div>
+            <img class="header-img img-fluid" src="img/cthm-header-img.png" />
         </div>
         <div class="white-bg navcol">
             <nav class="navbar navbar-expand-lg sticky-top lato">
@@ -65,7 +50,7 @@
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active-tab" href="home">
+                            <a class="nav-link dropdown-toggle" href="home">
                                 Home
                             </a>
                         </li>

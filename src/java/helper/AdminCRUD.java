@@ -18,9 +18,10 @@ import java.util.ArrayList;
  */
 public class AdminCRUD {
     public static Administration readAdministration(Connection con,int adminId) throws SQLException{
-        try (PreparedStatement stmt = con.prepareStatement("SELECT * FROM Administration WHERE admin_id = ?")) {
+        try (PreparedStatement stmt = con.prepareStatement("SELECT * FROM ADMINISTRATION a JOIN Image i WHERE i.img_id=a.img_id AND admin_id = ?;")) {
             stmt.setInt(1, adminId);
             try (ResultSet rs = stmt.executeQuery()) {
+                rs.next();
                 return new Administration(rs);
             }
         }

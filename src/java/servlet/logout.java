@@ -5,26 +5,19 @@
  */
 package servlet;
 
-import bean.Course;
-import bean.User;
-import helper.CourseCRUD;
-import helper.jdbc.JDBC;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Justine Clemente
  */
-public class courses extends HttpServlet {
+public class logout extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,17 +32,11 @@ public class courses extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            int course_id=Integer.parseInt(request.getParameter("course_id"));
-            int major_id=Integer.parseInt(request.getParameter("major_id"));
-            try {
-                Course course=CourseCRUD.readCourses(JDBC.getCon(), course_id, major_id);
-                request.setAttribute("course",course);
-                RequestDispatcher view=request.getRequestDispatcher("courses.jsp");
-                view.forward(request,response);
-            } catch (SQLException ex) {
-                Logger.getLogger(courses.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            HttpSession session=request.getSession();
+            session.removeAttribute("user");
+            response.sendRedirect("../home");
+            return;
+           
         }
     }
 

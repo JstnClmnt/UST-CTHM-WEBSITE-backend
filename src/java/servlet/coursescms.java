@@ -6,6 +6,7 @@
 package servlet;
 
 import bean.Course;
+import bean.User;
 import helper.CourseCRUD;
 import helper.jdbc.JDBC;
 import java.io.IOException;
@@ -18,6 +19,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -41,13 +43,22 @@ public class coursescms extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             int course_id=Integer.parseInt(request.getParameter("course_id"));
             int major_id=Integer.parseInt(request.getParameter("major_id"));
-            try {
-                Course course=CourseCRUD.readCourses(JDBC.getCon(), course_id, major_id);
-                request.setAttribute("course",course);
-                RequestDispatcher view=request.getRequestDispatcher("coursecms.jsp");
-                view.forward(request,response);
-            } catch (SQLException ex) {
-                Logger.getLogger(courses.class.getName()).log(Level.SEVERE, null, ex);
+            HttpSession session=request.getSession();
+            User logged=(User)session.getAttribute("user");
+            if(logged==null){
+                session.setAttribute("error","You must login first");
+                response.sendRedirect("../cms");
+                return;
+            }
+            else{
+                try {
+                    Course course=CourseCRUD.readCourses(JDBC.getCon(), course_id, major_id);
+                    request.setAttribute("course",course);
+                    RequestDispatcher view=request.getRequestDispatcher("coursecms.jsp");
+                    view.forward(request,response);
+                } catch (SQLException ex) {
+                    Logger.getLogger(courses.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
     }

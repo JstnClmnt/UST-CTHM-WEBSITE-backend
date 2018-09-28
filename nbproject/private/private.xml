@@ -3,28 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/bean/News.java</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/helper/StudentOrgCRUD.java</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/bean/Announcements.java</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/web/news.jsp</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/web/aboutUs.jsp</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/web/index.jsp</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/helper/AnnouncementCRUD.java</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/cthmteam.jsp</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/servlet/addannouncements.java</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/servlet/addstudentorg.java</file>
             <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/newscms.jsp</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/announcementscms.jsp</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/missionvision.jsp</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/web/WEB-INF/web.xml</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/servlet/news.java</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/servlet/CMSAddAdmin.java</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/servlet/newscms.java</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/web/newsPage.jsp</file>
+            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/bean/News.java</file>
+            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/helper/AdminCRUD.java</file>
+            <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/js/script.js</file>
+            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/bean/Administration.java</file>
+            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/servlet/logout.java</file>
+            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/servlet/editadmin.java</file>
+            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/servlet/editnews.java</file>
+            <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/cthmteam.jsp</file>
             <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/helper/NewsCRUD.java</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/servlet/announcementscms.java</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/web/students.jsp</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/studentscms.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -10,6 +10,9 @@
 <html>
     <head>
         <title>UST-CTHM | Alumni</title>
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,8 +27,16 @@
             });
         </script>
     </head>
-    <body>
-        <div class="green-bg header">
+    <body class="bigger-font">
+        <!-- The social media icon bar -->
+        <div class="icon-bar">
+            <a href="#" class="facebook"><i class="fab fa-facebook"></i></a> 
+            <a href="#" class="twitter"><i class="fab fa-twitter"></i></a> 
+            <a href="#" class="google"><i class="fab fa-google"></i></a> 
+            <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="youtube"><i class="fab fa-youtube"></i></a> 
+        </div>
+        <!-- <div class="gradient-bg header">
             <div>
                 <a class="header-link" href="index.html">
                     <div class="row header-content">
@@ -42,15 +53,19 @@
                     </div>
                 </a>
             </div>
+        </div> -->
+        <div>
+            <img class=" header-img img-fluid" src="img/cthm-header-img.png" />
         </div>
-        <nav class="navbar navbar-expand-lg white-bg sticky-top lato">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
+        <div class="white-bg navcol">
+            <nav class="navbar navbar-expand-lg sticky-top lato">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+<ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active-tab" href="index.html">
+                            <a class="nav-link dropdown-toggle" href="home">
                                 Home
                             </a>
                         </li>
@@ -58,7 +73,7 @@
                             <a class="nav-link" href="about">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="news.html">News</a>
+                            <a class="nav-link" href="news">News</a>
                         </li>
                         <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="news" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -87,12 +102,12 @@
                                 <a class="dropdown-item" href="courses?course_id=2&major_id=4">Hospitality Leadership</a>
                             </div>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown active-tab">
                             <a class="nav-link dropdown-toggle" href="#" id="StakeholdersLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Stakeholders
                             </a>
                             <div class="dropdown-menu" aria-labelledby="StakeholdersLink">
-                            <a class="dropdown-item" href="students.html">Students</a>
+                            <a class="dropdown-item" href="students">Students</a>
                             <a class="dropdown-item" href="alumni.html">Alumni</a>
                             <a class="dropdown-item" href="industry.html">Industry</a>
                             </div>
@@ -101,8 +116,9 @@
                             <a class="nav-link" href="studentservices">Support Service</a>
                         </li>
                     </ul>
-            </div>
-        </nav>
+                </div>
+            </nav>
+        </div>
 
         <div>
             <div>
@@ -148,8 +164,8 @@
                     <div class="row lato">
                         <div class="col-4">
                             <div class="list-group" id="list-tab" role="tablist">
-                                <a class="list-group-item list-group-item-action active" id="list-news-list" data-toggle="list" href="#list-news" role="tab" aria-controls="news">News and Events</a>
-                                <a class="list-group-item list-group-item-action" id="list-alumAss-list" data-toggle="list" href="#list-alumAss" role="tab" aria-controls="alumAss">Alumni Association</a>
+                                <a class="list-group-item list-group-item-action active" id="list-news-list" data-toggle="list" href="#list-news" role="tab" aria-controls="news"><i class="fas fa-user-graduate"></i>&emsp;Active Alumni Involvement</a>
+                                <a class="list-group-item list-group-item-action" id="list-alumAss-list" data-toggle="list" href="#list-alumAss" role="tab" aria-controls="alumAss"><i class="fas fa-users"></i>&emsp;Alumni Homecoming</a>
                             </div><br><hr><br>
                             <div>
                                 <button class="btn btn-success btn-block">ALUMNI ONLINE FORM</button>
@@ -159,9 +175,9 @@
                             <div class="tab-content" id="nav-tabContent">
                                 <div class="tab-pane fade show active" id="list-news" role="tabpanel" aria-labelledby="list-news-list">
                                     <div>
-                                        <h2 class="Lato alumni-heading"><b>News and Events</b></h2>
-                                    <div>
-                                        <img class="news-alumni-img" src="img/home/main-bldg.jpg">
+                                        <h2 class="Lato alumni-heading"><b>Active Alumni Involvement</b></h2>
+                                        <div>
+                                            <img class="news-alumni-img" src="img/home/main-bldg.jpg">
                                         </div>
                                         <div>
                                             <p class="lato">
@@ -171,7 +187,19 @@
                                     </div>
                                     
                                 </div>
-                                <div class="tab-pane fade" id="list-alumAss" role="tabpanel" aria-labelledby="list-alumAss-list">Alumni assss</div>
+                                <div class="tab-pane fade" id="list-alumAss" role="tabpanel" aria-labelledby="list-alumAss-list">
+                                    <div>
+                                        <h2 class="Lato alumni-heading"><b>Alumni Homecoming</b></h2>
+                                        <div>
+                                            <img class="news-alumni-img" src="img/home/main-bldg.jpg">
+                                        </div>
+                                        <div>
+                                            <p class="lato text-center">
+                                                Homecoming 2017
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -180,7 +208,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="container-fluid green-bg">
+        <footer class="container-fluid blue-bg">
             <div class="row footer-text-wrap">
                 <div class="col-sm-6 footer-left lato white-text">
                     <h4><b>Contact Us</b></h4>

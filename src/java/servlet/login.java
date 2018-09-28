@@ -45,15 +45,17 @@ public class login extends HttpServlet {
             String password=request.getParameter("pw"); 
             HttpSession session=request.getSession();
             User user=new User();
+            RequestDispatcher view=request.getRequestDispatcher("cms/login.jsp");
             try {
                 user=loginHelper.loginAuth(username, password);
+                session.setAttribute("user",user);
                 response.sendRedirect("cms/carouselcms");
             } catch (WrongPasswordException ex) {
-                session.setAttribute("error", "Wrong Password!");
-                response.sendRedirect("cms/login.jsp");
+                request.setAttribute("error", "Wrong Password!");
+                view.forward(request,response);
             } catch (WrongUsernameException ex) {
-                session.setAttribute("error", "Incorrect Credentials");
-                response.sendRedirect("cms/login.jsp");
+                request.setAttribute("error", "Incorrect Credentials");
+                view.forward(request,response);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
             }
