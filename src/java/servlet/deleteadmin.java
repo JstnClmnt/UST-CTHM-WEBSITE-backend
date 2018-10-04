@@ -5,26 +5,25 @@
  */
 package servlet;
 
-import bean.User;
-import helper.NewsCRUD;
+import bean.Administration;
+import helper.AdminCRUD;
+import helper.ImageCRUD;
 import helper.jdbc.JDBC;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Justine Clemente
  */
-public class newscms extends HttpServlet {
+public class deleteadmin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,20 +38,16 @@ public class newscms extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            int adminID=Integer.parseInt(request.getParameter("deleteadmin"));
             try {
-                HttpSession session=request.getSession();
-                User user=(User)session.getAttribute("user");
-                if(user!=null){
-                    request.setAttribute("news",NewsCRUD.listNews(JDBC.getCon()));
-                    RequestDispatcher view=request.getRequestDispatcher("newscms.jsp");
-                    view.forward(request,response);
-                }else{  
-                        session.setAttribute("error", "Login first!");
-                        response.sendRedirect("../cms");
-                }
+                Administration admin=AdminCRUD.readAdministration(JDBC.getCon(), adminID);
+                AdminCRUD.deleteAdmin(JDBC.getCon(), adminID);
+                ImageCRUD.deleteImage(JDBC.getCon(), admin.getImage().getImageId());
             } catch (SQLException ex) {
-                Logger.getLogger(newscms.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(deleteadmin.class.getName()).log(Level.SEVERE, null, ex);
             }
+            response.sendRedirect("cthmteam");
         }
     }
 

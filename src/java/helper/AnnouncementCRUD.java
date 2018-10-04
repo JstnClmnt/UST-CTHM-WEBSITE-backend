@@ -81,4 +81,11 @@ public class AnnouncementCRUD {
             return 1;  
         }
     }
+     public static int deleteAnnouncement(Connection con,int announcementID) throws SQLException{
+            try (PreparedStatement stmt = con.prepareStatement("DELETE FROM ANNOUNCEMENTS WHERE announcement_id=?;")) {
+            stmt.setInt(1, announcementID);
+            stmt.executeUpdate();
+            return 1;  
+        }
+    }
 }

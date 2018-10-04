@@ -102,5 +102,11 @@ public class AdminCRUD {
             return 1;  
         }
     }
-    
+        public static int deleteAdmin(Connection con, int adminID) throws SQLException{
+        try (PreparedStatement stmt = con.prepareStatement("DELETE FROM ADMINISTRATION WHERE admin_id=?;")) {
+            stmt.setInt(1, adminID);
+            stmt.executeUpdate();
+            return 1;  
+        }
+    }
 }

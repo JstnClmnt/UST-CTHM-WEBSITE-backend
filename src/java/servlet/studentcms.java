@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import bean.User;
 import helper.StudentOrgCRUD;
 import helper.jdbc.JDBC;
 import java.io.IOException;
@@ -17,6 +18,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -38,10 +40,18 @@ public class studentcms extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             try {
+                HttpSession session=request.getSession();
+                User user=(User)session.getAttribute("user");
                 /* TODO output your page here. You may use following sample code. */
-                request.setAttribute("students", StudentOrgCRUD.listStudentOrg(JDBC.getCon()));
-                RequestDispatcher view=request.getRequestDispatcher("studentscms.jsp");
-                view.forward(request,response);
+                if(user!=null){
+                    request.setAttribute("students", StudentOrgCRUD.listStudentOrg(JDBC.getCon()));
+                    RequestDispatcher view=request.getRequestDispatcher("studentscms.jsp");
+                    view.forward(request,response);
+                }
+                else{  
+                    session.setAttribute("error", "Login first!");
+                    response.sendRedirect("../cms");
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(students.class.getName()).log(Level.SEVERE, null, ex);
             }

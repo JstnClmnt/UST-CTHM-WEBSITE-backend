@@ -146,7 +146,7 @@
                                     <td>${newses.newsDescription}</td>
                                     <td>${newses.image.description}</td>
                                     <td><button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#editNewsModal" onclick="editNews(${newses.newsID})">Edit</button></td>
-                                    <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteNewsModal">Delete</button></td>
+                                    <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteNewsModal" onclick="deleteNews(${newses.newsID})">Delete</button></td>
                                 </tr>
                                 </c:forEach>
                                 </tbody>
@@ -243,8 +243,10 @@
                         Are you sure you want to delete this?
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger">Yes</button>
+                        <form action="deletenews" method="post">
+                        <button id="deletenews" name="deletenews" type="submit" class="btn btn-danger">Yes</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                        </form>
                     </div>
                 </div>
             </div>

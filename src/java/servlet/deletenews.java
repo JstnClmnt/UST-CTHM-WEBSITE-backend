@@ -5,7 +5,8 @@
  */
 package servlet;
 
-import bean.User;
+import bean.News;
+import helper.ImageCRUD;
 import helper.NewsCRUD;
 import helper.jdbc.JDBC;
 import java.io.IOException;
@@ -13,18 +14,16 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Justine Clemente
  */
-public class newscms extends HttpServlet {
+public class deletenews extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,20 +38,16 @@ public class newscms extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            int newsID=Integer.parseInt(request.getParameter("deletenews"));
             try {
-                HttpSession session=request.getSession();
-                User user=(User)session.getAttribute("user");
-                if(user!=null){
-                    request.setAttribute("news",NewsCRUD.listNews(JDBC.getCon()));
-                    RequestDispatcher view=request.getRequestDispatcher("newscms.jsp");
-                    view.forward(request,response);
-                }else{  
-                        session.setAttribute("error", "Login first!");
-                        response.sendRedirect("../cms");
-                }
+                News news=NewsCRUD.readNews(JDBC.getCon(), newsID);
+                NewsCRUD.deleteNews(JDBC.getCon(), newsID);
+                ImageCRUD.deleteImage(JDBC.getCon(), news.getNewsID());
             } catch (SQLException ex) {
-                Logger.getLogger(newscms.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(deletenews.class.getName()).log(Level.SEVERE, null, ex);
             }
+            response.sendRedirect("newscms");
         }
     }
 

@@ -144,7 +144,7 @@
                                     <td>${admin.position}</td>
                                     <td>${admin.image.description}</td>
                                     <td><button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#editMemModal" onclick="editAdmin(${admin.adminId})">Edit</button></td>
-                                    <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteMemModal">Delete</button></td>
+                                    <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteMemModal" onclick="deleteAdmin(${admin.adminId})">Delete</button></td>
                                 </tr>
                                 </c:forEach>
                             </tbody>
@@ -237,8 +237,10 @@
                     Are you sure you want to delete this member?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger">Yes</button>
+                    <form action="deleteadmin" method="POST">
+                    <button id="deleteadmin" name="deleteadmin" type="submit" class="btn btn-danger">Yes</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                    </form>
                 </div>
             </div>
         </div>

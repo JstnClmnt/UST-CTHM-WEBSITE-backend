@@ -49,6 +49,7 @@ public class login extends HttpServlet {
             try {
                 user=loginHelper.loginAuth(username, password);
                 session.setAttribute("user",user);
+                session.setMaxInactiveInterval(1800);
                 response.sendRedirect("cms/carouselcms");
             } catch (WrongPasswordException ex) {
                 request.setAttribute("error", "Wrong Password!");

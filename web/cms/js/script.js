@@ -34,6 +34,10 @@ function editAnnouncement(announcementID){
     
 }
 
+function deleteAnnouncement(announcementID){
+    document.getElementById("deleteannouncement").value=announcementID;
+}
+
 function editStudentOrg(studentorgID){
         $.ajax({
             url: 'editstudentorg',
@@ -82,6 +86,10 @@ function editNews(newsID){
     
 }
 
+function deleteNews(newsID){
+    document.getElementById("deletenews").value=newsID;
+    
+}
 function editAdmin(adminID){
         $.ajax({
             url: 'editadmin',
@@ -100,6 +108,10 @@ function editAdmin(adminID){
             }
        });
     
+}
+
+function deleteAdmin(adminID){
+    document.getElementById("deleteadmin").value=adminID;
 }
 
 

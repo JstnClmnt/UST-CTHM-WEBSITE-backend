@@ -260,7 +260,7 @@
                         Are you sure you want to delete this organization?
                     </div>
                     <div class="modal-footer">
-                        <form>
+                        <form action="deleteorg" mode="post">
                         <button type="submit" id="deleteorg" name="deleteorg" class="btn btn-danger">Yes</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
                         </form>

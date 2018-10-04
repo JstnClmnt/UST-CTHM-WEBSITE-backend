@@ -81,7 +81,7 @@ public class StudentOrgCRUD {
             return 1;  
         }
     }
-        public static int editStudentOrgNoImage(Connection con,StudentOrg studentorg) throws SQLException{
+    public static int editStudentOrgNoImage(Connection con,StudentOrg studentorg) throws SQLException{
         try (PreparedStatement stmt = con.prepareStatement("UPDATE STUDENT_ORG SET org_name=?,org_about=?,org_objectives=?,org_offices=?,org_phone=?,org_activities=? WHERE org_id=?;")) {
             stmt.setString(1, studentorg.getOrgName());
             stmt.setString(2, studentorg.getOrgAbout());
@@ -91,6 +91,13 @@ public class StudentOrgCRUD {
             stmt.setString(6, studentorg.getOrgActivities());
             stmt.setInt(7, studentorg.getOrgID());
             System.out.println(stmt.toString());
+            stmt.executeUpdate();
+            return 1;  
+        }
+    }
+    public static int deleteStudentOrg(Connection con,int orgID) throws SQLException{
+        try (PreparedStatement stmt = con.prepareStatement("DELETE FROM STUDENT_ORG WHERE org_id=?;")) {
+            stmt.setInt(1, orgID);
             stmt.executeUpdate();
             return 1;  
         }

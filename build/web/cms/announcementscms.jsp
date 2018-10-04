@@ -141,7 +141,7 @@
                                     <td>${announcement.publishedDate}</td>
                                     <td>${announcement.description}</td>
                                     <td><button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#editAnnouncementModal" onclick="editAnnouncement(${announcement.announcementID})">Edit</button></td>
-                                    <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteAnnouncementModal">Delete</button></td>
+                                    <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteAnnouncementModal" onclick="deleteAnnouncement(${announcement.announcementID})">Delete</button></td>
                                 </tr>
                                 </c:forEach>
                                 </tbody>
@@ -221,8 +221,10 @@
                         Are you sure you want to delete this announcement?
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger">Yes</button>
+                        <form action="deleteannouncement" method="POST">
+                        <button type="submit" id="deleteannouncement" name="deleteannouncement" class="btn btn-danger">Yes</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                        </form>
                     </div>
                 </div>
             </div>

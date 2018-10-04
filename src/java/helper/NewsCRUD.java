@@ -100,4 +100,12 @@ public class NewsCRUD {
             return 1;  
         }
     }
+    
+    public static int deleteNews(Connection con, int newsID) throws SQLException{
+        try (PreparedStatement stmt = con.prepareStatement("DELETE FROM NEWS WHERE news_id=?;")) {
+            stmt.setInt(1, newsID);
+            stmt.executeUpdate();
+            return 1;  
+        }
+    }
 }
