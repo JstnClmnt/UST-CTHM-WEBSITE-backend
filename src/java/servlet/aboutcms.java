@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import bean.User;
 import helper.aboutCRUD;
 import helper.jdbc.JDBC;
 import java.io.IOException;
@@ -17,6 +18,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -38,61 +40,69 @@ public class aboutcms extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            int ch=Integer.parseInt(request.getParameter("aboutId"));
-            RequestDispatcher view=null;
-            switch(ch){
-                case 1:
-                    request.setAttribute("mission",aboutCRUD.readAbout(JDBC.getCon(), 1));
-                    request.setAttribute("vision",aboutCRUD.readAbout(JDBC.getCon(), 2));
-                    view=request.getRequestDispatcher("missionvision.jsp");
-                    view.forward(request,response);
-                    break;
-                case 2:
-                    request.setAttribute("mission",aboutCRUD.readAbout(JDBC.getCon(), 1));
-                    request.setAttribute("vision",aboutCRUD.readAbout(JDBC.getCon(), 2));
-                    view=request.getRequestDispatcher("missionvision.jsp");
-                    view.forward(request,response);
-                    break;
-                case 3:
-                    request.setAttribute("about",aboutCRUD.readAbout(JDBC.getCon(), 3));
-                    view=request.getRequestDispatcher("aboutdefault.jsp");
-                    view.forward(request,response);
-                    break;
-                case 4:
-                    request.setAttribute("about",aboutCRUD.readAbout(JDBC.getCon(), 4));
-                    view=request.getRequestDispatcher("aboutdefault.jsp");
-                    view.forward(request,response);
-                    break;
-                case 5:
-                    request.setAttribute("about",aboutCRUD.readAbout(JDBC.getCon(), 5));
-                    view=request.getRequestDispatcher("orgchart.jsp");
-                    view.forward(request,response);
-                    break;
-                case 6:
-                    request.setAttribute("about",aboutCRUD.readAbout(JDBC.getCon(), 7));
-                    view=request.getRequestDispatcher("aboutdefault.jsp");
-                    view.forward(request,response);
-                    break;
-                case 7:
-                    response.sendRedirect("cthmteam");
-                    break;
-                case 8:
-                    request.setAttribute("about",aboutCRUD.readAbout(JDBC.getCon(), 8));
-                    view=request.getRequestDispatcher("aboutdefault.jsp");
-                    view.forward(request,response);
-                    break;
-                case 9:
-                    request.setAttribute("about",aboutCRUD.readAbout(JDBC.getCon(), 8));
-                    view=request.getRequestDispatcher("aboutdefault.jsp");
-                    view.forward(request,response);
-                    break;
-                case 10:
-                    request.setAttribute("about",aboutCRUD.readAbout(JDBC.getCon(), 10));
-                    view=request.getRequestDispatcher("location.jsp");
-                    view.forward(request,response);
-                    break;
-                    
-                
+            HttpSession session=request.getSession();
+            User user=(User)session.getAttribute("user");
+            if(user!=null){
+                int ch=Integer.parseInt(request.getParameter("aboutId"));
+                RequestDispatcher view=null;
+                switch(ch){
+                    case 1:
+                        request.setAttribute("mission",aboutCRUD.readAbout(JDBC.getCon(), 1));
+                        request.setAttribute("vision",aboutCRUD.readAbout(JDBC.getCon(), 2));
+                        view=request.getRequestDispatcher("missionvision.jsp");
+                        view.forward(request,response);
+                        break;
+                    case 2:
+                        request.setAttribute("mission",aboutCRUD.readAbout(JDBC.getCon(), 1));
+                        request.setAttribute("vision",aboutCRUD.readAbout(JDBC.getCon(), 2));
+                        view=request.getRequestDispatcher("missionvision.jsp");
+                        view.forward(request,response);
+                        break;
+                    case 3:
+                        request.setAttribute("about",aboutCRUD.readAbout(JDBC.getCon(), 3));
+                        view=request.getRequestDispatcher("aboutdefault.jsp");
+                        view.forward(request,response);
+                        break;
+                    case 4:
+                        request.setAttribute("about",aboutCRUD.readAbout(JDBC.getCon(), 4));
+                        view=request.getRequestDispatcher("aboutdefault.jsp");
+                        view.forward(request,response);
+                        break;
+                    case 5:
+                        request.setAttribute("about",aboutCRUD.readAbout(JDBC.getCon(), 5));
+                        view=request.getRequestDispatcher("orgchart.jsp");
+                        view.forward(request,response);
+                        break;
+                    case 6:
+                        request.setAttribute("about",aboutCRUD.readAbout(JDBC.getCon(), 7));
+                        view=request.getRequestDispatcher("aboutdefault.jsp");
+                        view.forward(request,response);
+                        break;
+                    case 7:
+                        response.sendRedirect("cthmteam");
+                        break;
+                    case 8:
+                        request.setAttribute("about",aboutCRUD.readAbout(JDBC.getCon(), 8));
+                        view=request.getRequestDispatcher("aboutdefault.jsp");
+                        view.forward(request,response);
+                        break;
+                    case 9:
+                        request.setAttribute("about",aboutCRUD.readAbout(JDBC.getCon(), 8));
+                        view=request.getRequestDispatcher("aboutdefault.jsp");
+                        view.forward(request,response);
+                        break;
+                    case 10:
+                        request.setAttribute("about",aboutCRUD.readAbout(JDBC.getCon(), 10));
+                        view=request.getRequestDispatcher("location.jsp");
+                        view.forward(request,response);
+                        break;
+
+
+                }
+            }
+            else{  
+                    session.setAttribute("error", "Login first!");
+                    response.sendRedirect("../cms");
             }
         } catch (SQLException ex) {
             Logger.getLogger(aboutcms.class.getName()).log(Level.SEVERE, null, ex);

@@ -203,7 +203,8 @@
                         <h4 class="modal-title" id="myAddNewsModalLabel">Edit News</h4>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <img name="editimg" id="editimg" class="img-responsive" style="margin:0 auto;"  src="">
+                        <form action="editnewsinfo" method="post" enctype = "multipart/form-data">
                             <div class="form-group">
                                 <input name="edittitle" id="edittitle" type="text" class="form-control" placeholder="Title"/>
                             </div>
@@ -216,16 +217,16 @@
                             <div class="form-group">
                                 <textarea name="editcontent" id="editcontent" class="form-control" rows="6" placeholder="Write news here..."></textarea>
                             </div>
+                            <input type="hidden" id="newsid" name="newsid" value="">
                             <div class="form-group">
-                                 <img name="editimg" id="editimg" class="img-responsive" style="margin:0 auto;"  src="">
                                 <label for="exampleInputFile">Image</label>
                                 <input name="file" type="file" id="exampleInputFile">
                             </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                             </div>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save Changes</button>
                     </div>
                 </div>
             </div>

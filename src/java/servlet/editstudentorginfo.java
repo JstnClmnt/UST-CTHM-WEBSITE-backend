@@ -5,12 +5,10 @@
  */
 package servlet;
 
-import bean.Administration;
 import bean.Image;
-import bean.User;
-import helper.AdminCRUD;
+import bean.StudentOrg;
 import helper.ImageCRUD;
-import helper.jdbc.JDBC;
+import helper.StudentOrgCRUD;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -21,28 +19,23 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import helper.jdbc.JDBC;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
-import javax.servlet.http.HttpSession;
-
 /**
  *
  * @author Justine Clemente
  */
-public class editadmininfo extends HttpServlet {
+public class editstudentorginfo extends HttpServlet {
    private boolean isMultipart;
    private String filePath;
    private int maxFileSize = 50 * 1024 *1000;
    private int maxMemSize = 4 * 1024* 10;
    private File file ;
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -52,14 +45,13 @@ public class editadmininfo extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-       
     public void init( ){
       // Get the file location where it would be stored.
       filePath = getServletContext().getInitParameter("file-upload"); 
     }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        isMultipart = ServletFileUpload.isMultipartContent(request);
+       isMultipart = ServletFileUpload.isMultipartContent(request);
         response.setContentType("text/html");
         java.io.PrintWriter out = response.getWriter( );
         if( !isMultipart ) {
@@ -94,9 +86,13 @@ public class editadmininfo extends HttpServlet {
 	
          // Process the uploaded file items
          Iterator i = fileItems.iterator();
-         String fullName="";
-         String position="";
-         int adminID=0;
+         String orgName="";
+         String orgAbout="";
+         String orgObjectives="";
+         String orgOffices="";
+         String orgPhone="";
+         String orgActivities="";
+         int orgID=0;
          String fileName="";
          String fieldName;
          fileName=""; 
@@ -109,14 +105,26 @@ public class editadmininfo extends HttpServlet {
             System.out.println(fi.getFieldName());
             if(fi.isFormField()){
                  if(fi.getFieldName().equals("editname")){
-                     fullName=fi.getString();
+                     orgName=fi.getString();
                  }
-                 else if(fi.getFieldName().equals("editpos")){
-                     position=fi.getString();
+                 else if(fi.getFieldName().equals("editabout")){
+                     orgAbout=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("editobj")){
+                     orgObjectives=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("editoffices")){
+                     orgOffices=fi.getString();
+                 }                 
+                 else if(fi.getFieldName().equals("editphone")){
+                     orgPhone=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("editactivities")){
+                     orgActivities=fi.getString();
                  }
                  else
                  {
-                     adminID=Integer.parseInt(fi.getString());
+                     orgID=Integer.parseInt(fi.getString());
                  }
              }
             else{
@@ -129,7 +137,7 @@ public class editadmininfo extends HttpServlet {
                System.out.println(fileName);
                 if(sizeInBytes!=0){
                     System.out.println("With Image");
-                    System.out.println(adminID);
+                    System.out.println(orgID);
                     // Write the file
                      if( fileName.lastIndexOf("\\") >= 0 ) {
                         file = new File( filePath + fileName.substring( fileName.lastIndexOf("\\"))) ;
@@ -137,8 +145,9 @@ public class editadmininfo extends HttpServlet {
                         file = new File( filePath + fileName.substring(fileName.lastIndexOf("\\")+1)) ;
                      }
                      fi.write( file ) ;
-                     Administration oldadmin=AdminCRUD.readAdministration(JDBC.getCon(), adminID);
-                     File oldFile=new File(oldadmin.getImage().getImgFilePath());
+                     StudentOrg oldorg=StudentOrgCRUD.readStudentOrg(JDBC.getCon(), orgID);
+                     File oldFile=new File(oldorg.getImage().getImgFilePath());
+                     ImageCRUD.deleteImage(JDBC.getCon(), oldorg.getImage().getImageId());
                      if(oldFile.delete()){
                          System.out.println("Delete Image Success");
                      }
@@ -146,23 +155,20 @@ public class editadmininfo extends HttpServlet {
                      image=new Image(file.getAbsolutePath(),fileName);
                      int imgId=ImageCRUD.createImage(JDBC.getCon(), image);
                      image.setImageId(imgId);
-                     Administration administration=new Administration(adminID,fullName,position,image);
-                     AdminCRUD.editAdmin(JDBC.getCon(), administration);
+                     StudentOrg newOrg=new StudentOrg(orgID, orgName, orgAbout, orgObjectives, orgOffices, orgPhone, orgActivities,image);
+                     StudentOrgCRUD.editStudentOrg(JDBC.getCon(), newOrg);
                }
                 else{
                     System.out.println("No Image");
-                    System.out.println(fullName);
-                    System.out.println(position);
-                    System.out.println(adminID);
-                    Administration administration=new Administration(adminID,fullName,position,null);
-                    AdminCRUD.editAdminNoImage(JDBC.getCon(), administration);
+                    StudentOrg newOrg=new StudentOrg(orgID, orgName, orgAbout, orgObjectives, orgOffices, orgPhone, orgActivities);
+                    StudentOrgCRUD.editStudentOrgNoImage(JDBC.getCon(), newOrg);
                 
                 }
 
             }                    
             
          }  
-                    RequestDispatcher view=request.getRequestDispatcher("cthmteam");
+                    RequestDispatcher view=request.getRequestDispatcher("studentcms");
                     view.forward(request,response);
                     return;
 

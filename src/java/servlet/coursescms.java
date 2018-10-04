@@ -45,12 +45,7 @@ public class coursescms extends HttpServlet {
             int major_id=Integer.parseInt(request.getParameter("major_id"));
             HttpSession session=request.getSession();
             User logged=(User)session.getAttribute("user");
-            if(logged==null){
-                session.setAttribute("error","You must login first");
-                response.sendRedirect("../cms");
-                return;
-            }
-            else{
+            if(logged!=null){
                 try {
                     Course course=CourseCRUD.readCourses(JDBC.getCon(), course_id, major_id);
                     request.setAttribute("course",course);
@@ -59,6 +54,10 @@ public class coursescms extends HttpServlet {
                 } catch (SQLException ex) {
                     Logger.getLogger(courses.class.getName()).log(Level.SEVERE, null, ex);
                 }
+            }
+            else{
+                session.setAttribute("error","You must login first");
+                response.sendRedirect("../cms");
             }
         }
     }

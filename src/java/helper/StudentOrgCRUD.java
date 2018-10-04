@@ -66,5 +66,34 @@ public class StudentOrgCRUD {
                 }
         }
     }
+    
+    public static int editStudentOrg(Connection con,StudentOrg studentorg) throws SQLException{
+        try (PreparedStatement stmt = con.prepareStatement("UPDATE STUDENT_ORG SET org_name=?,org_about=?,org_objectives=?,org_offices=?,org_phone=?,org_activities=?,img_id=? WHERE org_id=?;")) {
+            stmt.setString(1, studentorg.getOrgName());
+            stmt.setString(2, studentorg.getOrgAbout());
+            stmt.setString(3, studentorg.getOrgObjectives());
+            stmt.setString(4, studentorg.getOrgOffices());
+            stmt.setString(5, studentorg.getOrgPhone());
+            stmt.setString(6, studentorg.getOrgActivities());
+            stmt.setInt(7, studentorg.getImage().getImageId());
+            stmt.setInt(8, studentorg.getOrgID());
+            stmt.executeUpdate();
+            return 1;  
+        }
+    }
+        public static int editStudentOrgNoImage(Connection con,StudentOrg studentorg) throws SQLException{
+        try (PreparedStatement stmt = con.prepareStatement("UPDATE STUDENT_ORG SET org_name=?,org_about=?,org_objectives=?,org_offices=?,org_phone=?,org_activities=? WHERE org_id=?;")) {
+            stmt.setString(1, studentorg.getOrgName());
+            stmt.setString(2, studentorg.getOrgAbout());
+            stmt.setString(3, studentorg.getOrgObjectives());
+            stmt.setString(4, studentorg.getOrgOffices());
+            stmt.setString(5, studentorg.getOrgPhone());
+            stmt.setString(6, studentorg.getOrgActivities());
+            stmt.setInt(7, studentorg.getOrgID());
+            System.out.println(stmt.toString());
+            stmt.executeUpdate();
+            return 1;  
+        }
+    }
 }
 

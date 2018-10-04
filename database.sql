@@ -1,3 +1,4 @@
+
 CREATE DATABASE cthmwebsite;
 USE cthmwebsite;
 CREATE TABLE USER(
@@ -425,7 +426,6 @@ CREATE TABLE NEWS(
     PRIMARY KEY(news_id),
     FOREIGN KEY(img_id) REFERENCES IMAGE(img_id)
 );
-SELECT news_id,published_date,news_title,news_author,news_description FROM NEWS WHERE MONTH(published_date)=10;
 INSERT INTO	NEWS(published_date,news_title,news_author,news_description,img_id) VALUES('2018-09-26','This is a sample headline','John Doe','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius vulputate mi, eu aliquam felis dictum eget. Vestibulum convallis nisl sit amet consequat dapibus. Vestibulum a nisi et erat pellentesque egestas. Aenean mi enim, rhoncus eu nibh id, posuere varius ante. Sed non erat vel libero molestie dapibus. Proin nisi leo, fringilla sollicitudin arcu non, hendrerit placerat diam. Etiam rutrum ligula non massa elementum varius. In ut libero euismod, tristique sapien gravida, dapibus arcu. Vivamus nec aliquam enim. Etiam vel augue vitae massa sodales luctus et eu lectus. Proin et maximus felis. Morbi rutrum eros a pulvinar ultricies. Quisque feugiat nisi sed tortor vehicula, a facilisis turpis elementum. Nunc placerat ac sapien ac volutpat. Suspendisse nisi nibh, efficitur ac tortor id, facilisis venenatis arcu. ',3);
 CREATE TABLE ANNOUNCEMENTS(
 	announcement_id int not null auto_increment,

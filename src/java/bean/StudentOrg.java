@@ -32,6 +32,15 @@ public class StudentOrg {
         this.orgPhone = orgPhone;
         this.orgActivities = orgActivities;
         this.image = image;
+    }   
+    public StudentOrg(int orgID, String orgName, String orgAbout, String orgObjectives, String orgOffices, String orgPhone, String orgActivities) {
+        this.orgID = orgID;
+        this.orgName = orgName;
+        this.orgAbout = orgAbout;
+        this.orgObjectives = orgObjectives;
+        this.orgOffices = orgOffices;
+        this.orgPhone = orgPhone;
+        this.orgActivities = orgActivities;
     }    
     public JsonObject getJSON() {
         JsonObject json = new JsonObject();

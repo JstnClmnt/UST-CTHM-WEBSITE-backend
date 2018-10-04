@@ -73,5 +73,31 @@ public class NewsCRUD {
                 }
             }
         }
-    }  
+    }
+    
+    public static int editNewsNoImage(Connection con, News news) throws SQLException{
+        try (PreparedStatement stmt = con.prepareStatement("UPDATE News SET published_date=?,news_title=?,news_author=?,news_description=? WHERE news_id=?;")) {
+            stmt.setString(1, news.getPublishedDate());
+            stmt.setString(2, news.getNewsTitle());
+            stmt.setString(3, news.getNewsAuthor());
+            stmt.setString(4, news.getNewsDescription());
+            stmt.setInt(5, news.getNewsID());
+            
+            stmt.executeUpdate();
+            return 1;  
+        }
+    }
+    
+    public static int editNews(Connection con, News news) throws SQLException{
+        try (PreparedStatement stmt = con.prepareStatement("UPDATE News SET published_date=?,news_title=?,news_author=?,news_description=?,img_id=? WHERE news_id=?;")) {
+            stmt.setString(1, news.getPublishedDate());
+            stmt.setString(2, news.getNewsTitle());
+            stmt.setString(3, news.getNewsAuthor());
+            stmt.setString(4, news.getNewsDescription());
+            stmt.setInt(5, news.getImage().getImageId());
+            stmt.setInt(6, news.getNewsID());
+            stmt.executeUpdate();
+            return 1;  
+        }
+    }
 }

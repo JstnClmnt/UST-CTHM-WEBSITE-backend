@@ -151,7 +151,7 @@
                                     <td>${fn:substring(student.orgActivities, 0, 50)}</td>
                                     <td>${student.image.description}</td>
                                     <td><button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#editOrgModal" onclick="editStudentOrg(${student.orgID})">Edit</button></td>
-                                    <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteOrgModal">Delete</button></td>
+                                    <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteOrgModal" onclick="deleteStudentOrg(${student.orgID})">Delete</button></td>
                                 </tr>
                                 </c:forEach>
                             </tbody>
@@ -213,7 +213,9 @@
                         <h4 class="modal-title" id="myEditOrgModalLabel">Edit Organization</h4>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <img name="editimg" id="editimg" class="img-responsive" style="margin:0 auto;"  src="">
+                        <br>
+                        <form action="editstudentorginfo" method="post" enctype = "multipart/form-data">
                             <div class="form-group">
                                 <input name="editname" id="editname" type="text" class="form-control" placeholder="Name"/>
                             </div>
@@ -232,16 +234,16 @@
                             <div class="form-group">
                                 <textarea name="editactivities" id="editactivities" class="form-control" placeholder="Activities"></textarea>
                             </div>
+                            <input type="hidden" id="orgid" name="orgid" value="">
                             <div class="form-group">
-                                <img name="editimg" id="editimg" class="img-responsive" style="margin:0 auto;"  src="">
                                 <label for="exampleInputFile">Image</label>
-                                <input type="file" id="exampleInputFile">
+                                <input name="file" type="file" id="exampleInputFile">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
                             </div>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save Changes</button>
                     </div>
                 </div>
             </div>
@@ -258,8 +260,10 @@
                         Are you sure you want to delete this organization?
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger">Yes</button>
+                        <form>
+                        <button type="submit" id="deleteorg" name="deleteorg" class="btn btn-danger">Yes</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                        </form>
                     </div>
                 </div>
             </div>

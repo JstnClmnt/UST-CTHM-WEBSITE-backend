@@ -44,6 +44,7 @@ function editStudentOrg(studentorgID){
             },
             success: function (responseText) {
                 var x=JSON.parse(responseText.replace(/\uFFFD/g, ''));
+                document.getElementById("orgid").value=x.orgID;
                 document.getElementById("editname").value=x.orgName;
                 document.getElementById("editabout").value=x.orgAbout;
                 document.getElementById("editobj").value=x.orgObjectives;
@@ -54,6 +55,10 @@ function editStudentOrg(studentorgID){
             }
         });
     
+}
+
+function deleteStudentOrg(studentOrgID){
+    document.getElementById("deleteorg").value=studentOrgID;
 }
 
 function editNews(newsID){
@@ -71,6 +76,7 @@ function editNews(newsID){
                 document.getElementById("editcontent").value=x.newsDescription;
                 document.getElementById("editdate").value=x.publishedDate;
                 document.getElementById("editimg").src="../ImageServlet?imgId="+x.imageID;
+                document.getElementById("newsid").value=x.newsID;
             }
         });
     
