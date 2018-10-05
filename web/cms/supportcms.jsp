@@ -92,7 +92,7 @@
                     <a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-fw fa-users"></i>  STAKEHOLDERS <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-3" class="collapse">
                         <li><a href="studentcms"><i class="fa fa-angle-double-right"></i> Students</a></li>
-                        <li><a href="alumni.html"><i class="fa fa-angle-double-right"></i> Alumni</a></li>
+                        <li><a href="alumnicms"><i class="fa fa-angle-double-right"></i> Alumni</a></li>
                         <li><a href="industry.html"><i class="fa fa-angle-double-right"></i> Industry</a></li>
                     </ul>
                 </li>  

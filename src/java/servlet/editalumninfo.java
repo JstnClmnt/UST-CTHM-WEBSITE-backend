@@ -5,10 +5,11 @@
  */
 package servlet;
 
+import bean.AlumniProfile;
 import bean.Image;
-import bean.StudentOrg;
+import helper.AlumniProfileCRUD;
 import helper.ImageCRUD;
-import helper.StudentOrgCRUD;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -26,11 +27,12 @@ import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpSession;
 /**
  *
  * @author Justine Clemente
  */
-public class editstudentorginfo extends HttpServlet {
+public class editalumninfo extends HttpServlet {
    private boolean isMultipart;
    private String filePath;
    private int maxFileSize = 50 * 1024 *1000;
@@ -45,7 +47,7 @@ public class editstudentorginfo extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    public void init( ){
+   public void init( ){
       // Get the file location where it would be stored.
       filePath = getServletContext().getInitParameter("file-upload"); 
     }
@@ -86,13 +88,23 @@ public class editstudentorginfo extends HttpServlet {
 	
          // Process the uploaded file items
          Iterator i = fileItems.iterator();
-         String orgName="";
-         String orgAbout="";
-         String orgObjectives="";
-         String orgOffices="";
-         String orgPhone="";
-         String orgActivities="";
-         int orgID=0;
+         String firstName="";
+         String middleName="";
+         String lastName="";
+         String birthdate="";
+         String gender="";
+         String address="";
+         String postalCode="";
+         String contactNumber="";
+         String company="";
+         String work="";
+         String email="";
+         String nationality="";
+         String civilStatus="";
+         int yearGraduated=0;
+         String program="";
+         String major="";
+         int alumniID=0;
          String fileName="";
          String fieldName;
          fileName=""; 
@@ -104,27 +116,57 @@ public class editstudentorginfo extends HttpServlet {
             FileItem fi = (FileItem)i.next();
             System.out.println(fi.getFieldName());
             if(fi.isFormField()){
-                 if(fi.getFieldName().equals("editname")){
-                     orgName=fi.getString();
+                 if(fi.getFieldName().equals("editlastname")){
+                     lastName=fi.getString();
                  }
-                 else if(fi.getFieldName().equals("editabout")){
-                     orgAbout=fi.getString();
+                 else if(fi.getFieldName().equals("editfirstname")){
+                     firstName=fi.getString();
                  }
-                 else if(fi.getFieldName().equals("editobj")){
-                     orgObjectives=fi.getString();
+                 else if(fi.getFieldName().equals("editmiddlename")){
+                     middleName=fi.getString();
                  }
-                 else if(fi.getFieldName().equals("editoffices")){
-                     orgOffices=fi.getString();
+                 else if(fi.getFieldName().equals("editbirthdate")){
+                     birthdate=fi.getString();
                  }                 
-                 else if(fi.getFieldName().equals("editphone")){
-                     orgPhone=fi.getString();
+                 else if(fi.getFieldName().equals("editgender")){
+                     gender=fi.getString();
                  }
-                 else if(fi.getFieldName().equals("editactivities")){
-                     orgActivities=fi.getString();
+                 else if(fi.getFieldName().equals("editaddress")){
+                     address=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("editpostalcode")){
+                     postalCode=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("editnumber")){
+                     contactNumber=fi.getString();
+                 }            
+                 else if(fi.getFieldName().equals("editcompany")){
+                     company=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("editwork")){
+                     work=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("editemail")){
+                     email=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("editnationality")){
+                     nationality=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("editstatus")){
+                     civilStatus=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("edityear")){
+                     yearGraduated=Integer.parseInt(fi.getString());
+                 }
+                 else if(fi.getFieldName().equals("editprogram")){
+                     program=fi.getString();
+                 }                 
+                 else if(fi.getFieldName().equals("editmajor")){
+                     major=fi.getString();
                  }
                  else
                  {
-                     orgID=Integer.parseInt(fi.getString());
+                     alumniID=Integer.parseInt(fi.getString());
                  }
              }
             else{
@@ -137,7 +179,7 @@ public class editstudentorginfo extends HttpServlet {
                System.out.println(fileName);
                 if(sizeInBytes!=0){
                     System.out.println("With Image");
-                    System.out.println(orgID);
+                    System.out.println(alumniID);
                     // Write the file
                      if( fileName.lastIndexOf("\\") >= 0 ) {
                         file = new File( filePath + fileName.substring( fileName.lastIndexOf("\\"))) ;
@@ -145,32 +187,36 @@ public class editstudentorginfo extends HttpServlet {
                         file = new File( filePath + fileName.substring(fileName.lastIndexOf("\\")+1)) ;
                      }
                      fi.write( file ) ;
-                     StudentOrg oldorg=StudentOrgCRUD.readStudentOrg(JDBC.getCon(), orgID);
-                     File oldFile=new File(oldorg.getImage().getImgFilePath());
-                     ImageCRUD.deleteImage(JDBC.getCon(), oldorg.getImage().getImageId());
-                     if(oldFile.delete()){
-                         System.out.println("Delete Image Success");
-                     }
                      System.out.println("img\\"+fileName);
                      image=new Image(file.getAbsolutePath(),fileName);
                      int imgId=ImageCRUD.createImage(JDBC.getCon(), image);
                      image.setImageId(imgId);
-                     StudentOrg newOrg=new StudentOrg(orgID, orgName, orgAbout, orgObjectives, orgOffices, orgPhone, orgActivities,image);
-                     StudentOrgCRUD.editStudentOrg(JDBC.getCon(), newOrg);
+                     AlumniProfile oldalumni=AlumniProfileCRUD.readStudentOrg(JDBC.getCon(), alumniID);
+                     AlumniProfile newAlumni=new AlumniProfile( alumniID, firstName,  middleName, lastName, birthdate, gender,  address,  postalCode,  contactNumber,  company,  work,  email,  nationality,  civilStatus,  yearGraduated,  program, major, image);
+                     AlumniProfileCRUD.editProfile(JDBC.getCon(), newAlumni);
+                     ImageCRUD.deleteImage(JDBC.getCon(), oldalumni.getImage().getImageId());
+                     File oldFile=new File(oldalumni.getImage().getImgFilePath());
+                     if(oldFile.delete()){
+                         System.out.println("Delete Image Success");
+                     }
+                     HttpSession session=request.getSession(true);
+                     newAlumni=AlumniProfileCRUD.readStudentOrg(JDBC.getCon(), alumniID);
+                     session.setAttribute("alumni",newAlumni);
                }
                 else{
                     System.out.println("No Image");
-                    StudentOrg newOrg=new StudentOrg(orgID, orgName, orgAbout, orgObjectives, orgOffices, orgPhone, orgActivities);
-                    StudentOrgCRUD.editStudentOrgNoImage(JDBC.getCon(), newOrg);
+                    AlumniProfile newAlumni=new AlumniProfile( alumniID, firstName,  middleName, lastName, birthdate, gender,  address,  postalCode,  contactNumber,  company,  work,  email,  nationality,  civilStatus,  yearGraduated,  program, major);
+                    AlumniProfileCRUD.editProfileNoImage(JDBC.getCon(), newAlumni);
+                    HttpSession session=request.getSession(true);
+                    newAlumni=AlumniProfileCRUD.readStudentOrg(JDBC.getCon(), alumniID);
+                    session.setAttribute("alumni",newAlumni);
                 
                 }
 
             }                    
             
          }  
-                    RequestDispatcher view=request.getRequestDispatcher("studentcms");
-                    view.forward(request,response);
-                    return;
+                    response.sendRedirect("profile.jsp");
 
          } catch(Exception ex) {
             ex.printStackTrace();

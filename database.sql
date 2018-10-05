@@ -1,4 +1,3 @@
-
 CREATE DATABASE cthmwebsite;
 USE cthmwebsite;
 CREATE TABLE USER(
@@ -21,6 +20,7 @@ INSERT INTO IMAGE(img_filepath,img_description) VALUES('D:\\NetBeans\\USTCTHMWeb
 INSERT INTO IMAGE(img_filepath,img_description) VALUES('D:\\NetBeans\\USTCTHMWebsite\\web\\img\\map.png','Map');
 INSERT INTO IMAGE(img_filepath,img_description) VALUES('D:\\NetBeans\\USTCTHMWebsite\\web\\img\\socc.jpg','socc.jpg');
 INSERT INTO IMAGE(img_filepath,img_description) VALUES('D:\\NetBeans\\USTCTHMWebsite\\web\\img\\main-bldg.jpg','main-bldg.jpg');
+INSERT INTO IMAGE(img_filepath,img_description) VALUES('D:\\NetBeans\\USTCTHMWebsite\\web\\img\\profilePic.png','profilePic.png');
 CREATE TABLE ABOUT(
 	post_id int not null auto_increment,
     title varchar(150) not null,
@@ -450,3 +450,50 @@ CREATE TABLE EVENTS(
 );
 
 INSERT INTO EVENTS(event_date,event_title,event_description) VALUES('2018-01-28','Event 1','Description 1'); 
+
+CREATE TABLE ALUMNI(
+	post_id int not null auto_increment,
+    title varchar(150) not null,
+    description text,
+    img_id integer,
+    PRIMARY KEY(post_id),
+	FOREIGN KEY(img_id) REFERENCES IMAGE(img_id)
+);
+
+INSERT INTO ALUMNI(title,description,img_id) VALUES('Active Alumni Involvement','Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.',4);
+
+CREATE TABLE ALUMNI_HOMECOMING(
+	image_id int not null auto_increment,
+    caption varchar(50),
+    img_id int not null,
+    PRIMARY KEY(image_id),
+    FOREIGN KEY(img_id) REFERENCES IMAGE(img_id)
+);
+
+CREATE TABLE ALUMNI_PROFILE(
+	alumni_id int not null auto_increment,
+    first_name varchar(100) not null,
+    last_name varchar(100) not null,
+    middle_name varchar(50) not null,
+    birthdate datetime not null,
+    gender varchar(15) not null,
+    address varchar(350) not null,
+    postal_code varchar(15) not null,
+    contact_number varchar(50) not null,
+    company varchar(200) not null,
+    work varchar(100) not null,
+	email varchar(50) not null,
+    nationality varchar(50) not null,
+    civil_status varchar(50) not null,
+    year_graduated int not null,
+    program varchar(200) not null,
+    major varchar(150) not null,
+    username varchar(100) not null,
+    password varchar(100) not null,
+    img_id int not null,
+    PRIMARY KEY(alumni_id),
+	FOREIGN KEY(img_id) REFERENCES IMAGE(img_id)
+);
+SELECT * FROM ALUMNI_PROFILE a JOIN IMAGE I ON I.img_id=a.img_id where username='velasco.henry';
+INSERT INTO ALUMNI_PROFILE(first_name,middle_name,last_name,birthdate,gender,address,postal_code,contact_number,company,work,email,nationality,civil_status,year_graduated,program,major,username,password,img_id) 
+VALUES('Henry','Martin','Velasco','1996-02-21','M','42-Wallaby Way, Sydney','1600','091712345679','Sample Company','Sample Work','example@gmail.com','Australian','Single',2015,'BS Information Systems','Business Analytics','velasco.henry','02211996',5);

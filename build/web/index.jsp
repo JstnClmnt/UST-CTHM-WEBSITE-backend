@@ -10,6 +10,7 @@
 <%@page import="bean.Announcements"%>
 <%@page import="bean.News"%>
 <%@page import="bean.Events"%>
+<%@page import="bean.AlumniProfile"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -100,12 +101,18 @@
                         <li class="nav-item">
                             <a class="nav-link" href="studentservices">Support Service</a>
                         </li>
+                        <c:if test="${alumni.firstName!=null}">
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile.jsp">Profile</a>
+                        </li>
+                        </c:if>
                     </ul>
                 </div>
             </nav>
         </div>
 
         <!--ON PAGE LOAD MODAL (ito yung nagpopopup sa homepage)-->
+              <!--ON PAGE LOAD MODAL (ito yung nagpopopup sa homepage)-->
         <div id="myModal" class="modal fade" tabindex="-1" role="dialog" >
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -123,7 +130,7 @@
                                     <button type="button" data-dismiss="modal" class="btn btn-primary btn-block">&nbsp;Guest&nbsp;</button>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="#" class="btn btn-success btn-block">Alumni</a>
+                                    <a href="login.jsp" class="btn btn-success btn-block">Alumni</a>
                                 </div>
                             </div>
                         </center>
