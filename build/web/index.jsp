@@ -9,6 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@page import="bean.Announcements"%>
 <%@page import="bean.News"%>
+<%@page import="bean.Events"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -231,9 +232,104 @@
                                 </div>
                             </nav>
                             <div class="tab-content" id="nav-tabContent">
-                                <div class="tab-pane fade show active" id="nav-jan" role="tabpanel" aria-labelledby="nav-jan-tab">jaaan<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-                                <div class="tab-pane fade" id="nav-feb" role="tabpanel" aria-labelledby="nav-feb-tab">.febbbbb<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-                                <div class="tab-pane fade" id="nav-mar" role="tabpanel" aria-labelledby="nav-mar-tab">marchhhhh...<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                                <div class="tab-pane fade show active" id="nav-jan" role="tabpanel" aria-labelledby="nav-jan-tab">
+                                    <c:forEach items="${jan}" var="event">
+                                        <b>${event.eventDate}</b>-${event.eventTitle}
+                                        <br>
+                                        ${event.eventDescription}
+                                        <br><br>
+                                    </c:forEach>
+                                </div>
+                                <div class="tab-pane fade" id="nav-feb" role="tabpanel" aria-labelledby="nav-feb-tab">
+                                    <c:forEach items="${feb}" var="event">
+                                        <b>${event.eventDate}</b>-${event.eventTitle}
+                                        <br>
+                                        ${event.eventDescription}
+                                        <br><br>
+                                    </c:forEach>
+                                </div>
+                                <div class="tab-pane fade" id="nav-mar" role="tabpanel" aria-labelledby="nav-mar-tab">
+                                    <c:forEach items="${mar}" var="event">
+                                        <b>${event.eventDate}</b>-${event.eventTitle}
+                                        <br>
+                                        ${event.eventDescription}
+                                        <br><br>
+                                    </c:forEach>
+                                </div>
+                                <div class="tab-pane fade" id="nav-apr" role="tabpanel" aria-labelledby="nav-apr-tab">
+                                     <c:forEach items="${apr}" var="event">
+                                        <b>${event.eventDate}</b>-${event.eventTitle}
+                                        <br>
+                                        ${event.eventDescription}
+                                        <br><br>
+                                    </c:forEach>
+                                </div>
+                                <div class="tab-pane fade" id="nav-may" role="tabpanel" aria-labelledby="nav-may-tab">
+                                    <c:forEach items="${may}" var="event">
+                                        <b>${event.eventDate}</b>-${event.eventTitle}
+                                        <br>
+                                        ${event.eventDescription}
+                                        <br><br>
+                                    </c:forEach>
+                                </div>
+                                <div class="tab-pane fade" id="nav-june" role="tabpanel" aria-labelledby="nav-june-tab">
+                                    <c:forEach items="${june}" var="event">
+                                        <b>${event.eventDate}</b>-${event.eventTitle}
+                                        <br>
+                                        ${event.eventDescription}
+                                        <br><br>
+                                    </c:forEach>
+                                
+                                </div>
+                                <div class="tab-pane fade" id="nav-july" role="tabpanel" aria-labelledby="nav-july-tab">
+                                    <c:forEach items="${july}" var="event">
+                                        <b>${event.eventDate}</b>-${event.eventTitle}
+                                        <br>
+                                        ${event.eventDescription}
+                                        <br><br>
+                                    </c:forEach>
+                                </div>
+                                <div class="tab-pane fade" id="nav-aug" role="tabpanel" aria-labelledby="nav-aug-tab">
+                                    <c:forEach items="${aug}" var="event">
+                                        <b>${event.eventDate}</b>-${event.eventTitle}
+                                        <br>
+                                        ${event.eventDescription}
+                                        <br><br>
+                                    </c:forEach>
+                                </div>
+                                <div class="tab-pane fade" id="nav-sept" role="tabpanel" aria-labelledby="nav-sept-tab">
+                                    <c:forEach items="${sept}" var="event">
+                                        <b>${event.eventDate}</b>-${event.eventTitle}
+                                        <br>
+                                        ${event.eventDescription}
+                                        <br><br>
+                                    </c:forEach>
+                                </div>
+                                <div class="tab-pane fade" id="nav-oct" role="tabpanel" aria-labelledby="nav-oct-tab">
+                                     <c:forEach items="${oct}" var="event">
+                                        <b>${event.eventDate}</b>-${event.eventTitle}
+                                        <br>
+                                        ${event.eventDescription}
+                                        <br><br>
+                                    </c:forEach>
+                                </div>
+                                <div class="tab-pane fade" id="nav-nov" role="tabpanel" aria-labelledby="nav-nov-tab">
+                                    <c:forEach items="${nov}" var="event">
+                                        <b>${event.eventDate}</b>-${event.eventTitle}
+                                        <br>
+                                        ${event.eventDescription}
+                                        <br><br>
+                                    </c:forEach>
+                                </div>
+                                <div class="tab-pane fade" id="nav-dec" role="tabpanel" aria-labelledby="nav-dec-tab">
+                                    <c:forEach items="${dec}" var="event">
+                                        <b>${event.eventDate}</b>-${event.eventTitle}
+                                        <br>
+                                        ${event.eventDescription}
+                                        <br><br>
+                                    </c:forEach>
+                                
+                                </div>
                             </div>
                         </div><!--****** ./Events ******-->
                     </div>

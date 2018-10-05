@@ -40,10 +40,10 @@ public class studentcms extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             try {
-                HttpSession session=request.getSession();
+                HttpSession session=request.getSession(false);
                 User user=(User)session.getAttribute("user");
                 /* TODO output your page here. You may use following sample code. */
-                if(user!=null){
+                if(session.getAttribute("user")!=null){
                     request.setAttribute("students", StudentOrgCRUD.listStudentOrg(JDBC.getCon()));
                     RequestDispatcher view=request.getRequestDispatcher("studentscms.jsp");
                     view.forward(request,response);

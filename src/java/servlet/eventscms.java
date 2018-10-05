@@ -5,9 +5,7 @@
  */
 package servlet;
 
-import helper.AnnouncementCRUD;
 import helper.EventsCRUD;
-import helper.NewsCRUD;
 import helper.jdbc.JDBC;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -24,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Justine Clemente
  */
-public class home extends HttpServlet {
+public class eventscms extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,24 +39,11 @@ public class home extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             try {
                 /* TODO output your page here. You may use following sample code. */
-                request.setAttribute("announcements",AnnouncementCRUD.listLatestAnnouncements(JDBC.getCon()));
-                request.setAttribute("news",NewsCRUD.listLatestNews(JDBC.getCon()));
-                request.setAttribute("jan",EventsCRUD.listEvents(JDBC.getCon(), 1));
-                request.setAttribute("feb",EventsCRUD.listEvents(JDBC.getCon(), 2));
-                request.setAttribute("mar",EventsCRUD.listEvents(JDBC.getCon(), 3));
-                request.setAttribute("apr",EventsCRUD.listEvents(JDBC.getCon(), 4));
-                request.setAttribute("may",EventsCRUD.listEvents(JDBC.getCon(), 5));
-                request.setAttribute("june",EventsCRUD.listEvents(JDBC.getCon(), 6));
-                request.setAttribute("july",EventsCRUD.listEvents(JDBC.getCon(), 7));
-                request.setAttribute("aug",EventsCRUD.listEvents(JDBC.getCon(), 8));
-                request.setAttribute("sept",EventsCRUD.listEvents(JDBC.getCon(), 9));
-                request.setAttribute("oct",EventsCRUD.listEvents(JDBC.getCon(), 10));
-                request.setAttribute("nov",EventsCRUD.listEvents(JDBC.getCon(), 11));
-                request.setAttribute("dec",EventsCRUD.listEvents(JDBC.getCon(), 12));
-                RequestDispatcher view=request.getRequestDispatcher("index.jsp");
+                request.setAttribute("events",EventsCRUD.listEvents(JDBC.getCon()));
+                RequestDispatcher view=request.getRequestDispatcher("events.jsp");
                 view.forward(request,response);
             } catch (SQLException ex) {
-                Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(eventscms.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

@@ -16,6 +16,7 @@ CREATE TABLE IMAGE(
     img_description varchar(100),
     PRIMARY KEY(img_id)
 );
+SELECT * FROM IMAGE;	
 INSERT INTO IMAGE(img_filepath,img_description) VALUES('D:\\NetBeans\\USTCTHMWebsite\\web\\img\\orgChart.jpg','Organizational-Chart');
 INSERT INTO IMAGE(img_filepath,img_description) VALUES('D:\\NetBeans\\USTCTHMWebsite\\web\\img\\map.png','Map');
 INSERT INTO IMAGE(img_filepath,img_description) VALUES('D:\\NetBeans\\USTCTHMWebsite\\web\\img\\socc.jpg','socc.jpg');
@@ -437,3 +438,15 @@ CREATE TABLE ANNOUNCEMENTS(
 INSERT INTO ANNOUNCEMENTS(published_date,title,description) VALUES(NOW(),'NOW HIRING','CTHM is hiring for male and female professors.');
 INSERT INTO ANNOUNCEMENTS(published_date,title,description) VALUES(NOW(),'SUSPENSION OF CLASSES','Classes are suspended today 09 May 2018 due to inclement weather');
 INSERT INTO ANNOUNCEMENTS(published_date,title,description) VALUES(NOW(),'T	HIRD TERM ENROLLMENT','Fees for 3rd term are now uploaded to Blackboard.');
+
+
+CREATE TABLE EVENTS(
+	event_id int not null auto_increment,
+    event_date datetime not null,
+    event_title varchar(300) not null,
+    event_description text not null,
+    PRIMARY KEY(event_id)
+
+);
+
+INSERT INTO EVENTS(event_date,event_title,event_description) VALUES('2018-01-28','Event 1','Description 1'); 

@@ -45,7 +45,7 @@
                     <ul id="submenu-0" class="collapse">
                         <li><a href="carouselcms"><i class="fa fa-angle-double-right"></i> Banner</a></li>
                         <li><a href="newscms"><i class="fa fa-angle-double-right"></i> News and Updates</a></li>
-                        <li><a href="calendar.html"><i class="fa fa-angle-double-right"></i> Calendar of Events</a></li>
+                        <li><a href="eventscms"><i class="fa fa-angle-double-right"></i> Calendar of Events</a></li>
                         <li><a href="announcementscms"><i class="fa fa-angle-double-right"></i> Announcements</a></li>
                     </ul>
                 </li>     

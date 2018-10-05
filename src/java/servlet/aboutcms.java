@@ -40,9 +40,8 @@ public class aboutcms extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            HttpSession session=request.getSession();
-            User user=(User)session.getAttribute("user");
-            if(user!=null){
+            HttpSession session=request.getSession(false);
+            if(session.getAttribute("user")!=null){
                 int ch=Integer.parseInt(request.getParameter("aboutId"));
                 RequestDispatcher view=null;
                 switch(ch){

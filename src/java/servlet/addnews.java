@@ -103,6 +103,7 @@ public class addnews extends HttpServlet {
                  }
                  else if(fi.getFieldName().equals("date")){
                      date=fi.getString();
+                     System.out.println(date);
                  }
                  else if(fi.getFieldName().equals("author")){
                      author=fi.getString();

@@ -43,13 +43,13 @@ public class login extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String username=request.getParameter("uname"); 
             String password=request.getParameter("pw"); 
-            HttpSession session=request.getSession();
+            HttpSession session=request.getSession(true);
             User user=new User();
             RequestDispatcher view=request.getRequestDispatcher("cms/login.jsp");
             try {
                 user=loginHelper.loginAuth(username, password);
                 session.setAttribute("user",user);
-                session.setMaxInactiveInterval(1800);
+                session.setMaxInactiveInterval(60*30);
                 response.sendRedirect("cms/carouselcms");
             } catch (WrongPasswordException ex) {
                 request.setAttribute("error", "Wrong Password!");

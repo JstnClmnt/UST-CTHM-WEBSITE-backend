@@ -1,16 +1,16 @@
 <%-- 
-    Document   : announcementscms
-    Created on : Sep 25, 2018, 3:45:11 AM
+    Document   : events
+    Created on : Oct 5, 2018, 10:48:51 AM
     Author     : Justine Clemente
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@page import="bean.Announcements"%>
+<%@page import="bean.Events"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home - Anouncements</title>
+        <title>Home - Calendar of Events</title>
         <!--CSS--><!-- Latest compiled and minified CSS -->
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
         <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -21,7 +21,7 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">
-                        <img class="shs-logo" alt="Brand" src="img\ust-cthm-logo.PNG" height="45px">
+                        <img class="cthm-logo" alt="Brand" src="img\ust-cthm-logo.PNG" height="45px">
                     </a>
                 </div>
             </div>
@@ -35,8 +35,8 @@
 
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse navbar-inverse">
-           
-            <ul class="nav navbar-nav side-nav">
+            
+               <ul class="nav navbar-nav side-nav">
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-0"><i class="fa fa-home"></i> HOME<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-0" class="collapse">
@@ -116,34 +116,34 @@
                 <div class="content-wrap">
                     <div class="col-sm-12" id="content">
                         <div class="title">
-                            <h2 class="heading">Announcements</h2>
+                            <h2 class="heading">Calendar of Events</h2>
                             &emsp;<a href="#">View Page</a>
                         </div>
                         <hr>
                         <div>
                             <form>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAnnouncementModal"><i class="fa fa-plus"></i> &nbsp;Add Announcement</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addEventModal"><i class="fa fa-plus"></i> &nbsp;Add Event</button>
                             </form>
                             <table class="table table-hover">
                                 <thead>
-                                <tr>
-                                    <th>Title</th>
-                                    <th>Date</th>
-                                    <th>Content</th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Title</th>
+                                        <th>Content</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${announcements}" var="announcement">
-                                <tr>
-                                    <td>${announcement.announcement}</td>
-                                    <td>${announcement.publishedDate}</td>
-                                    <td>${announcement.description}</td>
-                                    <td><button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#editAnnouncementModal" onclick="editAnnouncement(${announcement.announcementID})">Edit</button></td>
-                                    <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteAnnouncementModal" onclick="deleteAnnouncement(${announcement.announcementID})">Delete</button></td>
-                                </tr>
-                                </c:forEach>
+                                    <c:forEach items="${events}" var="event">
+                                    <tr>
+                                        <td>${event.eventDate}</td>
+                                        <td>${event.eventTitle}</td>
+                                        <td>${event.eventDescription} </td>
+                                        <td><button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#editEventModal" onclick="editEvents(${event.eventID})">Edit</button></td>
+                                        <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteEventModal" onclick="deleteEvents(${event.eventID})">Delete</button></td>
+                                    </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </div>
@@ -151,27 +151,56 @@
                 </div>
             </div>
             <!-- /.container-fluid -->
-        </div><!-- /#page-wrapper -->
-
-        <!-- Add Announcement Modal -->
-        <div class="modal fade" id="addAnnouncementModal" tabindex="-1" role="dialog" aria-labelledby="addAnnouncementModal">
+        </div>
+        <!-- /#page-wrapper -->
+        <!-- Add Event Modal -->
+        <div class="modal fade" id="addEventModal" tabindex="-1" role="dialog" aria-labelledby="addEventModal">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myAddAnnouncementModalLabel">Add Announcement</h4>
+                        <h4 class="modal-title" id="myAddEventModalLabel">Add Event</h4>
                     </div>
                     <div class="modal-body">
-                        <form action="addannouncements" method="POST">
+                        <form action="addevents" method="POST">
                             <div class="form-group">
-                                <input name="title" type="text" class="form-control" placeholder="Title"/>
+                                <input name="date" id="date" type="date" class="form-control"/>
                             </div>
                             <div class="form-group">
-                                <input name="date" type="date" class="form-control"/>
+                                <input name="title" id="title" type="text" class="form-control" placeholder="Event Title"/>
                             </div>
                             <div class="form-group">
-                                <textarea name="description" class="form-control" rows="6" placeholder="Write announcement here..."></textarea>
+                                <textarea name="description" id="description" class="form-control" rows="6" placeholder="Write event details here..."></textarea>
                             </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div><!-- ./Add Event Modal -->
+        <!-- Edit Event Modal -->
+        <div class="modal fade" id="editEventModal" tabindex="-1" role="dialog" aria-labelledby="editEventModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myEditEventModalLabel">Edit Event</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="editeventsinfo" method="post">
+                            <div class="form-group">
+                                <input name="editdate" id="editdate" type="date" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <input name="edittitle" id="edittitle" type="text" class="form-control" placeholder="Event Title"/>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="editdescription" id="editdescription" class="form-control" rows="6" placeholder="Write event details here..."></textarea>
+                            </div>
+                            <input type="hidden" name="eventid" id="eventid">
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Save Changes</button>
@@ -180,61 +209,32 @@
                     </div>
                 </div>
             </div>
-        </div><!-- ./Add Announcement Modal -->
-        <!-- Edit Announcement Modal -->
-        <div class="modal fade" id="editAnnouncementModal" tabindex="-1" role="dialog" aria-labelledby="editAnnouncementModal">
+        </div><!-- ./Edit News Modal -->
+        <!-- Delete Event Modal -->
+        <div class="modal fade" id="deleteEventModal" tabindex="-1" role="dialog" aria-labelledby="deleteEventModal">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myAddAnnouncementModalLabel">Edit Announcement</h4>
+                        <h4 class="modal-title" id="myAddNewsModalLabel">Delete Event</h4>
                     </div>
                     <div class="modal-body">
-                        <form action="editannouncementinfo" method="POST">
-                            <div class="form-group">
-                                <input id="edittitle" name="edittitle" type="text" class="form-control" placeholder="Title"/>
-                            </div>
-                            <div class="form-group">
-                                <input id="editdate" name="editdate" type="date" class="form-control"/>
-                            </div>
-                            <div class="form-group">
-                                <textarea id="editdescription" name="editdescription" class="form-control" rows="6" placeholder="Write announcement here..."></textarea>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button id="buttonshit" name="buttonshit" type="submit" class="btn btn-primary">Save Changes</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div><!-- ./Edit Announcement Modal -->
-        <!-- Delete Announcement Modal -->
-        <div class="modal fade" id="deleteAnnouncementModal" tabindex="-1" role="dialog" aria-labelledby="deleteAnnouncementModal">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myAddAnnouncementModalLabel">Delete Announcement</h4>
-                    </div>
-                    <div class="modal-body">
-                        Are you sure you want to delete this announcement?
+                        Are you sure you want to delete this event?
                     </div>
                     <div class="modal-footer">
-                        <form action="deleteannouncement" method="POST">
-                        <button type="submit" id="deleteannouncement" name="deleteannouncement" class="btn btn-danger">Yes</button>
+                        <form action="deletevent" method="POST">
+                        <button type="submit" id="deleteeventid" name="deleteeventid" class="btn btn-danger">Yes</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
                         </form>
                     </div>
                 </div>
             </div>
-        </div><!-- ./Delete Announcement Modal -->
+        </div><!-- ./Delete Event Modal -->
     </div><!-- /#wrapper -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
 
     </body>
 </html>

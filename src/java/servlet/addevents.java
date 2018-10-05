@@ -5,16 +5,14 @@
  */
 package servlet;
 
-import helper.AnnouncementCRUD;
+import bean.Events;
 import helper.EventsCRUD;
-import helper.NewsCRUD;
 import helper.jdbc.JDBC;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Justine Clemente
  */
-public class home extends HttpServlet {
+public class addevents extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,27 +37,17 @@ public class home extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            String date=request.getParameter("date");
+            String title=request.getParameter("title");
+            String description=request.getParameter("description");
+            Events event=new Events(title,description,date);
             try {
-                /* TODO output your page here. You may use following sample code. */
-                request.setAttribute("announcements",AnnouncementCRUD.listLatestAnnouncements(JDBC.getCon()));
-                request.setAttribute("news",NewsCRUD.listLatestNews(JDBC.getCon()));
-                request.setAttribute("jan",EventsCRUD.listEvents(JDBC.getCon(), 1));
-                request.setAttribute("feb",EventsCRUD.listEvents(JDBC.getCon(), 2));
-                request.setAttribute("mar",EventsCRUD.listEvents(JDBC.getCon(), 3));
-                request.setAttribute("apr",EventsCRUD.listEvents(JDBC.getCon(), 4));
-                request.setAttribute("may",EventsCRUD.listEvents(JDBC.getCon(), 5));
-                request.setAttribute("june",EventsCRUD.listEvents(JDBC.getCon(), 6));
-                request.setAttribute("july",EventsCRUD.listEvents(JDBC.getCon(), 7));
-                request.setAttribute("aug",EventsCRUD.listEvents(JDBC.getCon(), 8));
-                request.setAttribute("sept",EventsCRUD.listEvents(JDBC.getCon(), 9));
-                request.setAttribute("oct",EventsCRUD.listEvents(JDBC.getCon(), 10));
-                request.setAttribute("nov",EventsCRUD.listEvents(JDBC.getCon(), 11));
-                request.setAttribute("dec",EventsCRUD.listEvents(JDBC.getCon(), 12));
-                RequestDispatcher view=request.getRequestDispatcher("index.jsp");
-                view.forward(request,response);
+                event.setEventID(EventsCRUD.createEvents(JDBC.getCon(), event));
             } catch (SQLException ex) {
-                Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(addevents.class.getName()).log(Level.SEVERE, null, ex);
             }
+            response.sendRedirect("eventscms");
         }
     }
 

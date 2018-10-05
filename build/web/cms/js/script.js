@@ -114,5 +114,26 @@ function deleteAdmin(adminID){
     document.getElementById("deleteadmin").value=adminID;
 }
 
-
+function editEvents(eventID){
+        $.ajax({
+            url: 'editevents',
+            type: "post",
+            cache: false,
+            data: {
+                event_id: eventID
+            },
+            success: function (responseText) {
+                var x=JSON.parse(responseText.replace(/\uFFFD/g, ''));
+                document.getElementById("edittitle").value=x.title;
+                document.getElementById("editdate").value=x.date;
+                document.getElementById("editdescription").value=x.description;
+                document.getElementById("eventid").value=x.eventsID;
+            }
+        });
     
+}
+    
+    
+function deleteEvents(eventID){
+    document.getElementById("deleteeventid").value=eventID;    
+}
