@@ -25,11 +25,13 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <c:if test="${alumni.firstName==null}">
         <script type="text/javascript">
             $(window).on('load',function(){
                 $('#myModal').modal('show');
             });
         </script>
+        </c:if>
     </head>
     <body class="bigger-font" style>
         <!-- The social media icon bar -->
@@ -94,7 +96,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="StakeholdersLink">
                             <a class="dropdown-item" href="students">Students</a>
-                            <a class="dropdown-item" href="alumni.html">Alumni</a>
+                            <a class="dropdown-item" href="alumni">Alumni</a>
                             <a class="dropdown-item" href="industry.html">Industry</a>
                             </div>
                         </li>

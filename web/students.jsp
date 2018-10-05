@@ -80,13 +80,18 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="StakeholdersLink">
                             <a class="dropdown-item" href="students">Students</a>
-                            <a class="dropdown-item" href="alumni.html">Alumni</a>
+                            <a class="dropdown-item" href="alumni">Alumni</a>
                             <a class="dropdown-item" href="industry.html">Industry</a>
                             </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="studentservices">Support Service</a>
                         </li>
+                        <c:if test="${alumni.firstName!=null}">
+                        <li class="nav-item ">
+                            <a class="nav-link active-tab" href="alumniProfile.html">Profile</a>
+                        </li>
+                        </c:if>
                     </ul>
             </div>
         </nav>

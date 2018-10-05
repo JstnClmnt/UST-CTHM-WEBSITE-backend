@@ -5,27 +5,23 @@
  */
 package servlet;
 
-import bean.User;
-import helper.WrongPasswordException;
-import helper.WrongUsernameException;
-import helper.loginHelper;
+import helper.AlumniCRUD;
+import helper.jdbc.JDBC;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 
 /**
  *
  * @author Justine Clemente
  */
-public class login extends HttpServlet {
+public class editalumni extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,25 +37,13 @@ public class login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String username=request.getParameter("uname"); 
-            String password=request.getParameter("pw"); 
-            HttpSession session=request.getSession(true);
-            User user=new User();
-            RequestDispatcher view=request.getRequestDispatcher("cms/login.jsp");
+            String description=request.getParameter("description");
             try {
-                user=loginHelper.loginAuth(username, password);
-                session.setAttribute("user",user);
-                session.setMaxInactiveInterval(60*30);
-                response.sendRedirect("cms/newscms");
-            } catch (WrongPasswordException ex) {
-                request.setAttribute("error", "Wrong Password!");
-                view.forward(request,response);
-            } catch (WrongUsernameException ex) {
-                request.setAttribute("error", "Incorrect Credentials");
-                view.forward(request,response);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+                AlumniCRUD.editAlumni(JDBC.getCon(), 1, description);
+            } catch (SQLException ex) {
+                Logger.getLogger(editalumni.class.getName()).log(Level.SEVERE, null, ex);
             }
+            response.sendRedirect("alumnicms");
         }
     }
 

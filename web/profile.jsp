@@ -49,7 +49,7 @@
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                                        <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active-tab" href="home">
+                            <a class="nav-link dropdown-toggle" href="home">
                                 Home
                             </a>
                         </li>
@@ -100,8 +100,8 @@
                             <a class="nav-link" href="studentservices">Support Service</a>
                         </li>
                         <c:if test="${alumni.firstName!=null}">
-                        <li class="nav-item">
-                            <a class="nav-link" href="alumniProfile.html">Profile</a>
+                        <li class="nav-item ">
+                            <a class="nav-link active-tab" href="alumniProfile.html">Profile</a>
                         </li>
                         </c:if>
                     </ul>

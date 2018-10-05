@@ -1,11 +1,8 @@
-<%-- 
-    Document   : alumni
-    Created on : Aug 12, 2018, 1:08:12 AM
-    Author     : Justine Clemente
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="bean.Alumni"%>
+<%@page import="bean.AlumniHomecoming"%>
+<%@page import="bean.Image"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -63,9 +60,9 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
-<ul class="navbar-nav">
+                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="home">
+                            <a class="nav-link dropdown-toggle " href="home">
                                 Home
                             </a>
                         </li>
@@ -102,19 +99,24 @@
                                 <a class="dropdown-item" href="courses?course_id=2&major_id=4">Hospitality Leadership</a>
                             </div>
                         </li>
-                        <li class="nav-item dropdown active-tab">
-                            <a class="nav-link dropdown-toggle" href="#" id="StakeholdersLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active-tab" href="#" id="StakeholdersLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Stakeholders
                             </a>
                             <div class="dropdown-menu" aria-labelledby="StakeholdersLink">
                             <a class="dropdown-item" href="students">Students</a>
-                            <a class="dropdown-item" href="alumni.html">Alumni</a>
+                            <a class="dropdown-item" href="alumni">Alumni</a>
                             <a class="dropdown-item" href="industry.html">Industry</a>
                             </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="studentservices">Support Service</a>
                         </li>
+                        <c:if test="${alumni.firstName!=null}">
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile.jsp">Profile</a>
+                        </li>
+                        </c:if>
                     </ul>
                 </div>
             </nav>
@@ -173,32 +175,34 @@
                         </div>
                         <div class="col-8">
                             <div class="tab-content" id="nav-tabContent">
-                                <div class="tab-pane fade show active" id="list-news" role="tabpanel" aria-labelledby="list-news-list">
+                             <div class="tab-pane fade show active" id="list-news" role="tabpanel" aria-labelledby="list-news-list">
                                     <div>
                                         <h2 class="Lato alumni-heading"><b>Active Alumni Involvement</b></h2>
                                         <div>
-                                            <img class="news-alumni-img" src="img/home/main-bldg.jpg">
+                                            <img class="news-alumni-img" src="img/main-bldg.jpg">
                                         </div>
                                         <div>
                                             <p class="lato">
-                                                <br>Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.Helvetica Light is an easy to read font, with tall and narrow letters, that works well on almost every site.
+                                                <br>${alumni.description}
                                             </p>
                                         </div>
                                     </div>
                                     
                                 </div>
                                 <div class="tab-pane fade" id="list-alumAss" role="tabpanel" aria-labelledby="list-alumAss-list">
+                                    <h2 class="Lato alumni-heading"><b>Alumni Homecoming</b></h2>
+                                    <c:forEach items="${homecoming}" var="images">
                                     <div>
-                                        <h2 class="Lato alumni-heading"><b>Alumni Homecoming</b></h2>
                                         <div>
-                                            <img class="news-alumni-img" src="img/home/main-bldg.jpg">
+                                            <img class="news-alumni-img" src="ImageServlet?imgId=${images.image.imageId}">
                                         </div>
                                         <div>
                                             <p class="lato text-center">
-                                                Homecoming 2017
+                                                ${images.caption}
                                             </p>
                                         </div>
                                     </div>
+                                    </c:forEach>
                                 </div>
                             </div>
                         </div>

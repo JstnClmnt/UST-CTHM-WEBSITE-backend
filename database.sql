@@ -494,6 +494,5 @@ CREATE TABLE ALUMNI_PROFILE(
     PRIMARY KEY(alumni_id),
 	FOREIGN KEY(img_id) REFERENCES IMAGE(img_id)
 );
-SELECT * FROM ALUMNI_PROFILE a JOIN IMAGE I ON I.img_id=a.img_id where username='velasco.henry';
 INSERT INTO ALUMNI_PROFILE(first_name,middle_name,last_name,birthdate,gender,address,postal_code,contact_number,company,work,email,nationality,civil_status,year_graduated,program,major,username,password,img_id) 
 VALUES('Henry','Martin','Velasco','1996-02-21','M','42-Wallaby Way, Sydney','1600','091712345679','Sample Company','Sample Work','example@gmail.com','Australian','Single',2015,'BS Information Systems','Business Analytics','velasco.henry','02211996',5);

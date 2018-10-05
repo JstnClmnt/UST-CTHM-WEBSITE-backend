@@ -1,21 +1,21 @@
 <%-- 
-    Document   : missionvision
-    Created on : Sep 13, 2018, 3:27:37 AM
+    Document   : alumni
+    Created on : Oct 6, 2018, 5:10:17 AM
     Author     : Justine Clemente
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@page import="bean.About"%>
-<!DOCTYPE html>
+<%@page import="bean.Alumni"%>
+<%@page import="bean.AlumniHomecoming"%>
+<!DOCTYPE HTML>
 <html>
     <head>
-        <title>About Us - Mission & Vision</title>
+        <title>Stakeholders</title>
         <!--CSS--><!-- Latest compiled and minified CSS -->
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
         <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
-
         <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
         <script>tinymce.init({ selector:'textarea' });</script>
     </head>
@@ -24,7 +24,7 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">
-                        <img class="shs-logo" alt="Brand" src="img\ust-cthm-logo.PNG" height="45px">
+                        <img class="cthm-logo" alt="Brand" src="img\ust-cthm-logo.PNG" height="45px">
                     </a>
                 </div>
             </div>
@@ -38,8 +38,7 @@
 
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
         <div class="collapse navbar-collapse navbar-ex1-collapse navbar-inverse">
-           
- <ul class="nav navbar-nav side-nav">
+<ul class="nav navbar-nav side-nav">
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-0"><i class="fa fa-home"></i> HOME<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-0" class="collapse">
@@ -107,7 +106,6 @@
                     </ul>
                 </li>
             </ul>
-
         </div>
         <!-- /.navbar-collapse -->
     </nav>
@@ -122,24 +120,39 @@
             <div class="content-wrap">
                 <div class="col-sm-12" id="content">
                     <div class="title">
-                        <h2 class="heading">Mission & Vision</h2>
+                        <h2 class="heading">Alumni</h2>
                         &emsp;<a href="#">View Page</a>
                     </div>
                     <hr>
+                    <h3>Alumni Involvement</h3>
                     <div>
-                        <h3>Mission</h3>
-                        <form action="editabout?postid=1" method="POST">
-                            <textarea name="description" class="form-control" cols="10" rows="6" placeholder="Enter mission...">${mission.description}</textarea>
-                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <form action="editalumni" method="POST">
+                            <textarea name="description" id="description" class="form-control" cols="10" rows="10" placeholder="Enter awards and recognition...">${alumni.description}</textarea>
+                            <button type="submit" class="btn btn-success">Save Changes</button>
                         </form>
-                    </div>
-                    <br><br>
+                    </div><br>
+                    <hr>
+                    <h3>Alumni Homecoming</h3><br>
                     <div>
-                        <h3>Vision</h3>
-                        <form action="editabout?postid=2" method="POST">
-                            <textarea id="description" class="form-control" cols="10" rows="6" placeholder="Enter vision...">${vision.description}</textarea>
-                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <form>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addHomecomingModal"><i class="fa fa-plus"></i> &nbsp;Add Homecoming Image</button>
                         </form>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>File</th>
+                                    <th>Caption</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach items="${homecoming}" var="hello">
+                                   <tr>
+                                    <td>${hello.image.description}</td>
+                                    <td>${hello.caption}</td>
+                                   </tr> 
+                                </c:forEach>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -147,11 +160,82 @@
         <!-- /.container-fluid -->
     </div>
     <!-- /#page-wrapper -->
+    <!-- Add Homecoming Modal -->
+    <div class="modal fade" id="addHomecomingModal" tabindex="-1" role="dialog" aria-labelledby="addEventModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myAddHomecomingModalLabel">Add Homecoming Image</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="addhomecoming" method="POST" enctype = "multipart/form-data">
+                        <div class="form-group">
+                            <label>Caption</label>
+                            <input name="caption" id="caption" type="text" class="form-control" placeholder="Caption"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Image</label>
+                            <input name="file" type="file"/>
+                        </div><br>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div><!-- ./Add Homecoming Modal -->
+    <!-- Edit Homecoming Modal -->
+    <div class="modal fade" id="editHomecomingModal" tabindex="-1" role="dialog" aria-labelledby="editHomecomingModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myEditHomecomingModalLabel">Edit Homecoming Image</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label>Image</label>
+                            <input type="file"/>
+                        </div><br>
+                        <div class="form-group">
+                            <label>Caption</label>
+                            <input type="text" class="form-control" placeholder="Caption"/>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div><!-- ./Edit Homecoming Modal -->
+    <!-- Delete Homecoming Modal -->
+    <div class="modal fade" id="deleteHomecomingModal" tabindex="-1" role="dialog" aria-labelledby="deleteHomecomingModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myAddNewsModalLabel">Delete Homecoming Image</h4>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this image?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">Yes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div><!-- ./Delete Homecoming Modal -->
 </div><!-- /#wrapper -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="js/cmsabout.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
     </body>
