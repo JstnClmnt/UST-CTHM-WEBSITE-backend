@@ -36,6 +36,10 @@ public class AlumniProfile {
     private String password;
     private Image image;
 
+    @Override
+    public String toString(){
+        return firstName+","+middleName+","+lastName+","+stringToTimeStamp(birthdate)+","+gender+","+address+","+postalCode+","+contactNumber+","+company+","+work+","+email+","+nationality+","+civilStatus+","+yearGraduated+","+program+","+major;
+    }
     public AlumniProfile(int alumniID, String firstName, String middleName, String lastName, String birthdate, String gender, String address, String postalCode, String contactNumber, String company, String work, String email, String nationality, String civilStatus, int yearGraduated, String program, String major, String username, String password, Image image) {
         this.alumniID = alumniID;
         this.firstName = firstName;

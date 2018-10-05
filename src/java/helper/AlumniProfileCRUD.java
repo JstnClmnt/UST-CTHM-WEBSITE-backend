@@ -87,5 +87,29 @@ public class AlumniProfileCRUD {
             return 1;  
         }
     }
-    
+    public static int createProfile(Connection con,AlumniProfile alumni) throws SQLException{
+        try (PreparedStatement stmt = con.prepareStatement("INSERT INTO ALUMNI_PROFILE(first_name,middle_name,last_name,birthdate,gender,address,postal_code,contact_number,company,work,email,nationality,civil_status,year_graduated,program,major,username,password,img_id) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);")) {
+            stmt.setString(1, alumni.getFirstName());
+            stmt.setString(2, alumni.getMiddleName());
+            stmt.setString(3, alumni.getLastName());
+            stmt.setString(4, alumni.getBirthdate());
+            stmt.setString(5, alumni.getGender());
+            stmt.setString(6, alumni.getAddress());
+            stmt.setString(7, alumni.getPostalCode());
+            stmt.setString(8, alumni.getContactNumber());
+            stmt.setString(9, alumni.getCompany());
+            stmt.setString(10, alumni.getWork());
+            stmt.setString(11, alumni.getEmail());
+            stmt.setString(12, alumni.getNationality());
+            stmt.setString(13, alumni.getCivilStatus());
+            stmt.setInt(14, alumni.getYearGraduated());
+            stmt.setString(15, alumni.getProgram());
+            stmt.setString(16, alumni.getMajor());
+            stmt.setString(17, alumni.getUsername());
+            stmt.setString(18, alumni.getPassword());
+            stmt.setInt(19, alumni.getImage().getImageId());
+            stmt.executeUpdate();
+            return 1;  
+        }
+    }
 }
