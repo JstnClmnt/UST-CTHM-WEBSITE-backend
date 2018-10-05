@@ -112,11 +112,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="studentservices">Support Service</a>
                         </li>
-                        <c:if test="${alumni.firstName!=null}">
-                        <li class="nav-item">
-                            <a class="nav-link" href="profile.jsp">Profile</a>
-                        </li>
-                        </c:if>
                     </ul>
                 </div>
             </nav>
