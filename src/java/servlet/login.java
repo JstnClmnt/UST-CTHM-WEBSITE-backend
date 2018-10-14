@@ -50,6 +50,8 @@ public class login extends HttpServlet {
                 user=loginHelper.loginAuth(username, password);
                 session.setAttribute("user",user);
                 session.setMaxInactiveInterval(60*30);
+                request.removeAttribute("error");
+                session.removeAttribute("error");
                 response.sendRedirect("cms/newscms");
             } catch (WrongPasswordException ex) {
                 request.setAttribute("error", "Wrong Password!");

@@ -7,6 +7,7 @@ function editProfile(alumniID){
                 alumniID: alumniID
             },
             success: function (responseText) {
+                alert(responseText);
                 var x=JSON.parse(responseText.replace(/\uFFFD/g, ''));
                 document.getElementById("alumniID").value=x.alumniID;
                 document.getElementById("editfirstname").value=x.firstName;

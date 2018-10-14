@@ -37,6 +37,7 @@ public class editalumniprofile extends HttpServlet {
             throws ServletException, IOException {
         try {
             String id=request.getParameter("alumniID");
+            System.out.println("Hello"+id);
             AlumniProfile alumni=AlumniProfileCRUD.readStudentOrg(JDBC.getCon(), Integer.parseInt(id));
             response.getWriter().print(alumni.getJSON().toString());
         } catch (SQLException ex) {

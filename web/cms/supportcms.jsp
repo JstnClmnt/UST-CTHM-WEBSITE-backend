@@ -101,7 +101,7 @@
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-0A"><i class="fa fa-user-circle"></i> ACCOUNT<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-0A" class="collapse">
-                        <li><a href="changePassword.html"><i class="fa fa-angle-double-right"></i> Change Password</a></li>
+                        <li><a href="changepassword.jsp"><i class="fa fa-angle-double-right"></i> Change Password</a></li>
                         <li><a href="logout"><i class="fa fa-angle-double-right"></i> Log Out</a></li>
                     </ul>
                 </li>

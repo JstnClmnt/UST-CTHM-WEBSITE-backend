@@ -29,7 +29,7 @@
         </script>
     </head>
     <body class="bigger-font">
-        <!-- The social media icon bar -->
+       <!-- The social media icon bar -->
         <div class="icon-bar">
             <a href="#" class="facebook"><i class="fab fa-facebook"></i></a> 
             <a href="#" class="twitter"><i class="fab fa-twitter"></i></a> 
@@ -40,14 +40,16 @@
         <div>
             <img class="header-img img-fluid" src="img/cthm-header-img.png" />
         </div>
-
         <div class="white-bg navcol">
             <nav class="navbar navbar-expand-lg sticky-top lato">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
-                                       <ul class="navbar-nav">
+                <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#mainNavbarCollapse">
+                    &#9776;
+                </button>
+                <div class="collapse navbar-collapse navbar-toggleable-md justify-content-center" id="mainNavbarCollapse">                    
+                    <ul class="nav navbar-nav pull-lg-right">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="home">
                                 Home
@@ -177,7 +179,14 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <img src="ImageServlet?imgId=${alumni.image.imageId}"/>
+                                                    <c:choose>
+                                                        <c:when test="${alumni.image.description!=null}">
+                                                            <img class="card-img-top"  src="ImageServlet?imgId=${alumni.image.imageId}"/>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <img class="card-img-top" src="img/defaultimg.jpg"/>
+                                                        </c:otherwise>
+                                                    </c:choose>
                                                 </td>
                                                 <td></td>
                                             </tr>
@@ -222,6 +231,7 @@
                     <form>
                         <center>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editInfo" onclick="editProfile(${alumni.alumniID})">UPDATE INFORMATION</button>
+                            <a href="logoutalumni"><button type="button" class="btn btn-default">LOG OUT</button></a>
                         </center>
                     </form>
                 </div><!-- inner content -->

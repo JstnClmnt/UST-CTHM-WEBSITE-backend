@@ -41,9 +41,23 @@ public class loginHelper {
         
         return null;
     }
+    public static User changePassword(String username, String password) throws WrongPasswordException,WrongUsernameException, ClassNotFoundException {
+        try (Connection con = JDBC.getCon()) {
+            try (PreparedStatement stmt = con.prepareStatement("UPDATE User SET password=? WHERE username = ?")) {
+                stmt.setString(1, password);
+                stmt.setString(2,username);
+                stmt.executeUpdate();
+            }
+        } catch (SQLException ex) {
+            System.out.println("SQLException caught from helper.login.LoginHelper.changePassword(String username, String password):");
+            System.out.println(ex.getMessage());
+        }
+        
+        return null;
+    }
     public static AlumniProfile loginAuthAlumni(String username, String password) throws WrongPasswordException,WrongUsernameException, ClassNotFoundException {
         try (Connection con = JDBC.getCon()) {
-            try (PreparedStatement stmt = con.prepareStatement("SELECT * FROM ALUMNI_PROFILE a JOIN IMAGE I ON I.img_id=a.img_id where username=?;")) {
+            try (PreparedStatement stmt = con.prepareStatement("SELECT * FROM ALUMNI_PROFILE a LEFT JOIN IMAGE I ON I.img_id=a.img_id where username=?;")) {
                 stmt.setString(1, username);
                 try (ResultSet rs = stmt.executeQuery()) {
                     if (rs.next()) {

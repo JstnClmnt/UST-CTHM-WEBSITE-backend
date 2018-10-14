@@ -490,9 +490,10 @@ CREATE TABLE ALUMNI_PROFILE(
     major varchar(150) not null,
     username varchar(100) not null,
     password varchar(100) not null,
-    img_id int not null,
+    img_id int,
     PRIMARY KEY(alumni_id),
 	FOREIGN KEY(img_id) REFERENCES IMAGE(img_id)
 );
+
 INSERT INTO ALUMNI_PROFILE(first_name,middle_name,last_name,birthdate,gender,address,postal_code,contact_number,company,work,email,nationality,civil_status,year_graduated,program,major,username,password,img_id) 
 VALUES('Henry','Martin','Velasco','1996-02-21','M','42-Wallaby Way, Sydney','1600','091712345679','Sample Company','Sample Work','example@gmail.com','Australian','Single',2015,'BS Information Systems','Business Analytics','velasco.henry','02211996',5);

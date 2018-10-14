@@ -99,7 +99,7 @@
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-0A"><i class="fa fa-user-circle"></i> ACCOUNT<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-0A" class="collapse">
-                        <li><a href="changePassword.html"><i class="fa fa-angle-double-right"></i> Change Password</a></li>
+                        <li><a href="changepassword.jsp"><i class="fa fa-angle-double-right"></i> Change Password</a></li>
                         <li><a href="logout"><i class="fa fa-angle-double-right"></i> Log Out</a></li>
                     </ul>
                 </li>
@@ -122,13 +122,17 @@
                         &emsp;<a href="#">View Page</a>
                     </div>
                     <hr>
-                    <form>
+                    <div>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAlumniModal"><i class="fa fa-plus"></i> &nbsp;Add New Record</button>
-                    </form>
-                    <br>
-                    <form action="downloadcsvAlumni">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> &nbsp;Download Record CSV</button>
-                    </form>
+                        <a href="downloadcsvAlumni"><button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> &nbsp;Download Record CSV</button></a>
+                        <br>
+                        <br>
+                        <form action="importcsv" method="post" enctype = "multipart/form-data">
+                            <input name="file" id="file" type="file" class="custom-file-input" id="profile-pic">
+                            <label class="custom-file-label" for="profile-pic">Choose CSV file</label><br>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> &nbsp;Import CSV</button>
+                        </form>    
+                    </div>
                     <div class="scroll-table">
                         <div>
                             <table class="table table-hover table-responsive">

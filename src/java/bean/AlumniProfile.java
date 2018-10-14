@@ -38,6 +38,7 @@ public class AlumniProfile {
 
     @Override
     public String toString(){
+        address=address.replaceAll(",", "-");
         return firstName+","+middleName+","+lastName+","+stringToTimeStamp(birthdate)+","+gender+","+address+","+postalCode+","+contactNumber+","+company+","+work+","+email+","+nationality+","+civilStatus+","+yearGraduated+","+program+","+major;
     }
     public AlumniProfile(int alumniID, String firstName, String middleName, String lastName, String birthdate, String gender, String address, String postalCode, String contactNumber, String company, String work, String email, String nationality, String civilStatus, int yearGraduated, String program, String major, String username, String password, Image image) {

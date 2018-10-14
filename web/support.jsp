@@ -40,14 +40,16 @@
         <div>
             <img class="header-img img-fluid" src="img/cthm-header-img.png" />
         </div>
-
         <div class="white-bg navcol">
-            <nav class="navbar navbar-expand-lg sticky-top lato bigger-font">
+            <nav class="navbar navbar-expand-lg sticky-top lato">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
+                <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#mainNavbarCollapse">
+                    &#9776;
+                </button>
+                <div class="collapse navbar-collapse navbar-toggleable-md justify-content-center" id="mainNavbarCollapse">                    
+                    <ul class="nav navbar-nav pull-lg-right">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="home">
                                 Home

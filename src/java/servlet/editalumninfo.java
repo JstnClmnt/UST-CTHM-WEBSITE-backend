@@ -195,9 +195,11 @@ public class editalumninfo extends HttpServlet {
                      AlumniProfile newAlumni=new AlumniProfile( alumniID, firstName,  middleName, lastName, birthdate, gender,  address,  postalCode,  contactNumber,  company,  work,  email,  nationality,  civilStatus,  yearGraduated,  program, major, image);
                      AlumniProfileCRUD.editProfile(JDBC.getCon(), newAlumni);
                      ImageCRUD.deleteImage(JDBC.getCon(), oldalumni.getImage().getImageId());
-                     File oldFile=new File(oldalumni.getImage().getImgFilePath());
-                     if(oldFile.delete()){
-                         System.out.println("Delete Image Success");
+                     if(!oldalumni.getImage().equals(null)){
+                        File oldFile=new File(oldalumni.getImage().getImgFilePath());
+                        if(oldFile.delete()){
+                            System.out.println("Delete Image Success");
+                        }
                      }
                      HttpSession session=request.getSession(true);
                      newAlumni=AlumniProfileCRUD.readStudentOrg(JDBC.getCon(), alumniID);

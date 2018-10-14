@@ -1,26 +1,27 @@
 <%-- 
-    Document   : carousel
-    Created on : Sep 8, 2018, 4:52:08 PM
-    Author     : Justine Clemente
+    Document   : changepassword
+    Created on : Oct 15, 2018, 5:34:43 AM
+    Author     : Christian Justine
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
     <head>
-        <title>Home</title>
+        <title>Account</title>
         <!--CSS--><!-- Latest compiled and minified CSS -->
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
         <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+        <script>tinymce.init({ selector:'textarea' });</script>
     </head>
     <body>
         <nav class="navbar navbar-default bar-nav">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">
-                        <img class="shs-logo" alt="Brand" src="img\ust-cthm-logo.PNG" height="45px">
+                        <img class="cthm-logo" alt="Brand" src="img\ust-cthm-logo.PNG" height="45px">
                     </a>
                 </div>
             </div>
@@ -34,12 +35,10 @@
 
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
         <div class="collapse navbar-collapse navbar-ex1-collapse navbar-inverse">
-           
-      <ul class="nav navbar-nav side-nav">
+<ul class="nav navbar-nav side-nav">
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-0"><i class="fa fa-home"></i> HOME<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-0" class="collapse">
-                        <li><a href="carouselcms"><i class="fa fa-angle-double-right"></i> Banner</a></li>
                         <li><a href="newscms"><i class="fa fa-angle-double-right"></i> News and Updates</a></li>
                         <li><a href="eventscms"><i class="fa fa-angle-double-right"></i> Calendar of Events</a></li>
                         <li><a href="announcementscms"><i class="fa fa-angle-double-right"></i> Announcements</a></li>
@@ -89,7 +88,7 @@
                     <a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-fw fa-users"></i>  STAKEHOLDERS <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-3" class="collapse">
                         <li><a href="studentcms"><i class="fa fa-angle-double-right"></i> Students</a></li>
-                        <li><a href="alumni.html"><i class="fa fa-angle-double-right"></i> Alumni</a></li>
+                        <li><a href="alumnicms"><i class="fa fa-angle-double-right"></i> Alumni</a></li>
                         <li><a href="industry.html"><i class="fa fa-angle-double-right"></i> Industry</a></li>
                     </ul>
                 </li>  
@@ -99,7 +98,7 @@
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-0A"><i class="fa fa-user-circle"></i> ACCOUNT<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-0A" class="collapse">
-                        <li><a href="changePassword.html"><i class="fa fa-angle-double-right"></i> Change Password</a></li>
+                        <li><a href="changepassword.jsp"><i class="fa fa-angle-double-right"></i> Change Password</a></li>
                         <li><a href="logout"><i class="fa fa-angle-double-right"></i> Log Out</a></li>
                     </ul>
                 </li>
@@ -118,56 +117,26 @@
             <div class="content-wrap">
                 <div class="col-sm-12" id="content">
                     <div class="title">
-                        <h2 class="heading">Banner</h2>
-                        &emsp;<a href="#">View Page</a>
+                        <h2 class="heading">Change Password</h2>
                     </div>
                     <hr>
                     <div>
-                        <div>
-                            <img src="img/car2.jpg" class="home-img"/>
-                        </div>
-                        <br>
-                        <form>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="well">
-                                            <label for="exampleInputFile">Banner 1</label>
-                                            <input type="file" id="exampleInputFile">
-                                        </div>
+                        <form action="changepassword" method="POST">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="form-group">
+                                        <label>Current Password</label>
+                                        <input name="current" id="current" class="form-control" type="password" placeholder="Enter Current Password" required/>
                                     </div>
-                                    <div class="col-sm-6"></div>
-                                    <div class="col-sm-2">
-                                        &emsp;&nbsp;
-                                        <button type="button" class="btn btn-primary">Save Changes</button>
+                                    <div class="form-group">
+                                        <label>New Password</label>
+                                        <input name="new" id="new" class="form-control" type="password" placeholder="Enter New Password" required/>
                                     </div>
                                 </div>
                             </div>
-                            <br>
+                                                            <button type="submit" class="btn btn-primary">Save Changes</button>
                         </form>
-                        <br><br>
-                        <div>
-                            <img src="img/car2.jpg" class="home-img"/>
-                        </div>
-                        <br>
-                        <form>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="well">
-                                            <label for="exampleInputFile">Banner 1</label>
-                                            <input type="file" id="exampleInputFile">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6"></div>
-                                    <div class="col-sm-2">
-                                        &emsp;&nbsp;
-                                        <button type="button" class="btn btn-primary">Save Changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                        </form>
+                        ${error}
                     </div>
                 </div>
             </div>
