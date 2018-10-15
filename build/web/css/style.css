@@ -141,6 +141,14 @@ body{
     color: #fff;
     font-weight: 500;
 }
+
+/* change navbar background on collapse */
+@media (max-width: 991px) {
+    ul.nav.navbar-nav.pull-lg-right {
+        background-color: rgba(255, 255, 255, 0.692) !important;
+        color:#061C45; /* #1F1F1F;*/
+    }
+  }
 /****** ./Navbar ******/
 
 /****** Footer ************************************/
@@ -178,18 +186,13 @@ body{
 }
 
 .white-bg{ 
-    background-color: rgba(255, 255, 255, 0.692);
+    background-color: rgba(255, 255, 255, 0.692) !important;
     color:#061C45; /* #1F1F1F;*/
 }
 
 .blue-bg{
     background-color: #82C440;
     color: #061C45 !important;
-}
-
-.gradient-bg{
-    background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%);
-    /* background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%); */
 }
 
 .black-bg{
@@ -401,4 +404,8 @@ p{
 .value-bg{
     background-color: rgba(18, 75, 122, 0.144);
     width: 45%;
+}
+
+.bottom-spacer{
+    margin-bottom: 2.5em;
 }

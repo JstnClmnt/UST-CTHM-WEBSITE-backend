@@ -83,7 +83,6 @@ public class AlumniProfileCRUD {
             stmt.setString(16, alumni.getMajor());
             stmt.setInt(17, alumni.getAlumniID());
             stmt.executeUpdate();
-            con.commit();
             return 1;  
         }
     }

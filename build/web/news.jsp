@@ -42,8 +42,8 @@
         <div>
             <img class="header-img img-fluid" src="img/cthm-header-img.png" />
         </div>
-        <div class="white-bg navcol">
-            <nav class="navbar navbar-expand-lg sticky-top lato">
+        <div class="white-bg navcol bottom-spacer">
+            <nav class="navbar navbar-expand-lg lato">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

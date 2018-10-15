@@ -49,7 +49,7 @@ public class login extends HttpServlet {
             try {
                 user=loginHelper.loginAuth(username, password);
                 session.setAttribute("user",user);
-                session.setMaxInactiveInterval(60*30);
+                session.setMaxInactiveInterval(-1);
                 request.removeAttribute("error");
                 session.removeAttribute("error");
                 response.sendRedirect("cms/newscms");

@@ -36,8 +36,8 @@
         <div>
             <img class="header-img img-fluid" src="img/cthm-header-img.png" />
         </div>
-        <div class="white-bg navcol">
-            <nav class="navbar navbar-expand-lg sticky-top lato">
+        <div class="white-bg navcol bottom-spacer">
+            <nav class="navbar navbar-expand-lg lato">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -97,6 +97,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="studentservices">Support Service</a>
                         </li>
+                        <c:if test="${alumni.firstName!=null}">
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile.jsp">Profile</a>
+                        </li>
+                        </c:if>
                     </ul>
                 </div>
             </nav>
@@ -149,9 +154,6 @@
                                 <a class="list-group-item list-group-item-action active" id="list-news-list" data-toggle="list" href="#list-news" role="tab" aria-controls="news"><i class="fas fa-user-graduate"></i>&emsp;Active Alumni Involvement</a>
                                 <a class="list-group-item list-group-item-action" id="list-alumAss-list" data-toggle="list" href="#list-alumAss" role="tab" aria-controls="alumAss"><i class="fas fa-users"></i>&emsp;Alumni Homecoming</a>
                             </div><br><hr><br>
-                            <div>
-                                <button class="btn btn-success btn-block">ALUMNI ONLINE FORM</button>
-                            </div>
                         </div>
                         <div class="col-8">
                             <div class="tab-content" id="nav-tabContent">

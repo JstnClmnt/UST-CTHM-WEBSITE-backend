@@ -40,8 +40,8 @@
         <div>
             <img class="header-img img-fluid" src="img/cthm-header-img.png" />
         </div>
-        <div class="white-bg navcol">
-            <nav class="navbar navbar-expand-lg sticky-top lato">
+        <div class="white-bg navcol bottom-spacer">
+            <nav class="navbar navbar-expand-lg lato">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -94,7 +94,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="StakeholdersLink">
                             <a class="dropdown-item" href="students">Students</a>
-                            <a class="dropdown-item" href="alumni.html">Alumni</a>
+                            <a class="dropdown-item" href="alumni">Alumni</a>
                             <a class="dropdown-item" href="industry.html">Industry</a>
                             </div>
                         </li>
@@ -102,8 +102,8 @@
                             <a class="nav-link" href="studentservices">Support Service</a>
                         </li>
                         <c:if test="${alumni.firstName!=null}">
-                        <li class="nav-item ">
-                            <a class="nav-link active-tab" href="alumniProfile.html">Profile</a>
+                        <li class="nav-item">
+                            <a class="nav-link active-tab" href="profile.jsp">Profile</a>
                         </li>
                         </c:if>
                     </ul>
@@ -249,7 +249,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <img name="editimg" id="editimg" class="img-responsive" style="margin:0 auto;"  src="">
+                <div>
+                <img name="editimg" id="editimg" class="card-img" style="margin:0 auto;"  src="">
+                </div>
                 <br>
                 <form action="editalumninfo" method="post" enctype = "multipart/form-data">
                     <div class="form-group row">

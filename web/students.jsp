@@ -38,8 +38,8 @@
         <div>
             <img class="header-img img-fluid" src="img/cthm-header-img.png" />
         </div>
-        <div class="white-bg navcol">
-            <nav class="navbar navbar-expand-lg sticky-top lato">
+        <div class="white-bg navcol bottom-spacer">
+            <nav class="navbar navbar-expand-lg lato">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -100,14 +100,14 @@
                             <a class="nav-link" href="studentservices">Support Service</a>
                         </li>
                         <c:if test="${alumni.firstName!=null}">
-                        <li class="nav-item ">
-                            <a class="nav-link active-tab" href="alumniProfile.html">Profile</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile.jsp">Profile</a>
                         </li>
                         </c:if>
                     </ul>
             </div>
         </nav>
-
+        </div>
         <div>
             <div>
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

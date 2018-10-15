@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/announcementscms.jsp</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/helper/AdminCRUD.java</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/js/script.js</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/web/WEB-INF/web.xml</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/servlet/editannouncementinfo.java</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/servlet/editnews.java</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/helper/AnnouncementCRUD.java</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/servlet/editabout.java</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/cthmteam.jsp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

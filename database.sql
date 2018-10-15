@@ -114,7 +114,7 @@ INSERT INTO PROGRAM_INFO_CATEGORY(pic_title,icon) VALUES('Program Intended Learn
 INSERT INTO PROGRAM_INFO_CATEGORY(pic_title,icon) VALUES('Career Opportunities','<i class="fas fa-briefcase"></i>&emsp;');
 INSERT INTO PROGRAM_INFO_CATEGORY(pic_title,icon) VALUES('Curriculum','<i class="fas fa-chalkboard"></i>&emsp;');
 INSERT INTO PROGRAM_INFO_CATEGORY(pic_title,icon) VALUES('Student Activities','<i class="fas fa-calendar-alt"></i>&emsp;');
-INSERT INTO PROGRAM_INFO_CATEGORY(pic_title,icon) VALUES('Facilities','<i class="fas fa-flask"></i>&emsp;');
+INSERT INTO PROGRAM_INFO_CATEGORY(pic_title,icon) VALUES('Facilities','<i class="fas fa-toolbox"></i>&emsp;');
 SELECT * FROM ABOUT;
 CREATE TABLE PROGRAM_INFORMATION(
 	program_info_id int not null auto_increment,
@@ -437,7 +437,7 @@ CREATE TABLE ANNOUNCEMENTS(
 );
 INSERT INTO ANNOUNCEMENTS(published_date,title,description) VALUES(NOW(),'NOW HIRING','CTHM is hiring for male and female professors.');
 INSERT INTO ANNOUNCEMENTS(published_date,title,description) VALUES(NOW(),'SUSPENSION OF CLASSES','Classes are suspended today 09 May 2018 due to inclement weather');
-INSERT INTO ANNOUNCEMENTS(published_date,title,description) VALUES(NOW(),'T	HIRD TERM ENROLLMENT','Fees for 3rd term are now uploaded to Blackboard.');
+INSERT INTO ANNOUNCEMENTS(published_date,title,description) VALUES(NOW(),'THIRD TERM ENROLLMENT','Fees for 3rd term are now uploaded to Blackboard.');
 
 
 CREATE TABLE EVENTS(

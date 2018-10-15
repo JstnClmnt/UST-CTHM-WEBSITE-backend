@@ -51,7 +51,7 @@ public class alumnilogin extends HttpServlet {
                 alumni=loginHelper.loginAuthAlumni(username, password);
                 session.setAttribute("alumni",alumni);
                 //System.out.println(alumni.getFirstName());
-                session.setMaxInactiveInterval(60*30);
+                session.setMaxInactiveInterval(-1);
                 response.sendRedirect("home");
             } catch (WrongPasswordException ex) {
                 request.setAttribute("error", "Wrong Password!");
