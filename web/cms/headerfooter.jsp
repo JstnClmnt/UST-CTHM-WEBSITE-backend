@@ -1,16 +1,15 @@
 <%-- 
-    Document   : events
-    Created on : Oct 5, 2018, 10:48:51 AM
-    Author     : Justine Clemente
+    Document   : headerfooter
+    Created on : Oct 18, 2018, 2:25:40 AM
+    Author     : Christian Justine
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@page import="bean.Events"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home - Calendar of Events</title>
+        <title>Home - Header & Footer</title>
         <!--CSS--><!-- Latest compiled and minified CSS -->
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
         <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -29,13 +28,13 @@
         <div id="throbber" style="display:none; min-height:120px;"></div>
         <div id="noty-holder"></div>
         <div id="wrapper">
-        <!-- Navigation -->
-        <nav class="navbar" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
 
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse navbar-inverse">
-           <ul class="nav navbar-nav side-nav">
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse navbar-inverse">
+<ul class="nav navbar-nav side-nav">
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-0"><i class="fa fa-home"></i> HOME<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-0" class="collapse">
@@ -105,136 +104,73 @@
                 </li>
                 
             </ul>
-
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
-
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <!-- Page Heading -->
-                <div class="row" id="main" >
-                    
-                </div>
-                <!-- /.row -->
-                <div class="content-wrap">
-                    <div class="col-sm-12" id="content">
-                        <div class="title">
-                            <h2 class="heading">Calendar of Events</h2>
-                            &emsp;<a href="#">View Page</a>
-                        </div>
-                        <hr>
-                        <div>
-                            <form>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addEventModal"><i class="fa fa-plus"></i> &nbsp;Add Event</button>
-                            </form>
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Title</th>
-                                        <th>Content</th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach items="${events}" var="event">
-                                    <tr>
-                                        <td>${event.eventDate}</td>
-                                        <td>${event.eventTitle}</td>
-                                        <td>${event.eventDescription} </td>
-                                        <td><button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#editEventModal" onclick="editEvents(${event.eventID})">Edit</button></td>
-                                        <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteEventModal" onclick="deleteEvents(${event.eventID})">Delete</button></td>
-                                    </tr>
-                                    </c:forEach>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /.container-fluid -->
         </div>
-        <!-- /#page-wrapper -->
-        <!-- Add Event Modal -->
-        <div class="modal fade" id="addEventModal" tabindex="-1" role="dialog" aria-labelledby="addEventModal">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myAddEventModalLabel">Add Event</h4>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="row" id="main" >
+                
+            </div>
+            <!-- /.row -->
+            <div class="content-wrap">
+                <div class="col-sm-12" id="content">
+                    <div class="title">
+                        <h2 class="heading">Header & Footer</h2>
+                        &emsp;<a href="#">View Changes</a>
                     </div>
-                    <div class="modal-body">
-                        <form action="addevents" method="POST">
-                            <div class="form-group">
-                                <input name="date" id="date" type="date" class="form-control"/>
-                            </div>
-                            <div class="form-group">
-                                <input name="title" id="title" type="text" class="form-control" placeholder="Event Title"/>
-                            </div>
-                            <div class="form-group">
-                                <textarea name="description" id="description" class="form-control" rows="6" placeholder="Write event details here..."></textarea>
-                            </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                    <hr>
+                    <div>
+                        <h3>Header</h3><br>
+                        <div>
+                            <img class="header" src="img/cthm-header-img.png" class="home-img"/>
                         </div>
+                        <br>
+                        <form>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="well">
+                                            <input type="file" id="exampleInputFile">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6"></div>
+                                    <div class="col-sm-2">
+                                        &emsp;&nbsp;
+                                        <button type="button" class="btn btn-primary">Save Changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <br>
+                        <h3>Footer</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="contact">Contact</label>
+                                <textarea class="form-control" id="contact" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <textarea class="form-control" id="address" rows="3"></textarea>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-10"></div>
+                                <div class="col-sm-2">
+                                    &emsp;&nbsp;
+                                    <button type="button" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
-        </div><!-- ./Add Event Modal -->
-        <!-- Edit Event Modal -->
-        <div class="modal fade" id="editEventModal" tabindex="-1" role="dialog" aria-labelledby="editEventModal">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myEditEventModalLabel">Edit Event</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form action="editeventsinfo" method="post">
-                            <div class="form-group">
-                                <input name="editdate" id="editdate" type="date" class="form-control"/>
-                            </div>
-                            <div class="form-group">
-                                <input name="edittitle" id="edittitle" type="text" class="form-control" placeholder="Event Title"/>
-                            </div>
-                            <div class="form-group">
-                                <textarea name="editdescription" id="editdescription" class="form-control" rows="6" placeholder="Write event details here..."></textarea>
-                            </div>
-                            <input type="hidden" name="eventid" id="eventid">
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save Changes</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div><!-- ./Edit News Modal -->
-        <!-- Delete Event Modal -->
-        <div class="modal fade" id="deleteEventModal" tabindex="-1" role="dialog" aria-labelledby="deleteEventModal">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myAddNewsModalLabel">Delete Event</h4>
-                    </div>
-                    <div class="modal-body">
-                        Are you sure you want to delete this event?
-                    </div>
-                    <div class="modal-footer">
-                        <form action="deletevent" method="POST">
-                        <button type="submit" id="deleteeventid" name="deleteeventid" class="btn btn-danger">Yes</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div><!-- ./Delete Event Modal -->
-    </div><!-- /#wrapper -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
+</div><!-- /#wrapper -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>

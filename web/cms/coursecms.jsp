@@ -47,6 +47,7 @@
                         <li><a href="newscms"><i class="fa fa-angle-double-right"></i> News and Updates</a></li>
                         <li><a href="eventscms"><i class="fa fa-angle-double-right"></i> Calendar of Events</a></li>
                         <li><a href="announcementscms"><i class="fa fa-angle-double-right"></i> Announcements</a></li>
+                        <li><a href="headerfooter.jsp"><i class="fa fa-angle-double-right"></i> Header & Footer</a></li>
                     </ul>
                 </li>     
                 <li>
@@ -107,6 +108,7 @@
                         <li><a href="logout"><i class="fa fa-angle-double-right"></i> Log Out</a></li>
                     </ul>
                 </li>
+                
             </ul>
 
         </div>
@@ -127,22 +129,92 @@
                         &emsp;<a href="#">View Page</a>
                     </div>
                     <hr>
+                    <div class="sticky">
+                        <ol class="breadcrumb">
+                            <c:forEach items="${course.courseinfo}" var="category">
+                            <li><a href="#${category.categoryID}">${category.title}</a></li>
+                            </c:forEach>
+                        </ol>
+                    </div>
                     <div>
                         <c:forEach items="${course.courseinfo}" var="category">
                             <form action="editcourses" method="POST">
-                                <h3>${category.title}</h3>
+                                <h3 id="${category.categoryID}">${category.title}</h3>
                                 <textarea class="form-control" name="${category.categoryID}description" cols="10" rows="10" placeholder="Enter introduction...">${category.description}</textarea>
                                 <button type="submit" class="btn btn-primary">Save Changes</button>
                                 <input type="hidden" value="${course.major.majorID},${category.categoryID},${course.courseID}" name="buttonvar">
                             </form>
                         </c:forEach>
                     </div>
+                    <br>
+                    <h4>Images</h4>
+                    <form>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addImageModal"><i class="fa fa-plus"></i> &nbsp;Add New Image</button>&emsp;
+                    </form> 
+                    <table class="table table-hover table-responsive">
+                            <thead>
+                            <tr>
+                            <th>File Name</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>sample-image.jpg</td>
+                            <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteImageModal">Delete</button></td>
+                        </tr>
+                    </tbody>
+                    </table>
                 </div>
+                        
             </div>
         </div>
         <!-- /.container-fluid -->
     </div>
     <!-- /#page-wrapper -->
+     <!-- Add Image Modal -->
+        <div class="modal fade" id="addImageModal" tabindex="-1" role="dialog" aria-labelledby="addImageModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myAddImageModalLabel">Add New Image</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <div class="well">
+                                    <label>Image</label>
+                                    <input type="file" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div><!-- ./Add Image Modal -->
+    <!-- Delete image Modal -->
+        <div class="modal fade" id="deleteImageModal" tabindex="-1" role="dialog" aria-labelledby="deleteImageModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myAddImageModalLabel">Delete Image</h4>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete this image?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger">Yes</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div><!-- ./Delete image Modal -->
 </div><!-- /#wrapper -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
