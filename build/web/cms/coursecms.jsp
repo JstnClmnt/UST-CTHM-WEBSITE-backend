@@ -47,7 +47,7 @@
                         <li><a href="newscms"><i class="fa fa-angle-double-right"></i> News and Updates</a></li>
                         <li><a href="eventscms"><i class="fa fa-angle-double-right"></i> Calendar of Events</a></li>
                         <li><a href="announcementscms"><i class="fa fa-angle-double-right"></i> Announcements</a></li>
-                        <li><a href="headerfooter.jsp"><i class="fa fa-angle-double-right"></i> Header & Footer</a></li>
+                        <li><a href="headerfootercms"><i class="fa fa-angle-double-right"></i> Header & Footer</a></li>
                     </ul>
                 </li>     
                 <li>
@@ -147,7 +147,7 @@
                         </c:forEach>
                     </div>
                     <br>
-                    <h4>Images</h4>
+                    <h4>Images Facilities</h4>
                     <form>
                         <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addImageModal"><i class="fa fa-plus"></i> &nbsp;Add New Image</button>&emsp;
                     </form> 

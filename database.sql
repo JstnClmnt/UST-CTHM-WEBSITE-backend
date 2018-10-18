@@ -21,6 +21,7 @@ INSERT INTO IMAGE(img_filepath,img_description) VALUES('D:\\NetBeans\\USTCTHMWeb
 INSERT INTO IMAGE(img_filepath,img_description) VALUES('D:\\NetBeans\\USTCTHMWebsite\\web\\img\\socc.jpg','socc.jpg');
 INSERT INTO IMAGE(img_filepath,img_description) VALUES('D:\\NetBeans\\USTCTHMWebsite\\web\\img\\main-bldg.jpg','main-bldg.jpg');
 INSERT INTO IMAGE(img_filepath,img_description) VALUES('D:\\NetBeans\\USTCTHMWebsite\\web\\img\\profilePic.png','profilePic.png');
+INSERT INTO IMAGE(img_filepath,img_description) VALUES('D:\\NetBeans\\USTCTHMWebsite\\web\\img\\cthm-header-img.png','cthm-header-img.png');
 CREATE TABLE ABOUT(
 	post_id int not null auto_increment,
     title varchar(150) not null,
@@ -73,7 +74,7 @@ INSERT INTO ABOUT(icon,title,description) VALUES('<i class="fas fa-users"></i>&e
 
 INSERT INTO ABOUT(icon,title,description) VALUES('<i class="fas fa-trophy"></i>&emsp;','Awards and Recognition','The FAQ title can be adjusted in the settings tab of the App Settings. You can also remove the title by unchecking its checkbox To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.in the settings tab.');
 INSERT INTO ABOUT(icon,title,description) VALUES('<i class="fas fa-toolbox"></i>&emsp;','Facilities','To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.');
-INSERT INTO ABOUT(icon,title,description) VALUES('<i class="fas fa-map-marker-alt"></i>&emsp;','Linkages','To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.');
+INSERT INTO ABOUT(icon,title,description) VALUES('<i class="fas fa-link"></i>&emsp;','Linkages','To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.To add a new question go to app settings and press "Manage Questions" button.');
 INSERT INTO ABOUT(icon,title,description,img_id) VALUES('<i class="fas fa-map-marker-alt"></i>&emsp;','Location Map and Contact Details','                                                <b>Office Address</b><br>
                                                 Office of the Dean<br>
                                                 Ground Floor, Albertus Magnus Building<br>
@@ -497,3 +498,20 @@ CREATE TABLE ALUMNI_PROFILE(
 
 INSERT INTO ALUMNI_PROFILE(first_name,middle_name,last_name,birthdate,gender,address,postal_code,contact_number,company,work,email,nationality,civil_status,year_graduated,program,major,username,password,img_id) 
 VALUES('Henry','Martin','Velasco','1996-02-21','M','42-Wallaby Way, Sydney','1600','091712345679','Sample Company','Sample Work','example@gmail.com','Australian','Single',2015,'BS Information Systems','Business Analytics','velasco.henry','02211996',5);
+
+CREATE TABLE HEADER(
+	header_id int not null auto_increment,
+    img_id int not null,
+    PRIMARY KEY(header_id),
+    FOREIGN KEY(img_id) REFERENCES IMAGE(img_id)
+);
+INSERT INTO HEADER(img_id) VALUES(6);
+CREATE TABLE FOOTER(
+	footer_id int not null auto_increment,
+    title varchar(250) not null,
+    description text not null,
+    PRIMARY KEY(footer_id)
+);
+
+INSERT INTO FOOTER(title,description) VALUES('Contact Us','<h4><b>Contact Us</b></h4><p>Telephone:<br>+63-2-406-1611 loc. 4488</p>');
+INSERT INTO FOOTER(title,description) VALUES('Address','<p>Office of the Dean<br> G/F, Albertus Magnus Building<br>University of Santo Tomas<br>España Boulevard, Sampaloc, Manila 1008</p>');

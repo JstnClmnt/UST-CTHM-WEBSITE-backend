@@ -7,6 +7,8 @@
             <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/orgchart.jsp</file>
             <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/events.jsp</file>
             <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/aboutdefault.jsp</file>
+            <file>file:/D:/NetBeans/USTCTHMWebsite/web/industry.jsp</file>
+            <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/headerfooter.jsp</file>
             <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/changepassword.jsp</file>
             <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/cthmteam.jsp</file>
             <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/announcementscms.jsp</file>
@@ -15,8 +17,8 @@
             <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/newsupdates.jsp</file>
             <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/supportcms.jsp</file>
             <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/alumni.jsp</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/alumniProfile.jsp</file>
             <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/coursecms.jsp</file>
+            <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/alumniProfile.jsp</file>
             <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/studentscms.jsp</file>
         </group>
     </open-files>

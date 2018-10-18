@@ -37,7 +37,7 @@
             <a href="#" class="youtube"><i class="fab fa-youtube"></i></a> 
         </div>
         <div>
-            <img class="header-img img-fluid" src="img/cthm-header-img.png" />
+            <img class="header-img img-fluid" src="ImageServlet?imgId=${headerimage.image.imageId}" />
         </div>
         <div class="white-bg navcol bottom-spacer">
             <nav class="navbar navbar-expand-lg lato">
@@ -198,137 +198,21 @@
                                 </div>
                             </div>
                         </div><!-- ./list grp -->
-                        <!-- <div id="accordion" class="lato">
-                            <div class="card">
-                                <div class="card-header" id="headingOne">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse" data-target="#missionVision" aria-expanded="true" aria-controls="missionVision">
-                                            <b>Mission and Vision</b>
-                                        </button>
-                                    </h5>
-                                </div>
-
-                                <div id="missionVision" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                                    <div class="card-body">
-                                        <b>Mission</b><br>
-                                        We commit ourselves in the formation of top-notch competent, committed, and compassionate Thomasian Tourism and Hospitality professionals for the service of the
-                                        Church, the nation, and the global community<br><br>
-                                        <b>Vision</b><br>
-                                        We envision a premiere College of Tourism and Hospitality Management in the country
-                                        recognized for its outstanding programs, producing world-class professionals
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="headingTwo">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#history" aria-expanded="false" aria-controls="history">
-                                            <b>History</b>
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div id="history" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                    <div class="card-body">
-                                        The idea of forming an Institution was conceived by the Tourism and HRM Departments during late 1990’s with the strong support and unwavering efforts of the College of Education. The need for establishing an Institute was realized by two departments because of the fast-paced changes and growth of the industry that greatly influenced the tourism and hospitality education. Likewise, by merging the two programs, student would be able to specialize and dedicate themselves in enhancing their knowledge and skills that would respond to the needs of the industry. Series of departmental meetings and brainstorming were conducted with the vision of forming a new academic unit in the University. The idea was presented to the Tourism and HRM Faculty until such time thatthe College of Education decided to merge the programs by having one Department In its initial stage, the Tourism and HRM Departments were temporarily relocated at the College of Education’s Mini-hotel in the year 2002. This was considered as the dry run to assess the viability of separating the departments from College of Education. Three years later, a formal proposal for institutionalization was submitted to the Academic Council. A thorough procedure that included meetings, deliberation and election were carried out. April 28, 2006 marked the establishment of the Tourism and HRM Departments as an Institution. Upon the approval of the College of Regents dated November 19, 2008; by the Academic Senate dated December 16, 2008; and the Board of Trustees dated January 20, 2009, the institute of Tourism and Hospitality Management was finally converted in to the College of Tourism and Hospitality Management. In 2015, both programs of the CTHM (Hotel and Restaurant Management and Travel Management) received the coveted Center of Excellence distinction from the Commission on Higher Education.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="headingThree">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#program" aria-expanded="false" aria-controls="program">
-                                            <b>Program Educational Objectives</b>
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div id="program" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                    <div class="card-body">
-                                        <b>A few years after graduation, the graduates of the College of Tourism and Hospitality of the University of Santo Tomas are expected to:</b><br><br>
-                                        <ol>
-                                            <li>Employ a solid understanding and the need for continuous upgrading of the managerial and operational competencies of tourism and hospitality through reflective practice consistent with the global standards and Christian values;</li>
-                                            <li>Assess industry-academe trends and issues to generate research undertakings in tourism and hospitality through the basis of specific standards and criteria within personal, professional, societal, and ethical context;</li>
-                                            <li>Practice effective interpersonal and communication skills through collaboration, use of information technology and respect for cultural diversity; and</li>
-                                            <li>Exhibit Christian leadership promoting life advocacies through project implementation for social and economic transformation.</li>
-                                        </ol>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="headingThree">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#orgChart" aria-expanded="false" aria-controls="orgChart">
-                                        Collapsible Group Item #3
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div id="orgChart" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                    <div class="card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="headingThree">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#awards" aria-expanded="false" aria-controls="awards">
-                                        Collapsible Group Item #3
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div id="awards" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                    <div class="card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="headingThree">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#cthmTeam" aria-expanded="false" aria-controls="cthmTeam">
-                                        Collapsible Group Item #3
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div id="cthmTeam" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                    <div class="card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="headingThree">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#facilities" aria-expanded="false" aria-controls="facilities">
-                                        Collapsible Group Item #3
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div id="facilities" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                    <div class="card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>./accordion -->
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Footer -->
-        <footer class="container-fluid green-bg">
+        <footer class="container-fluid blue-bg">
             <div class="row footer-text-wrap">
                 <div class="col-sm-6 footer-left lato white-text">
-                    <h4><b>Contact Us</b></h4>
-                    <p>Telephone:<br>+63-2-406-1611 loc. 4488</p>
+                    <h4><b>${contact.title}</b></h4>
+                    ${contact.description}
                 </div>
                 <div class="col-sm-6 footer-right lato white-text">
-                    <h4><b>Address</b></h4>
-                    <p>Office of the Dean<br>
-                        G/F, Albertus Magnus Building<br>
-                        University of Santo Tomas<br>
-                        España Boulevard, Sampaloc, Manila 1008
-                    </p>
+                    <h4><b>${address.title}</b></h4>
+                    ${address.description}
                 </div>
             </div><br>
         </footer>

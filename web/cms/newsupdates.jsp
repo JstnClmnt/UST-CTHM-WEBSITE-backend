@@ -41,7 +41,7 @@
                         <li><a href="newscms"><i class="fa fa-angle-double-right"></i> News and Updates</a></li>
                         <li><a href="eventscms"><i class="fa fa-angle-double-right"></i> Calendar of Events</a></li>
                         <li><a href="announcementscms"><i class="fa fa-angle-double-right"></i> Announcements</a></li>
-                        <li><a href="headerfooter.jsp"><i class="fa fa-angle-double-right"></i> Header & Footer</a></li>
+                        <li><a href="headerfootercms"><i class="fa fa-angle-double-right"></i> Header & Footer</a></li>
                     </ul>
                 </li>     
                 <li>

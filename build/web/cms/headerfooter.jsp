@@ -6,6 +6,9 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="bean.Header"%>
+<%@page import="bean.Footer"%>
+<%@page import="bean.Image"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,6 +17,8 @@
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
         <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+        <script>tinymce.init({ selector:'textarea' });</script>
     </head>
     <body>
         <nav class="navbar navbar-default bar-nav">
@@ -41,7 +46,7 @@
                         <li><a href="newscms"><i class="fa fa-angle-double-right"></i> News and Updates</a></li>
                         <li><a href="eventscms"><i class="fa fa-angle-double-right"></i> Calendar of Events</a></li>
                         <li><a href="announcementscms"><i class="fa fa-angle-double-right"></i> Announcements</a></li>
-                        <li><a href="headerfooter.jsp"><i class="fa fa-angle-double-right"></i> Header & Footer</a></li>
+                        <li><a href="headerfootercms"><i class="fa fa-angle-double-right"></i> Header & Footer</a></li>
                     </ul>
                 </li>     
                 <li>
@@ -125,44 +130,44 @@
                     <div>
                         <h3>Header</h3><br>
                         <div>
-                            <img class="header" src="img/cthm-header-img.png" class="home-img"/>
+                            <img class="header" src="../ImageServlet?imgId=${sample.image.imageId}" class="home-img"/>
                         </div>
                         <br>
-                        <form>
+                        <form action="editheader" method="POST" enctype = "multipart/form-data">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <div class="well">
-                                            <input type="file" id="exampleInputFile">
+                                            <label for="exampleInputFile">Location Image</label>
+                                            <input type="file" name="file" id="exampleInputFile">
                                         </div>
                                     </div>
                                     <div class="col-sm-6"></div>
                                     <div class="col-sm-2">
                                         &emsp;&nbsp;
-                                        <button type="button" class="btn btn-primary">Save Changes</button>
+                                        <button type="submit" class="btn btn-primary">Save Changes</button>
                                     </div>
                                 </div>
                             </div>
                         </form>
                         <br>
                         <h3>Footer</h3>
-                        <form>
+                            <c:forEach items="${footers}" var="footer">
+                            <form action="editfooter" method="post">
                             <div class="form-group">
-                                <label for="contact">Contact</label>
-                                <textarea class="form-control" id="contact" rows="3"></textarea>
+                                <label for="contact">${footer.title}</label>
+                                <textarea class="form-control" id="description" name="description" rows="3">${footer.description}</textarea>
                             </div>
-                            <div class="form-group">
-                                <label for="address">Address</label>
-                                <textarea class="form-control" id="address" rows="3"></textarea>
-                            </div>
+                            <input type="hidden" value="${footer.footerID}" name="buttonvar">
                             <div class="row">
                                 <div class="col-sm-10"></div>
                                 <div class="col-sm-2">
                                     &emsp;&nbsp;
-                                    <button type="button" class="btn btn-primary">Save Changes</button>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
                                 </div>
                             </div>
-                        </form>
+                            </form>
+                            </c:forEach>
                     </div>
                 </div>
             </div>

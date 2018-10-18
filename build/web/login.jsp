@@ -36,7 +36,7 @@
             <a href="#" class="youtube"><i class="fab fa-youtube"></i></a> 
         </div>
         <div>
-            <img class="header-img img-fluid" src="img/cthm-header-img.png" />
+            <img class="header-img img-fluid" src="ImageServlet?imgId=${headerimage.image.imageId}" />
         </div>
 
         <div class="white-bg navcol">
@@ -101,7 +101,7 @@
                         <br><br>
                         <form action="alumnilogin" method="POST">
                             <div class="form-group row">
-                                <label for="Email" class="col-sm-2 col-form-label">Email</label>
+                                <label for="Email" class="col-sm-2 col-form-label">Username</label>
                                 <div class="col-sm-10">
                                     <input name="username" id="username" type="text" class="form-control" id="Email" placeholder="lastname.firstname">
                                 </div>
@@ -126,16 +126,12 @@
         <footer class="container-fluid blue-bg">
             <div class="row footer-text-wrap">
                 <div class="col-sm-6 footer-left lato white-text">
-                    <h4><b>Contact Us</b></h4>
-                    <p>Telephone:<br>+63-2-406-1611 loc. 4488</p>
+                    <h4><b>${contact.title}</b></h4>
+                    ${contact.description}
                 </div>
                 <div class="col-sm-6 footer-right lato white-text">
-                    <h4><b>Address</b></h4>
-                    <p>Office of the Dean<br>
-                        G/F, Albertus Magnus Building<br>
-                        University of Santo Tomas<br>
-                        España Boulevard, Sampaloc, Manila 1008
-                    </p>
+                    <h4><b>${address.title}</b></h4>
+                    ${address.description}
                 </div>
             </div><br>
         </footer>

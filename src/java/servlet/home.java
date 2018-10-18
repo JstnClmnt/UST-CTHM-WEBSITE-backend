@@ -7,6 +7,8 @@ package servlet;
 
 import helper.AnnouncementCRUD;
 import helper.EventsCRUD;
+import helper.FooterCRUD;
+import helper.HeaderCRUD;
 import helper.NewsCRUD;
 import helper.jdbc.JDBC;
 import java.io.IOException;
@@ -19,6 +21,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -40,6 +43,7 @@ public class home extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             try {
+                HttpSession session=request.getSession();
                 /* TODO output your page here. You may use following sample code. */
                 request.setAttribute("announcements",AnnouncementCRUD.listLatestAnnouncements(JDBC.getCon()));
                 request.setAttribute("news",NewsCRUD.listLatestNews(JDBC.getCon()));
@@ -55,6 +59,9 @@ public class home extends HttpServlet {
                 request.setAttribute("oct",EventsCRUD.listEvents(JDBC.getCon(), 10));
                 request.setAttribute("nov",EventsCRUD.listEvents(JDBC.getCon(), 11));
                 request.setAttribute("dec",EventsCRUD.listEvents(JDBC.getCon(), 12));
+                session.setAttribute("contact",FooterCRUD.readFooter(JDBC.getCon(), 1));
+                session.setAttribute("address",FooterCRUD.readFooter(JDBC.getCon(), 2));
+                session.setAttribute("headerimage",HeaderCRUD.readHeader(JDBC.getCon(), 1));
                 RequestDispatcher view=request.getRequestDispatcher("index.jsp");
                 view.forward(request,response);
             } catch (SQLException ex) {

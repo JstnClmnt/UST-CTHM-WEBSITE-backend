@@ -47,7 +47,7 @@ public class addhomecoming extends HttpServlet {
     }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-   isMultipart = ServletFileUpload.isMultipartContent(request);
+    isMultipart = ServletFileUpload.isMultipartContent(request);
         response.setContentType("text/html");
         java.io.PrintWriter out = response.getWriter( );
         if( !isMultipart ) {
