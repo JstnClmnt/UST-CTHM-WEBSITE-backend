@@ -51,7 +51,7 @@
                 <div class="collapse navbar-collapse navbar-toggleable-md justify-content-center" id="mainNavbarCollapse">                    
                     <ul class="nav navbar-nav pull-lg-right">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="home">
+                            <a class="nav-link dropdown-toggle active-tab" href="home">
                                 Home
                             </a>
                         </li>
@@ -95,10 +95,10 @@
                             <div class="dropdown-menu" aria-labelledby="StakeholdersLink">
                             <a class="dropdown-item" href="students">Students</a>
                             <a class="dropdown-item" href="alumni">Alumni</a>
-                            <a class="dropdown-item" href="industry.html">Industry</a>
+                            <a class="dropdown-item" href="industry.jsp">Industry</a>
                             </div>
                         </li>
-                        <li class="nav-item active-tab">
+                        <li class="nav-item">
                             <a class="nav-link" href="studentservices">Support Service</a>
                         </li>
                         <c:if test="${alumni.firstName!=null}">

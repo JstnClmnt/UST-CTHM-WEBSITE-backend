@@ -50,19 +50,27 @@
                 <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#mainNavbarCollapse">
                     &#9776;
                 </button>
-                <div class="collapse navbar-collapse navbar-toggleable-md justify-content-center" id="mainNavbarCollapse">                    
-                    <ul class="nav navbar-nav pull-lg-right">
+                <div class="collapse navbar-collapse navbar-toggleable-md justify-content-center" id="mainNavbarCollapse">                                        <ul class="nav navbar-nav pull-lg-right">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="home">
+                            <a class="nav-link dropdown-toggle active-tab" href="home">
                                 Home
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about">About Us</a>
                         </li>
-                        <li class="nav-item active-tab">
+                        <li class="nav-item">
                             <a class="nav-link" href="news">News</a>
                         </li>
+                        <!-- <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="news" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                News
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="HomeLink">
+                                <a class="dropdown-item" href="news.html">News and Updates</a>
+                                <a class="dropdown-item" href="events.html">Events</a>
+                            </div>
+                        </li> -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="TourMgmtLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Tourism Management
@@ -88,7 +96,7 @@
                             <div class="dropdown-menu" aria-labelledby="StakeholdersLink">
                             <a class="dropdown-item" href="students">Students</a>
                             <a class="dropdown-item" href="alumni">Alumni</a>
-                            <a class="dropdown-item" href="industry.html">Industry</a>
+                            <a class="dropdown-item" href="industry.jsp">Industry</a>
                             </div>
                         </li>
                         <li class="nav-item">

@@ -102,7 +102,7 @@
                             <div class="dropdown-menu" aria-labelledby="StakeholdersLink">
                             <a class="dropdown-item" href="students">Students</a>
                             <a class="dropdown-item" href="alumni">Alumni</a>
-                            <a class="dropdown-item" href="industry.html">Industry</a>
+                            <a class="dropdown-item" href="industry.jsp">Industry</a>
                             </div>
                         </li>
                         <li class="nav-item">

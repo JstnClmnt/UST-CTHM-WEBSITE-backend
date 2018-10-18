@@ -41,7 +41,7 @@ public class alumni extends HttpServlet {
             try {
                 /* TODO output your page here. You may use following sample code. */
                 Alumni alumni=AlumniCRUD.readAlumni(JDBC.getCon(),1);
-                request.setAttribute("alumni",alumni);
+                request.setAttribute("alumnae",alumni);
                 request.setAttribute("homecoming",AlumniCRUD.listAbout(JDBC.getCon()));
             } catch (SQLException ex) {
                 Logger.getLogger(alumnicms.class.getName()).log(Level.SEVERE, null, ex);

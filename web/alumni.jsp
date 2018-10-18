@@ -2,6 +2,7 @@
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="bean.Alumni"%>
 <%@page import="bean.AlumniHomecoming"%>
+<%@page import="bean.AlumniProfile"%>
 <%@page import="bean.Image"%>
 <!DOCTYPE html>
 <html>
@@ -91,7 +92,7 @@
                             <div class="dropdown-menu" aria-labelledby="StakeholdersLink">
                             <a class="dropdown-item" href="students">Students</a>
                             <a class="dropdown-item" href="alumni">Alumni</a>
-                            <a class="dropdown-item" href="industry.html">Industry</a>
+                            <a class="dropdown-item" href="industry.jsp">Industry</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -165,7 +166,7 @@
                                         </div>
                                         <div>
                                             <p class="lato">
-                                                <br>${alumni.description}
+                                                <br>${alumnae.description}
                                             </p>
                                         </div>
                                     </div>
