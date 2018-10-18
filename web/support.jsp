@@ -51,7 +51,7 @@
                 <div class="collapse navbar-collapse navbar-toggleable-md justify-content-center" id="mainNavbarCollapse">                    
                     <ul class="nav navbar-nav pull-lg-right">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active-tab" href="home">
+                            <a class="nav-link dropdown-toggle " href="home">
                                 Home
                             </a>
                         </li>
@@ -61,15 +61,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="news">News</a>
                         </li>
-                        <!-- <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="news" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                News
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="HomeLink">
-                                <a class="dropdown-item" href="news.html">News and Updates</a>
-                                <a class="dropdown-item" href="events.html">Events</a>
-                            </div>
-                        </li> -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="TourMgmtLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Tourism Management
@@ -99,7 +90,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="studentservices">Support Service</a>
+                            <a class="nav-link active-tab" href="studentservices">Support Service</a>
                         </li>
                         <c:if test="${alumni.firstName!=null}">
                         <li class="nav-item">

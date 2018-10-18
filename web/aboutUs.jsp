@@ -15,8 +15,12 @@
         <title>UST-CTHM | About Us</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -27,7 +31,7 @@
             });
         </script>
     </head>
-    <body>
+    <body class="bigger-font" style>
           <!-- The social media icon bar -->
         <div class="icon-bar">
             <a href="#" class="facebook"><i class="fab fa-facebook"></i></a> 
@@ -39,7 +43,7 @@
         <div>
             <img class="header-img img-fluid" src="ImageServlet?imgId=${headerimage.image.imageId}" />
         </div>
-        <div class="white-bg navcol bottom-spacer">
+    <div class="white-bg navcol bottom-spacer">
             <nav class="navbar navbar-expand-lg lato">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -47,10 +51,9 @@
                 <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#mainNavbarCollapse">
                     &#9776;
                 </button>
-                <div class="collapse navbar-collapse navbar-toggleable-md justify-content-center" id="mainNavbarCollapse">                    
-                    <ul class="nav navbar-nav pull-lg-right">
+                <div class="collapse navbar-collapse navbar-toggleable-md justify-content-center" id="mainNavbarCollapse">                                        <ul class="nav navbar-nav pull-lg-right">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="home">
+                            <a class="nav-link dropdown-toggle " href="home">
                                 Home
                             </a>
                         </li>
@@ -58,17 +61,8 @@
                             <a class="nav-link active-tab" href="about">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="news">News</a>
+                            <a class="nav-link " href="news">News</a>
                         </li>
-                        <!-- <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="news" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                News
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="HomeLink">
-                                <a class="dropdown-item" href="news.html">News and Updates</a>
-                                <a class="dropdown-item" href="events.html">Events</a>
-                            </div>
-                        </li> -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="TourMgmtLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Tourism Management
@@ -106,9 +100,9 @@
                         </li>
                         </c:if>
                     </ul>
-            </div>
-        </nav>
-
+                </div>
+            </nav>
+        </div>
         <div>
             <img src="img/aboutUs/aboutus.png" class="aboutUsHeader">
             <div class="content-wrap">

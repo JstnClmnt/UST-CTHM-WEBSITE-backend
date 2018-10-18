@@ -14,8 +14,12 @@
         <title>UST CTHM | Students</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -26,7 +30,7 @@
             });
         </script>
     </head>
-    <body>
+    <body class="bigger-font" style>
         <!-- The social media icon bar -->
         <div class="icon-bar">
             <a href="#" class="facebook"><i class="fab fa-facebook"></i></a> 
@@ -49,7 +53,7 @@
                 <div class="collapse navbar-collapse navbar-toggleable-md justify-content-center" id="mainNavbarCollapse">                    
                      <ul class="nav navbar-nav pull-lg-right">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active-tab" href="home">
+                            <a class="nav-link dropdown-toggle " href="home">
                                 Home
                             </a>
                         </li>
@@ -87,7 +91,7 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="StakeholdersLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle active-tab" href="#" id="StakeholdersLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Stakeholders
                             </a>
                             <div class="dropdown-menu" aria-labelledby="StakeholdersLink">

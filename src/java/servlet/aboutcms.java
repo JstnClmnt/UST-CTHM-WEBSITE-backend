@@ -86,7 +86,7 @@ public class aboutcms extends HttpServlet {
                         view.forward(request,response);
                         break;
                     case 9:
-                        request.setAttribute("about",aboutCRUD.readAbout(JDBC.getCon(), 8));
+                        request.setAttribute("about",aboutCRUD.readAbout(JDBC.getCon(), 9));
                         view=request.getRequestDispatcher("aboutdefault.jsp");
                         view.forward(request,response);
                         break;
