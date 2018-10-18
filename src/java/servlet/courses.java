@@ -8,6 +8,7 @@ package servlet;
 import bean.Course;
 import bean.User;
 import helper.CourseCRUD;
+import helper.FacilityImageCRUD;
 import helper.jdbc.JDBC;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -45,6 +46,7 @@ public class courses extends HttpServlet {
             try {
                 Course course=CourseCRUD.readCourses(JDBC.getCon(), course_id, major_id);
                 request.setAttribute("course",course);
+                request.setAttribute("facilitiesimage",FacilityImageCRUD.listFacilityImage(JDBC.getCon(), major_id));
                 RequestDispatcher view=request.getRequestDispatcher("courses.jsp");
                 view.forward(request,response);
             } catch (SQLException ex) {

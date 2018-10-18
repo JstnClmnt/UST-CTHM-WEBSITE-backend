@@ -122,7 +122,7 @@
             <div class="content-wrap">
                 <div class="col-sm-12" id="content">
                     <div class="title">
-                        <h2 class="heading">Student Welfare and Development</h2>
+                        <h2 class="heading">List of Student Organizations</h2>
                         &emsp;<a href="#">View Page</a>
                     </div>
                     <hr>

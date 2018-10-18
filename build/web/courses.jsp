@@ -63,15 +63,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="news">News</a>
                         </li>
-                        <!-- <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="news" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                News
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="HomeLink">
-                                <a class="dropdown-item" href="news.html">News and Updates</a>
-                                <a class="dropdown-item" href="events.html">Events</a>
-                            </div>
-                        </li> -->
                         <c:choose>
                             <c:when test="${course.courseID<=1}">
                                 <li class="nav-item dropdown active-tab">
@@ -202,6 +193,58 @@
                                         <c:when test="${loop.first}">
                                             <div class="tab-pane fade show active" id="list-${category.title}" role="tabpanel" aria-labelledby="list-${category.title}-list">
                                                 <h2 class="lato alumni-heading"><b>${category.title}</b></h2><br>
+                                                <p>
+                                                ${category.description}
+                                                </p>
+                                            </div>
+                                        </c:when>
+                                        <c:when test="${category.title=='Facilities'}">
+                                            <div class="tab-pane fade show" id="list-${category.title}" role="tabpanel" aria-labelledby="list-${category.title}-list">
+                                            <h2 class="lato alumni-heading"><b>${category.title}</b></h2><br><br>
+                                            <div>
+                                                <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+                                                    <ol class="carousel-indicators">
+                                                        <c:set var="count" value="0" scope="page" />
+                                                        <c:forEach items="${facilitiesimage}" varStatus="loop" var="facimage">
+                                                            <c:choose>
+                                                            <c:when test="${loop.first}">
+                                                                <li data-target="#carouselIndicators" data-slide-to="${count}" class="active"></li>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <li data-target="#carouselIndicators" data-slide-to="${count}"></li>
+                                                            </c:otherwise>
+                                                            </c:choose>
+                                                            <c:set var="count" value="${count + 1}" scope="page"/>
+                                                        </c:forEach>
+                                                    </ol>
+                                                    <div class="carousel-inner">
+                                                        <c:forEach items="${facilitiesimage}" varStatus="loop" var="facimage">
+                                                            <c:choose>
+                                                            <c:when test="${loop.first}">
+                                                            <div class="carousel-item active">
+                                                                <img class="d-block w-100 img-fluid" src="ImageServlet?imgId=${facimage.image.imageId}" alt="First slide">
+                                                            </div>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <div class="carousel-item">
+                                                                    <img class="d-block w-100 img-fluid" src="ImageServlet?imgId=${facimage.image.imageId}" alt="First slide">
+                                                                </div>
+                                                            </c:otherwise>
+                                                            </c:choose>
+                                                        </c:forEach>        
+                                                    </div>
+                                                                   
+                                                    <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+                                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                        <span class="sr-only">Previous</span>
+                                                    </a>
+                                                    <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                        <span class="sr-only">Next</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                                <br>
                                                 <p>
                                                 ${category.description}
                                                 </p>

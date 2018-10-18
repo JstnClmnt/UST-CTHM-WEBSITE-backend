@@ -515,3 +515,13 @@ CREATE TABLE FOOTER(
 
 INSERT INTO FOOTER(title,description) VALUES('Contact Us','<h4><b>Contact Us</b></h4><p>Telephone:<br>+63-2-406-1611 loc. 4488</p>');
 INSERT INTO FOOTER(title,description) VALUES('Address','<p>Office of the Dean<br> G/F, Albertus Magnus Building<br>University of Santo Tomas<br>España Boulevard, Sampaloc, Manila 1008</p>');
+
+CREATE TABLE FACILITIES_IMAGE(
+	facility_image_id int not null auto_increment,
+    major_id int not null,
+    img_id int not null,
+    PRIMARY KEY(facility_image_id),
+    FOREIGN KEY(major_id) REFERENCES MAJOR(major_id),
+    FOREIGN KEY(img_id) REFERENCES IMAGE(img_id)
+);
+SELECT * FROM FACILITIES_IMAGE;

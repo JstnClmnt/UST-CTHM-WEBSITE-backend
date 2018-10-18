@@ -159,10 +159,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <c:forEach items="${facilitiesimage}" var="images">
                         <tr>
-                            <td>sample-image.jpg</td>
+                            <td>${images.image.description}</td>
                             <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteImageModal">Delete</button></td>
                         </tr>
+                        </c:forEach>
                     </tbody>
                     </table>
                 </div>
@@ -180,20 +182,22 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myAddImageModalLabel">Add New Image</h4>
                     </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <div class="well">
-                                    <label>Image</label>
-                                    <input type="file" />
+                    <form action="addimagefacilities" method="POST" enctype = "multipart/form-data">
+                        <input type="hidden" id="majorid" name="majorid" value="${course.major.majorID}">
+                        <input type="hidden" id="courseid" name="courseid" value="${course.courseID}">
+                        <div class="modal-body">
+                                <div class="form-group">
+                                    <div class="well">
+                                        <label for="exampleInputFile">Image</label>
+                                        <input name="file" type="file" id="exampleInputFile">
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
-                    </div>
+                        </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
+                    </form>
                 </div>
             </div>
         </div><!-- ./Add Image Modal -->
