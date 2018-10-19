@@ -153,7 +153,12 @@ public class importcsv extends HttpServlet {
                             yearGraduated=Integer.parseInt(data[13]);
                             program=data[14];
                             major=data[15];
-                            username=lastName.toLowerCase()+"."+firstName.split(" ")[0].toLowerCase()+firstName.split(" ")[1].toLowerCase();
+                            if(firstName.split(" ").length==2){
+                                username=lastName.toLowerCase()+"."+firstName.split(" ")[0].toLowerCase()+firstName.split(" ")[1].toLowerCase();
+                            }
+                            else{
+                                username=lastName.toLowerCase()+"."+firstName.toLowerCase();
+                            }
                             datearray=birthdate.split("/");
                             if(Integer.parseInt(datearray[0])<10){
                                 password="0"+datearray[0]+datearray[1]+datearray[2];

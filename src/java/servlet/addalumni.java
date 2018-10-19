@@ -190,12 +190,18 @@ public class addalumni extends HttpServlet {
                      System.out.println(birthdate);
                      image.setImageId(imgId);
                      AlumniProfile newAlumni=new AlumniProfile( alumniID, firstName,  middleName, lastName, birthdate, gender,  address,  postalCode,  contactNumber,  company,  work,  email,  nationality,  civilStatus,  yearGraduated,  program, major, image);
-                     String username=lastName.toLowerCase()+"."+firstName.split(" ")[0].toLowerCase()+firstName.split(" ")[1].toLowerCase();
+                     String username="";
+                     if(firstName.split(" ").length==2){
+                                username=lastName.toLowerCase()+"."+firstName.split(" ")[0].toLowerCase()+firstName.split(" ")[1].toLowerCase();
+                      }
+                      else{
+                        username=lastName.toLowerCase()+"."+firstName.toLowerCase();
+                       }
                      String[] datearray=birthdate.split("-");
                      String password=datearray[1]+datearray[2]+datearray[0];
                      newAlumni.setUsername(username);
                      newAlumni.setPassword(password);
-                     //AlumniProfileCRUD.createProfile(JDBC.getCon(), newAlumni);
+                     AlumniProfileCRUD.createProfile(JDBC.getCon(), newAlumni);
                }
 
             }                    
