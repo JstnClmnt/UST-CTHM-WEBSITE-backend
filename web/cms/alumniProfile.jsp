@@ -134,6 +134,7 @@
                             <label class="custom-file-label" for="profile-pic">Choose CSV file</label><br>
                             <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> &nbsp;Import CSV</button>
                         </form>    
+                        <button type="button" class="btn btn-link btn-lg" title="How to convert Excel to CSV" data-toggle="modal" data-target="#helpModal"><i class="fa fa-question-circle"></i></button>
                     </div>
                     <div class="scroll-table">
                         <div>
@@ -189,6 +190,19 @@
         <!-- /.container-fluid -->
     </div>
     <!-- /#page-wrapper -->
+    <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="helpModalLabel">Convert Excel to CSV</h4>
+                </div>
+                <div class="modal-body">
+                    Insert instructions how to convert excel to csv here hehehe
+                </div>
+            </div>
+        </div>
+    </div><!-- ./Add Alumni Modal -->
     <!-- Add Alumni Modal -->
         <div class="modal fade" id="addAlumniModal" tabindex="-1" role="dialog" aria-labelledby="addAlumniModal">
             <div class="modal-dialog" role="document">

@@ -311,3 +311,7 @@ div.sticky{
     top: 0;
     z-index: 99;
 }
+
+.fa-question-circle{
+    color: #6d7979 !important;
+}
