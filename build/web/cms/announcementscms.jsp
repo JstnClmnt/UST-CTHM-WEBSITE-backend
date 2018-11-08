@@ -90,7 +90,7 @@
                     <ul id="submenu-3" class="collapse">
                         <li><a href="studentcms"><i class="fa fa-angle-double-right"></i> Students</a></li>
                         <li><a href="alumnicms"><i class="fa fa-angle-double-right"></i> Alumni</a></li>
-                        <li><a href="industry.html"><i class="fa fa-angle-double-right"></i> Industry</a></li>
+                        <li><a href="cmsindustry"><i class="fa fa-angle-double-right"></i> Industry</a></li>
                     </ul>
                 </li>  
                 <li>

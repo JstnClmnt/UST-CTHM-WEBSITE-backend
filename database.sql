@@ -525,3 +525,11 @@ CREATE TABLE FACILITIES_IMAGE(
     FOREIGN KEY(img_id) REFERENCES IMAGE(img_id)
 );
 SELECT * FROM FACILITIES_IMAGE;
+
+CREATE TABLE INDUSTRY(
+	company_id int not null auto_increment,
+    company_name varchar(500),
+    category varchar(100),
+    website_link varchar(300),
+    PRIMARY KEY(company_id)
+);

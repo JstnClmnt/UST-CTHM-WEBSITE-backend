@@ -5,6 +5,7 @@
  */
 package bean;
 
+import helper.JsonObject;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -66,6 +67,13 @@ public class Industry {
     public void setWebsiteLink(String websiteLink) {
         this.websiteLink = websiteLink;
     }
-    
+    public JsonObject getJSON() {
+        JsonObject json = new JsonObject();
+        json.addData("industryID", companyID);
+        json.addData("category", category);
+        json.addData("websiteLink", websiteLink);
+        json.addData("companyName", companyName);
+        return json;
+    }
     
 }

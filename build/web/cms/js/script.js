@@ -137,3 +137,39 @@ function editEvents(eventID){
 function deleteEvents(eventID){
     document.getElementById("deleteeventid").value=eventID;    
 }
+
+function editIndustry(industryID){
+        $.ajax({
+            url: 'editindustry',
+            type: "post",
+            cache: false,
+            data: {
+                industry_id: industryID
+            },
+            success: function (responseText) {
+                var x=JSON.parse(responseText.replace(/\uFFFD/g, ''));
+                document.getElementById("editcompanyname").value=x.companyName;
+                if(x.category=="Hotels"){
+                    document.getElementById('editcategory').selectedIndex = 0;
+                    document.getElementById("editcategory").value=x.category;
+                    
+                }
+                else if(x.category=="Airlines"){
+                    document.getElementById('editcategory').selectedIndex = 1;
+                    document.getElementById("editcategory").value=x.category;
+                }
+                else{
+                    document.getElementById('editcategory').selectedIndex = 1;
+                    document.getElementById("editcategory").value=x.category;
+                }
+                document.getElementById("editlink").value=x.websiteLink;
+                document.getElementById("industryid").value=x.industryID;
+            }
+        });
+    
+}
+    
+    
+function deleteIndustry(industryID){
+    document.getElementById("deleteindustryid").value=industryID;    
+}
