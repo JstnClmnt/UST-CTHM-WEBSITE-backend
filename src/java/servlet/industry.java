@@ -5,8 +5,13 @@
  */
 package servlet;
 
+import helper.IndustryCRUD;
+import helper.jdbc.JDBC;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -32,7 +37,14 @@ public class industry extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            try {
+                /* TODO output your page here. You may use following sample code. */
+                request.setAttribute("hotels",IndustryCRUD.listIndustry(JDBC.getCon(), "Hotels"));
+                request.setAttribute("airlines",IndustryCRUD.listIndustry(JDBC.getCon(), "Airlines"));
+                request.setAttribute("restaurants",IndustryCRUD.listIndustry(JDBC.getCon(), "Restaurants"));
+            } catch (SQLException ex) {
+                Logger.getLogger(industry.class.getName()).log(Level.SEVERE, null, ex);
+            }
             RequestDispatcher view=request.getRequestDispatcher("industry.jsp");
             view.forward(request,response);
         }

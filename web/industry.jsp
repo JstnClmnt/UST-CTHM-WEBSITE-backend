@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="bean.Industry"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -120,35 +121,23 @@
                         <div class="col-sm-6">
                             <h5>Hotels</h5>
                             <ul>
-                                <li><a href="#">Admiral Hotel</a></li>
-                                <li><a href="#">Belmont Hotel Manila</a></li>
-                                <li><a href="#">Conrad Hotel Manila</a></li>
-                                <li><a href="#">Crowne Plaza Manila Galleria</a></li>
-                                <li><a href="#">Diamond Hotel Philippines</a></li>
-                                <li><a href="#">Dusit Thani Manila</a></li>
-                                <li><a href="#">Edsa Shangri-La Manila</a></li>
-                                <li><a href="#">Makati Shangri-La Manila</a></li>
-                                <li><a href="#">Manila Hotel</a></li>
-                                <li><a href="#">Marco Polo Ortigas Manila</a></li>
-                                <li><a href="#">Marriot Hotel Manila</a></li>
-                                <li><a href="#">Nobu Hotel Manila</a></li>
+                                <c:forEach items="${hotels}" var="ind">
+                                <li><a href="${ind.websiteLink}}">${ind.companyName}</a></li>
+                                </c:forEach>
                             </ul>
                         </div>
                         <div class="col-sm-6">
+                            <h5>Restaurants</h5>
                             <ul>
-                                <li><a href="#">Novotel Manila Araneta Center</a></li>
-                                <li><a href="#">Okada Manila</a></li>
-                                <li><a href="#">Shangri-La at the Fort</a></li>                                
+                                <c:forEach items="${restaurants}" var="ind">
+                                <li><a href="${ind.websiteLink}}">${ind.companyName}</a></li>
+                                </c:forEach>                             
                             </ul><hr>
                             <h5>Airlines</h5>
                             <ul>
-                                <li><a href="#">AirAsia Philippines</a></li>
-                                <li><a href="#">Cebu Pacific</a></li>
-                                <li><a href="#">PAL Express</a></li>
-                                <li><a href="#">Philippine Airlines</a></li>
-                                <li><a href="#">SkyJet</a></li>
-                                <li><a href="#">Cebgo</a></li>
-                                <li><a href="#">AirSWIFT</a></li>
+                                <c:forEach items="${airlines}" var="ind">
+                                <li><a href="${ind.websiteLink}}">${ind.companyName}</a></li>
+                                </c:forEach>
                             </ul>
                         </div>
                     </div>
