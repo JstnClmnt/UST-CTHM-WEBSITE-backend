@@ -260,7 +260,7 @@
             </div><!-- content wrap -->
         </div>
 
-        <!-- Modal -->
+              <!-- Modal -->
         <div class="modal fade bd-example-modal-lg" id="editInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -271,134 +271,91 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div>
-                <img name="editimg" id="editimg" class="card-img" style="margin:0 auto;"  src="">
-                </div>
-                <br>
-                <form action="editalumninfo" method="post" enctype = "multipart/form-data">
-                    <div class="form-group row">
-                        <label for="lastname" class="col-sm-2 col-form-label">Last Name</label>
-                        <div class="col-sm-10">
-                            <input id="editlastname" name="editlastname" type="text" class="form-control" id="lastname" placeholder="VELASCO">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="firstname" class="col-sm-2 col-form-label">First Name</label>
-                        <div class="col-sm-10">
-                            <input id="editfirstname" name="editfirstname" type="text" class="form-control" id="firstname" placeholder="HENRY">
-                        </div>
-                    </div>
+                <form>
                     <div class="form-group row">
                         <label for="midname" class="col-sm-2 col-form-label">Mid. Name</label>
                         <div class="col-sm-10">
-                            <input id="editmiddlename" name="editmiddlename" type="text" class="form-control" id="midname" placeholder="MARTIN">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="bdate" class="col-sm-2 col-form-label">Birthdate</label>
-                        <div class="col-sm-10">
-                            <input id="editbirthdate" name="editbirthdate" type="date" class="form-control" id="bdate">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="sex" class="col-sm-2 col-form-label">Gender</label>
-                        <div class="col-sm-10">
-                            <select id="editgender" name="editgender" class="custom-select sex">
-                                <option selected>---Select Gender---</option>
-                                <option value="F">F</option>
-                                <option value="M">M</option>
-                            </select>
+                            <input type="text" class="form-control" id="midname" placeholder="MARTIN">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="address" class="col-sm-2 col-form-label">Address</label>
                         <div class="col-sm-10">
-                            <input id="editaddress" name="editaddress" type="text" class="form-control" id="address" placeholder="--">
+                            <input type="text" class="form-control" id="address" placeholder="--">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="postcode" class="col-sm-2 col-form-label">Postal Code</label>
                         <div class="col-sm-10">
-                            <input id="editpostalcode" name="editpostalcode" type="text" class="form-control" id="postcode" placeholder="1600">
+                            <input type="text" class="form-control" id="postcode" placeholder="1600">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="contactnum" class="col-sm-2 col-form-label">Contact #</label>
                         <div class="col-sm-10">
-                            <input id="editnumber" name="editnumber" type="text" class="form-control" id="contactnum" placeholder="09xx xxxx xxx">
+                            <input type="text" class="form-control" id="contactnum" placeholder="09xx xxxx xxx">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="company" class="col-sm-2 col-form-label">Company</label>
                         <div class="col-sm-10">
-                            <input name="editcompany" id="editcompany" type="text" class="form-control" id="company" placeholder="--">
+                            <input type="text" class="form-control" id="company" placeholder="--">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="work" class="col-sm-2 col-form-label">Work</label>
                         <div class="col-sm-10">
-                            <input id="editwork" name="editwork"type="text" class="form-control" id="work" placeholder="--">
+                            <input type="text" class="form-control" id="work" placeholder="--">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Email (Primary)</label>
                         <div class="col-sm-10">
-                            <input id="editemail" name="editemail" type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Email2" class="col-sm-2 col-form-label">Email (Secondary)</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="Email2" placeholder="Email">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="nationality" class="col-sm-2 col-form-label">Nationality</label>
                         <div class="col-sm-10">
-                            <input id="editnationality" name="editnationality" type="text" class="form-control" id="nationality" placeholder="FILIPINO">
+                            <input type="text" class="form-control" id="nationality" placeholder="FILIPINO">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="civstatus" class="col-sm-2 col-form-label">Civil Status</label>
                         <div class="col-sm-10">
-                            <select id="editstatus" name="editstatus" class="custom-select civstatus">
+                            <select class="custom-select civstatus">
                                 <option selected>---Select Civil Status---</option>
-                                <option value="Single">Single</option>
-                                <option value="Married">Married</option>
+                                <option value="single">Single</option>
+                                <option value="married">Married</option>
+                                <option value="married">Widowed</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="yeargraduated" class="col-sm-2 col-form-label">Year Graduated</label>
-                        <div class="col-sm-10">
-                            <input name="edityear" id="edityear"type="text" class="form-control" id="yeargraduated" placeholder="--">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="program" class="col-sm-2 col-form-label">Program</label>
-                        <div class="col-sm-10">
-                            <input id="editprogram" name="editprogram"type="text" class="form-control" id="program" placeholder="--">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="major" class="col-sm-2 col-form-label">Major</label>
-                        <div class="col-sm-10">
-                            <input name="editmajor" id="editmajor" type="text" class="form-control" id="major" placeholder="--">
-                        </div>
-                    </div>
-                    <input type="hidden" id="alumniID" name="alumniID">
-                    <div class="form-group row">
                         <label for="avatar" class="col-sm-2 col-form-label">Profile Photo</label>
                         <div class="col-sm-10">
                             <div class="custom-file">
-                                <input name="file" id="file" type="file" class="custom-file-input" id="profile-pic">
+                                <input type="file" class="custom-file-input" id="profile-pic">
                                 <label class="custom-file-label" for="profile-pic">Choose file</label>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
                 </form>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
             </div>
         </div>
         </div>
+
 
         <!-- Footer -->
         <footer class="container-fluid blue-bg">
