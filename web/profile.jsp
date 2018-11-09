@@ -147,7 +147,7 @@
                                             </tr>
                                             <tr><td></td><td></td></tr>
                                             <tr>
-                                                <td class="label-bg">Address</td>
+                                                <td class="label-bg">Home Address</td>
                                                 <td class="value-bg">${alumni.address}</td>
                                             </tr>
                                             <tr><td></td><td></td></tr>
@@ -159,41 +159,6 @@
                                             <tr>
                                                 <td class="label-bg">Contact Number</td>
                                                 <td class="value-bg">${alumni.contactNumber}</td>
-                                            </tr>
-                                            <tr><td></td><td></td></tr>
-                                            <tr>
-                                                <td class="label-bg">Company</td>
-                                                <td class="value-bg">${alumni.company}</td>
-                                            </tr>
-                                            <tr><td></td><td></td></tr>
-                                            <tr>
-                                                <td class="label-bg">Work</td>
-                                                <td class="value-bg">${alumni.work}</td>
-                                            </tr>
-                                            <tr><td></td><td></td></tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-sm-6">
-                                    <table class="table-sm">
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <c:choose>
-                                                        <c:when test="${alumni.image.description!=null}">
-                                                            <img class="card-img-top"  src="ImageServlet?imgId=${alumni.image.imageId}"/>
-                                                        </c:when>
-                                                        <c:otherwise>
-                                                            <img class="card-img-top" src="img/defaultimg.jpg"/>
-                                                        </c:otherwise>
-                                                    </c:choose>
-                                                </td>
-                                                <td></td>
-                                            </tr>
-                                            <tr><td></td><td></td></tr>
-                                            <tr>
-                                                <td class="label-bg">Email</td>
-                                                <td class="value-bg">${alumni.email}</td>
                                             </tr>
                                             <tr><td></td><td></td></tr>
                                             <tr>
@@ -215,10 +180,67 @@
                                                 <td class="label-bg">Program</td>
                                                 <td class="value-bg">${alumni.program}</td>
                                             </tr>
+                                            <tr><td></td><td></td></tr><tr>
+                                                <td class="label-bg">Student Number</td>
+                                                <td class="value-bg">${alumni.studentNumber}</td>
+                                            </tr>
                                             <tr><td></td><td></td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-sm-6">
+                                    <table class="table-sm">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <img src="img/profilePic.PNG"/>
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                            <tr><td></td><td></td></tr>
+                                            
                                             <tr>
                                                 <td class="label-bg">Major</td>
-                                                <td class="value-bg">${alumni.major}</td>
+                                                <td class="value-bg">--</td>
+                                            </tr>
+                                            <tr><td></td><td></td></tr>
+                                            <tr>
+                                                <td class="label-bg">Email (Primary)</td>
+                                                <td class="value-bg">example@email.com</td>
+                                            </tr>
+                                            <tr><td></td><td></td></tr><tr>
+                                                <td class="label-bg">Email (Secondary)</td>
+                                                <td class="value-bg">example2@email.com</td>
+                                            </tr>
+                                            <tr><td></td><td></td></tr>
+                                            <tr>
+                                                <td class="label-bg">Company</td>
+                                                <td class="value-bg">--</td>
+                                            </tr>
+                                            <tr><td></td><td></td></tr>
+                                            <tr>
+                                                <td class="label-bg">Work Address</td>
+                                                <td class="value-bg">--</td>
+                                            </tr>
+                                            <tr><td></td><td></td></tr>
+                                            <tr>
+                                                <td class="label-bg">Year Started</td>
+                                                <td class="value-bg">--</td>
+                                            </tr>
+                                            <tr><td></td><td></td></tr>
+                                            <tr>
+                                                <td class="label-bg">Company Number</td>
+                                                <td class="value-bg">--</td>
+                                            </tr>
+                                            <tr><td></td><td></td></tr>
+                                            <tr>
+                                                <td class="label-bg">Company Email</td>
+                                                <td class="value-bg">--</td>
+                                            </tr>
+                                            <tr><td></td><td></td></tr>
+                                            <tr>
+                                                <td class="label-bg">Work</td>
+                                                <td class="value-bg">--</td>
                                             </tr>
                                             <tr><td></td><td></td></tr>
                                         </tbody>

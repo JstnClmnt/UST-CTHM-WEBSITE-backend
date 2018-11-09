@@ -192,8 +192,8 @@ public class editalumninfo extends HttpServlet {
                      int imgId=ImageCRUD.createImage(JDBC.getCon(), image);
                      image.setImageId(imgId);
                      AlumniProfile oldalumni=AlumniProfileCRUD.readStudentOrg(JDBC.getCon(), alumniID);
-                     AlumniProfile newAlumni=new AlumniProfile( alumniID, firstName,  middleName, lastName, birthdate, gender,  address,  postalCode,  contactNumber,  company,  work,  email,  nationality,  civilStatus,  yearGraduated,  program, major, image);
-                     AlumniProfileCRUD.editProfile(JDBC.getCon(), newAlumni);
+                     //AlumniProfile newAlumni=new AlumniProfile( alumniID, firstName,  middleName, lastName, birthdate, gender,  address,  postalCode,  contactNumber,  company,  work,  email,  nationality,  civilStatus,  yearGraduated,  program, major, image);
+                     //AlumniProfileCRUD.editProfile(JDBC.getCon(), newAlumni);
                      ImageCRUD.deleteImage(JDBC.getCon(), oldalumni.getImage().getImageId());
                      if(!oldalumni.getImage().equals(null)){
                         File oldFile=new File(oldalumni.getImage().getImgFilePath());
@@ -202,16 +202,16 @@ public class editalumninfo extends HttpServlet {
                         }
                      }
                      HttpSession session=request.getSession(true);
-                     newAlumni=AlumniProfileCRUD.readStudentOrg(JDBC.getCon(), alumniID);
-                     session.setAttribute("alumni",newAlumni);
+                     //newAlumni=AlumniProfileCRUD.readStudentOrg(JDBC.getCon(), alumniID);
+                     //session.setAttribute("alumni",newAlumni);
                }
                 else{
                     System.out.println("No Image");
-                    AlumniProfile newAlumni=new AlumniProfile( alumniID, firstName,  middleName, lastName, birthdate, gender,  address,  postalCode,  contactNumber,  company,  work,  email,  nationality,  civilStatus,  yearGraduated,  program, major);
-                    AlumniProfileCRUD.editProfileNoImage(JDBC.getCon(), newAlumni);
+                    //AlumniProfile newAlumni=new AlumniProfile( alumniID, firstName,  middleName, lastName, birthdate, gender,  address,  postalCode,  contactNumber,  company,  work,  email,  nationality,  civilStatus,  yearGraduated,  program, major);
+                    //AlumniProfileCRUD.editProfileNoImage(JDBC.getCon(), newAlumni);
                     HttpSession session=request.getSession(true);
-                    newAlumni=AlumniProfileCRUD.readStudentOrg(JDBC.getCon(), alumniID);
-                    session.setAttribute("alumni",newAlumni);
+                    //newAlumni=AlumniProfileCRUD.readStudentOrg(JDBC.getCon(), alumniID);
+                    //session.setAttribute("alumni",newAlumni);
                 
                 }
 

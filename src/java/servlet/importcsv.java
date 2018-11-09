@@ -170,7 +170,7 @@ public class importcsv extends HttpServlet {
                             }
                             System.out.println(birthdate);
                             System.out.println("Password: "+password);
-                            alumni=new AlumniProfile(firstName,  middleName,  lastName, birthdate, gender,  address,  postalCode,  contactNumber,  company, work,  email, nationality,  civilStatus, yearGraduated,  program,  major,  username, password, null);
+                            //alumni=new AlumniProfile(firstName,  middleName,  lastName, birthdate, gender,  address,  postalCode,  contactNumber,  company, work,  email, nationality,  civilStatus, yearGraduated,  program,  major,  username, password, null);
                             AlumniProfileCRUD.createProfileNoImage(JDBC.getCon(), alumni);
                             
                         }
