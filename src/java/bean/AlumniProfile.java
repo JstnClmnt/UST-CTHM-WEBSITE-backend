@@ -129,6 +129,7 @@ public class AlumniProfile {
         this.yearStarted=rs.getInt("year_started");
         this.companyNumber=rs.getString("company_number");
         this.companyEmail=rs.getString("company_email");
+        this.work=rs.getString("work");
         this.username=rs.getString("username");
         this.password=rs.getString("password");
         this.image=new Image(rs);

@@ -201,46 +201,46 @@
                                             
                                             <tr>
                                                 <td class="label-bg">Major</td>
-                                                <td class="value-bg">--</td>
+                                                <td class="value-bg">${alumni.major}</td>
                                             </tr>
                                             <tr><td></td><td></td></tr>
                                             <tr>
                                                 <td class="label-bg">Email (Primary)</td>
-                                                <td class="value-bg">example@email.com</td>
+                                                <td class="value-bg">${alumni.emailPrimary}</td>
                                             </tr>
                                             <tr><td></td><td></td></tr><tr>
                                                 <td class="label-bg">Email (Secondary)</td>
-                                                <td class="value-bg">example2@email.com</td>
+                                                <td class="value-bg">${alumni.emailSecondary}</td>
                                             </tr>
                                             <tr><td></td><td></td></tr>
                                             <tr>
                                                 <td class="label-bg">Company</td>
-                                                <td class="value-bg">--</td>
+                                                <td class="value-bg">${alumni.company}</td>
                                             </tr>
                                             <tr><td></td><td></td></tr>
                                             <tr>
                                                 <td class="label-bg">Work Address</td>
-                                                <td class="value-bg">--</td>
+                                                <td class="value-bg">${alumni.workAddress}</td>
                                             </tr>
                                             <tr><td></td><td></td></tr>
                                             <tr>
                                                 <td class="label-bg">Year Started</td>
-                                                <td class="value-bg">--</td>
+                                                <td class="value-bg">${alumni.yearStarted}</td>
                                             </tr>
                                             <tr><td></td><td></td></tr>
                                             <tr>
                                                 <td class="label-bg">Company Number</td>
-                                                <td class="value-bg">--</td>
+                                                <td class="value-bg">${alumni.companyNumber}</td>
                                             </tr>
                                             <tr><td></td><td></td></tr>
                                             <tr>
                                                 <td class="label-bg">Company Email</td>
-                                                <td class="value-bg">--</td>
+                                                <td class="value-bg">${alumni.companyEmail}</td>
                                             </tr>
                                             <tr><td></td><td></td></tr>
                                             <tr>
                                                 <td class="label-bg">Work</td>
-                                                <td class="value-bg">--</td>
+                                                <td class="value-bg">${alumni.work}</td>
                                             </tr>
                                             <tr><td></td><td></td></tr>
                                         </tbody>
