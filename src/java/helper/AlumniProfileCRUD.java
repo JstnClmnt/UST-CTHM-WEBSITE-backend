@@ -39,7 +39,7 @@ public class AlumniProfileCRUD {
         }
     }
       
-    public static int editProfile(Connection con,AlumniProfile alumni) throws SQLException{
+    /**public static int editProfile(Connection con,AlumniProfile alumni) throws SQLException{
         try (PreparedStatement stmt = con.prepareStatement("UPDATE ALUMNI_PROFILE SET first_name=?,last_name=?,middle_name=?,birthdate=?,gender=?,address=?,postal_code=?,contact_number=?,company=?,work=?,email=?,nationality=?,civil_status=?,year_graduated=?,program=?,major=?,img_id=? WHERE alumni_id=?;")) {
             stmt.setString(1, alumni.getFirstName());
             stmt.setString(2, alumni.getLastName());
@@ -85,9 +85,9 @@ public class AlumniProfileCRUD {
             stmt.executeUpdate();
             return 1;  
         }
-    }
+    }**/
     public static int createProfile(Connection con,AlumniProfile alumni) throws SQLException{
-        try (PreparedStatement stmt = con.prepareStatement("INSERT INTO ALUMNI_PROFILE(first_name,middle_name,last_name,birthdate,gender,address,postal_code,contact_number,company,work,email,nationality,civil_status,year_graduated,program,major,username,password,img_id) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);")) {
+        try (PreparedStatement stmt = con.prepareStatement("INSERT INTO ALUMNI_PROFILE(first_name,middle_name,last_name,birthdate,gender,address,postal_code,contact_number,nationality,civil_status,year_graduated,program,student_number,major,email_primary,email_secondary,company,work_address,year_started,company_number,company_email,work,username,password,img_id) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);")) {
             stmt.setString(1, alumni.getFirstName());
             stmt.setString(2, alumni.getMiddleName());
             stmt.setString(3, alumni.getLastName());
@@ -96,23 +96,29 @@ public class AlumniProfileCRUD {
             stmt.setString(6, alumni.getAddress());
             stmt.setString(7, alumni.getPostalCode());
             stmt.setString(8, alumni.getContactNumber());
-            stmt.setString(9, alumni.getCompany());
-            stmt.setString(10, alumni.getWork());
-            stmt.setString(11, alumni.getEmail());
-            stmt.setString(12, alumni.getNationality());
-            stmt.setString(13, alumni.getCivilStatus());
-            stmt.setInt(14, alumni.getYearGraduated());
-            stmt.setString(15, alumni.getProgram());
-            stmt.setString(16, alumni.getMajor());
-            stmt.setString(17, alumni.getUsername());
-            stmt.setString(18, alumni.getPassword());
-            stmt.setInt(19, alumni.getImage().getImageId());
+            stmt.setString(9,alumni.getNationality());
+            stmt.setString(10,alumni.getCivilStatus());
+            stmt.setInt(11,alumni.getYearGraduated());
+            stmt.setString(12, alumni.getProgram());
+            stmt.setInt(13,alumni.getStudentNumber());
+            stmt.setString(14,alumni.getMajor());
+            stmt.setString(15,alumni.getEmailPrimary());
+            stmt.setString(16,alumni.getEmailSecondary());
+            stmt.setString(17,alumni.getCompany());
+            stmt.setString(18, alumni.getWorkAddress());
+            stmt.setInt(19,alumni.getYearStarted());
+            stmt.setString(20,alumni.getCompanyNumber());
+            stmt.setString(21,alumni.getCompanyEmail());
+            stmt.setString(22,alumni.getWork());
+            stmt.setString(23,alumni.getUsername());
+            stmt.setString(24,alumni.getPassword());
+            stmt.setInt(25,alumni.getImage().getImageId());
             stmt.executeUpdate();
             return 1;  
         }
     }
     public static int createProfileNoImage(Connection con,AlumniProfile alumni) throws SQLException{
-        try (PreparedStatement stmt = con.prepareStatement("INSERT INTO ALUMNI_PROFILE(first_name,middle_name,last_name,birthdate,gender,address,postal_code,contact_number,company,work,email,nationality,civil_status,year_graduated,program,major,username,password) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);")) {
+        try (PreparedStatement stmt = con.prepareStatement("INSERT INTO ALUMNI_PROFILE(first_name,middle_name,last_name,birthdate,gender,address,postal_code,contact_number,nationality,civil_status,year_graduated,program,student_number,major,email_primary,email_secondary,company,work_address,year_started,company_number,company_email,work,username,password) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);")) {
             stmt.setString(1, alumni.getFirstName());
             stmt.setString(2, alumni.getMiddleName());
             stmt.setString(3, alumni.getLastName());
@@ -121,16 +127,22 @@ public class AlumniProfileCRUD {
             stmt.setString(6, alumni.getAddress());
             stmt.setString(7, alumni.getPostalCode());
             stmt.setString(8, alumni.getContactNumber());
-            stmt.setString(9, alumni.getCompany());
-            stmt.setString(10, alumni.getWork());
-            stmt.setString(11, alumni.getEmail());
-            stmt.setString(12, alumni.getNationality());
-            stmt.setString(13, alumni.getCivilStatus());
-            stmt.setInt(14, alumni.getYearGraduated());
-            stmt.setString(15, alumni.getProgram());
-            stmt.setString(16, alumni.getMajor());
-            stmt.setString(17, alumni.getUsername());
-            stmt.setString(18, alumni.getPassword());
+            stmt.setString(9,alumni.getNationality());
+            stmt.setString(10,alumni.getCivilStatus());
+            stmt.setInt(11,alumni.getYearGraduated());
+            stmt.setString(12, alumni.getProgram());
+            stmt.setInt(13,alumni.getStudentNumber());
+            stmt.setString(14,alumni.getMajor());
+            stmt.setString(15,alumni.getEmailPrimary());
+            stmt.setString(16,alumni.getEmailSecondary());
+            stmt.setString(17,alumni.getCompany());
+            stmt.setString(18, alumni.getWorkAddress());
+            stmt.setInt(19,alumni.getYearStarted());
+            stmt.setString(20,alumni.getCompanyNumber());
+            stmt.setString(21,alumni.getCompanyEmail());
+            stmt.setString(22,alumni.getWork());
+            stmt.setString(23,alumni.getUsername());
+            stmt.setString(24,alumni.getPassword());
             stmt.executeUpdate();
             return 1;  
         }

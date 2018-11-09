@@ -481,14 +481,20 @@ CREATE TABLE ALUMNI_PROFILE(
     address varchar(350) not null,
     postal_code varchar(15) not null,
     contact_number varchar(50) not null,
-    company varchar(200) not null,
-    work varchar(100) not null,
-	email varchar(50) not null,
     nationality varchar(50) not null,
     civil_status varchar(50) not null,
     year_graduated int not null,
-    program varchar(200) not null,
+	program varchar(200) not null,
+    student_number int not null,
     major varchar(150) not null,
+    email_primary varchar(150) not null,
+    email_secondary varchar(150) not null,
+    company varchar(150) not null,
+    work_address varchar(300) not null,
+    year_started int not null,
+    company_number varchar(50) not null,
+    company_email varchar(100) not null,
+    work varchar(100) not null,
     username varchar(100) not null,
     password varchar(100) not null,
     img_id int,
@@ -496,8 +502,8 @@ CREATE TABLE ALUMNI_PROFILE(
 	FOREIGN KEY(img_id) REFERENCES IMAGE(img_id)
 );
 
-INSERT INTO ALUMNI_PROFILE(first_name,middle_name,last_name,birthdate,gender,address,postal_code,contact_number,company,work,email,nationality,civil_status,year_graduated,program,major,username,password,img_id) 
-VALUES('Henry','Martin','Velasco','1996-02-21','M','42-Wallaby Way, Sydney','1600','091712345679','Sample Company','Sample Work','example@gmail.com','Australian','Single',2015,'BS Information Systems','Business Analytics','velasco.henry','02211996',5);
+INSERT INTO ALUMNI_PROFILE(first_name,middle_name,last_name,birthdate,gender,address,postal_code,contact_number,nationality,civil_status,year_graduated,program,student_number,major,email_primary,email_secondary,company,work_address,year_started,company_number,company_email,work,username,password,img_id) 
+VALUES('Henry','Martin','Velasco','1996-02-21','M','42-Wallaby Way, Sydney','1600','091712345679','Australian','Single',2015,'BS Information Systems',2015081838,'Business Analytics','sample1@gmail.com','sample2@gmail.com','Hotel? Trivago','sample company address',2015,'251-10-17','samplecompanyemail@gmail.com','sushi chef','velasco.henry','02211996',5);
 
 CREATE TABLE HEADER(
 	header_id int not null auto_increment,

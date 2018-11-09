@@ -24,14 +24,20 @@ public class AlumniProfile {
     private String address;
     private String postalCode;
     private String contactNumber;
-    private String company;
-    private String work;
-    private String email;
     private String nationality;
     private String civilStatus;
     private int yearGraduated;
     private String program;
+    private int studentNumber;
     private String major;
+    private String emailPrimary;
+    private String emailSecondary;
+    private String company;
+    private String workAddress;
+    private int yearStarted;
+    private String companyNumber;
+    private String companyEmail;
+    private String work;
     private String username;
     private String password;
     private Image image;
@@ -39,9 +45,10 @@ public class AlumniProfile {
     @Override
     public String toString(){
         address=address.replaceAll(",", "-");
-        return firstName+","+middleName+","+lastName+","+stringToTimeStamp(birthdate)+","+gender+","+address+","+postalCode+","+contactNumber+","+company+","+work+","+email+","+nationality+","+civilStatus+","+yearGraduated+","+program+","+major;
+        return firstName+","+middleName+","+lastName+","+stringToTimeStamp(birthdate)+","+gender+","+address+","+postalCode+","+contactNumber+","+nationality+","+civilStatus+","+yearGraduated+","+studentNumber+","+program+","+major+","+emailPrimary+","+emailSecondary+","+company+","+workAddress+","+yearStarted+","+companyNumber+","+companyEmail+","+work;
     }
-    public AlumniProfile(int alumniID, String firstName, String middleName, String lastName, String birthdate, String gender, String address, String postalCode, String contactNumber, String company, String work, String email, String nationality, String civilStatus, int yearGraduated, String program, String major, String username, String password, Image image) {
+
+    public AlumniProfile(int alumniID, String firstName, String middleName, String lastName, String birthdate, String gender, String address, String postalCode, String contactNumber, String nationality, String civilStatus, int yearGraduated, String program, int studentNumber, String major, String emailPrimary, String emailSecondary, String company, String workAddress, int yearStarted, String companyNumber, String companyEmail, String work, String username, String password, Image image) {
         this.alumniID = alumniID;
         this.firstName = firstName;
         this.middleName = middleName;
@@ -51,20 +58,26 @@ public class AlumniProfile {
         this.address = address;
         this.postalCode = postalCode;
         this.contactNumber = contactNumber;
-        this.company = company;
-        this.work = work;
-        this.email = email;
         this.nationality = nationality;
         this.civilStatus = civilStatus;
         this.yearGraduated = yearGraduated;
         this.program = program;
+        this.studentNumber = studentNumber;
         this.major = major;
+        this.emailPrimary = emailPrimary;
+        this.emailSecondary = emailSecondary;
+        this.company = company;
+        this.workAddress = workAddress;
+        this.yearStarted = yearStarted;
+        this.companyNumber = companyNumber;
+        this.companyEmail = companyEmail;
+        this.work = work;
         this.username = username;
         this.password = password;
         this.image = image;
     }
 
-    public AlumniProfile(String firstName, String middleName, String lastName, String birthdate, String gender, String address, String postalCode, String contactNumber, String company, String work, String email, String nationality, String civilStatus, int yearGraduated, String program, String major, String username, String password, Image image) {
+    public AlumniProfile(String firstName, String middleName, String lastName, String birthdate, String gender, String address, String postalCode, String contactNumber, String nationality, String civilStatus, int yearGraduated, String program, int studentNumber, String major, String emailPrimary, String emailSecondary, String company, String workAddress, int yearStarted, String companyNumber, String companyEmail, String work, String username, String password, Image image) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -73,60 +86,25 @@ public class AlumniProfile {
         this.address = address;
         this.postalCode = postalCode;
         this.contactNumber = contactNumber;
-        this.company = company;
-        this.work = work;
-        this.email = email;
         this.nationality = nationality;
         this.civilStatus = civilStatus;
         this.yearGraduated = yearGraduated;
         this.program = program;
+        this.studentNumber = studentNumber;
         this.major = major;
+        this.emailPrimary = emailPrimary;
+        this.emailSecondary = emailSecondary;
+        this.company = company;
+        this.workAddress = workAddress;
+        this.yearStarted = yearStarted;
+        this.companyNumber = companyNumber;
+        this.companyEmail = companyEmail;
+        this.work = work;
         this.username = username;
         this.password = password;
         this.image = image;
     }
-
-    public AlumniProfile(int alumniID, String firstName, String middleName, String lastName, String birthdate, String gender, String address, String postalCode, String contactNumber, String company, String work, String email, String nationality, String civilStatus, int yearGraduated, String program, String major, Image image) {
-        this.alumniID = alumniID;
-        this.firstName = firstName;
-        this.middleName = middleName;
-        this.lastName = lastName;
-        this.birthdate = birthdate;
-        this.gender = gender;
-        this.address = address;
-        this.postalCode = postalCode;
-        this.contactNumber = contactNumber;
-        this.company = company;
-        this.work = work;
-        this.email = email;
-        this.nationality = nationality;
-        this.civilStatus = civilStatus;
-        this.yearGraduated = yearGraduated;
-        this.program = program;
-        this.major = major;
-        this.image = image;
-    }
-
-    public AlumniProfile(int alumniID, String firstName, String middleName, String lastName, String birthdate, String gender, String address, String postalCode, String contactNumber, String company, String work, String email, String nationality, String civilStatus, int yearGraduated, String program, String major) {
-        this.alumniID = alumniID;
-        this.firstName = firstName;
-        this.middleName = middleName;
-        this.lastName = lastName;
-        this.birthdate = birthdate;
-        this.gender = gender;
-        this.address = address;
-        this.postalCode = postalCode;
-        this.contactNumber = contactNumber;
-        this.company = company;
-        this.work = work;
-        this.email = email;
-        this.nationality = nationality;
-        this.civilStatus = civilStatus;
-        this.yearGraduated = yearGraduated;
-        this.program = program;
-        this.major = major;
-    }
-
+        
     
     public AlumniProfile(ResultSet rs) throws SQLException{
         this.alumniID=rs.getInt("alumni_id");
@@ -138,14 +116,19 @@ public class AlumniProfile {
         this.address=rs.getString("address");
         this.postalCode=rs.getString("postal_code");
         this.contactNumber=rs.getString("contact_number");
-        this.company=rs.getString("company");
-        this.work=rs.getString("work");
-        this.email=rs.getString("email");
         this.nationality=rs.getString("nationality");
         this.civilStatus=rs.getString("civil_status");
         this.yearGraduated=rs.getInt("year_graduated");
         this.program=rs.getString("program");
+        this.studentNumber=rs.getInt("student_number");
         this.major=rs.getString("major");
+        this.emailPrimary=rs.getString("email_primary");
+        this.emailSecondary=rs.getString("email_secondary");
+        this.company=rs.getString("company");
+        this.workAddress=rs.getString("work_address");
+        this.yearStarted=rs.getInt("year_started");
+        this.companyNumber=rs.getString("company_number");
+        this.companyEmail=rs.getString("companyEmail");
         this.username=rs.getString("username");
         this.password=rs.getString("password");
         this.image=new Image(rs);
@@ -161,14 +144,20 @@ public class AlumniProfile {
         json.addData("address",address);
         json.addData("postalCode", postalCode);
         json.addData("contactNumber", contactNumber);
-        json.addData("company", company);
-        json.addData("work",work);
-        json.addData("email", email);
         json.addData("nationality", nationality);
         json.addData("civilStatus",civilStatus);
         json.addData("yearGraduated", yearGraduated);
         json.addData("program", program);
+        json.addData("studentNumber",studentNumber);
         json.addData("major",major);
+        json.addData("primaryEmail",emailPrimary);
+        json.addData("secondaryEmail",emailSecondary);
+        json.addData("company",company);
+        json.addData("workAddress",workAddress);
+        json.addData("yearStarted",yearStarted);
+        json.addData("companyNumber",companyNumber);
+        json.addData("companyEmail",companyEmail);
+        json.addData("work",work);
         json.addData("username", username);
         json.addData("password",password);
         json.addData("imageID",image.getImageId());
@@ -266,13 +255,6 @@ public class AlumniProfile {
         this.work = work;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getNationality() {
         return nationality;
@@ -337,6 +319,64 @@ public class AlumniProfile {
     public void setImage(Image image) {
         this.image = image;
     }
+
+    public int getStudentNumber() {
+        return studentNumber;
+    }
+
+    public void setStudentNumber(int studentNumber) {
+        this.studentNumber = studentNumber;
+    }
+
+    public String getEmailPrimary() {
+        return emailPrimary;
+    }
+
+    public void setEmailPrimary(String emailPrimary) {
+        this.emailPrimary = emailPrimary;
+    }
+
+    public String getEmailSecondary() {
+        return emailSecondary;
+    }
+
+    public void setEmailSecondary(String emailSecondary) {
+        this.emailSecondary = emailSecondary;
+    }
+
+    public String getWorkAddress() {
+        return workAddress;
+    }
+
+    public void setWorkAddress(String workAddress) {
+        this.workAddress = workAddress;
+    }
+
+    public int getYearStarted() {
+        return yearStarted;
+    }
+
+    public void setYearStarted(int yearStarted) {
+        this.yearStarted = yearStarted;
+    }
+
+    public String getCompanyNumber() {
+        return companyNumber;
+    }
+
+    public void setCompanyNumber(String companyNumber) {
+        this.companyNumber = companyNumber;
+    }
+
+    public String getCompanyEmail() {
+        return companyEmail;
+    }
+
+    public void setCompanyEmail(String companyEmail) {
+        this.companyEmail = companyEmail;
+    }
+    
+    
     
     private String timestamptoString(Timestamp ts){
         String datePublished="";
