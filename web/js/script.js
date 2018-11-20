@@ -8,40 +8,33 @@ function editProfile(alumniID){
             },
             success: function (responseText) {
                 var x=JSON.parse(responseText.replace(/\uFFFD/g, ''));
-                document.getElementById("alumniID").value=x.alumniID;
-                document.getElementById("editfirstname").value=x.firstName;
-                document.getElementById("editlastname").value=x.lastName;
-                document.getElementById("editmiddlename").value=x.middleName;
-                document.getElementById("editbirthdate").value=x.birthdate;
-                if(x.gender=="F"){
-                    document.getElementById('editgender').selectedIndex = 0;
-                    document.getElementById("editgender").value=x.gender;
-                    
-                }
-                else{
-                    document.getElementById('editgender').selectedIndex = 1;
-                    document.getElementById("editgender").value=x.gender;
-                }
-                document.getElementById("editaddress").value=x.address;
-                document.getElementById("editpostalcode").value=x.postalCode;
-                document.getElementById("editnumber").value=x.contactNumber;
-                document.getElementById("editcompany").value=x.company;
-                document.getElementById("editwork").value=x.work;
-                document.getElementById("editemail").value=x.email;
-                document.getElementById("editnationality").value=x.nationality;
+                document.getElementById("alumniid").value=x.alumniID;
+                document.getElementById("lname").value=x.lastName;
+                document.getElementById("address").value=x.address;
+                document.getElementById("contactnum").value=x.contactNumber;
+                document.getElementById("company").value=x.company;
+                document.getElementById("inputEmail3").value=x.primaryEmail;
+                document.getElementById("Email2").value=x.secondaryEmail;
+                document.getElementById("nationality").value=x.nationality;
+                document.getElementById("company").value=x.company;
+                document.getElementById("companyAddress").value=x.workAddress;
+                document.getElementById("companyNum").value=x.companyNumber;
+                document.getElementById("yrstart").value=x.yearStarted;
+                document.getElementById("position").value=x.work;
                 if(x.civilStatus=="Single"){
-                    document.getElementById('editstatus').selectedIndex = 0;
-                    document.getElementById("editstatus").value=x.civilStatus;
+                    document.getElementById("civstatus").selectedIndex = 1;
+                    //document.getElementById("civstatus").value=x.civilStatus;
                     
                 }
-                else{
-                    document.getElementById('editstatus').selectedIndex = 1;
-                    document.getElementById("editstatus").value=x.civilStatus;
+                else if(x.civilStatus=="Married"){
+                    document.getElementById("civstatus").selectedIndex = 2;
+                    //document.getElementById("civstatus").value=x.civilStatus;
                 }
-                document.getElementById("edityear").value=x.yearGraduated;
-                document.getElementById("editprogram").value=x.program;
-                document.getElementById("editmajor").value=x.major;
-                document.getElementById("editimg").src="ImageServlet?imgId="+x.imageID;
+                else{
+                    document.getElementById("civstatus").selectedIndex = 3;
+                    //document.getElementById("civstatus").value=x.civilStatus;
+                }
+                //document.getElementById("editimg").src="ImageServlet?imgId="+x.imageID;
             }
         });
     

@@ -88,22 +88,21 @@ public class editalumninfo extends HttpServlet {
 	
          // Process the uploaded file items
          Iterator i = fileItems.iterator();
-         String firstName="";
-         String middleName="";
+         boolean noImage=true;
          String lastName="";
-         String birthdate="";
-         String gender="";
          String address="";
-         String postalCode="";
          String contactNumber="";
-         String company="";
-         String work="";
-         String email="";
+         String emailPrimary="";
+         String emailSecondary="";
          String nationality="";
          String civilStatus="";
-         int yearGraduated=0;
-         String program="";
-         String major="";
+         String company="";
+         String companyAddress="";
+         String companyNumber="";
+         String yearStarted="";
+         String work="";
+         String password="";
+         String confirmpassword="";
          int alumniID=0;
          String fileName="";
          String fieldName;
@@ -116,58 +115,61 @@ public class editalumninfo extends HttpServlet {
             FileItem fi = (FileItem)i.next();
             System.out.println(fi.getFieldName());
             if(fi.isFormField()){
-                 if(fi.getFieldName().equals("editlastname")){
+                 if(fi.getFieldName().equals("lname")){
                      lastName=fi.getString();
                  }
-                 else if(fi.getFieldName().equals("editfirstname")){
-                     firstName=fi.getString();
-                 }
-                 else if(fi.getFieldName().equals("editmiddlename")){
-                     middleName=fi.getString();
-                 }
-                 else if(fi.getFieldName().equals("editbirthdate")){
-                     birthdate=fi.getString();
-                 }                 
-                 else if(fi.getFieldName().equals("editgender")){
-                     gender=fi.getString();
-                 }
-                 else if(fi.getFieldName().equals("editaddress")){
+                 else if(fi.getFieldName().equals("address")){
                      address=fi.getString();
                  }
-                 else if(fi.getFieldName().equals("editpostalcode")){
-                     postalCode=fi.getString();
-                 }
-                 else if(fi.getFieldName().equals("editnumber")){
+                 else if(fi.getFieldName().equals("contactnum")){
                      contactNumber=fi.getString();
-                 }            
-                 else if(fi.getFieldName().equals("editcompany")){
-                     company=fi.getString();
                  }
-                 else if(fi.getFieldName().equals("editwork")){
-                     work=fi.getString();
+                 else if(fi.getFieldName().equals("inputEmail3")){
+                     emailPrimary=fi.getString();
+                 }                 
+                 else if(fi.getFieldName().equals("Email2")){
+                     emailSecondary=fi.getString();
                  }
-                 else if(fi.getFieldName().equals("editemail")){
-                     email=fi.getString();
-                 }
-                 else if(fi.getFieldName().equals("editnationality")){
+                 else if(fi.getFieldName().equals("nationality")){
                      nationality=fi.getString();
                  }
-                 else if(fi.getFieldName().equals("editstatus")){
+                 else if(fi.getFieldName().equals("civstatus")){
                      civilStatus=fi.getString();
                  }
-                 else if(fi.getFieldName().equals("edityear")){
-                     yearGraduated=Integer.parseInt(fi.getString());
+                 else if(fi.getFieldName().equals("pw")){
+                     try{
+                         password=fi.getString();
+                     }
+                     catch(Exception e){
+                         password="None";
+                     }
+                 }            
+                 else if(fi.getFieldName().equals("cpw")){
+                    try{
+                        confirmpassword=fi.getString();
+                     }
+                     catch(Exception e){
+                        confirmpassword="None";
+                     }
                  }
-                 else if(fi.getFieldName().equals("editprogram")){
-                     program=fi.getString();
-                 }                 
-                 else if(fi.getFieldName().equals("editmajor")){
-                     major=fi.getString();
+                 else if(fi.getFieldName().equals("company")){
+                     company=fi.getString();
                  }
-                 else
-                 {
+                 else if(fi.getFieldName().equals("companyNum")){
+                     companyNumber=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("yrstart")){
+                     yearStarted=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("companyAddress")){
+                     companyAddress=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("position")){
+                     work=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("alumniid")){
                      alumniID=Integer.parseInt(fi.getString());
-                 }
+                 }                 
              }
             else{
                System.out.println("HELLO???");
@@ -191,35 +193,52 @@ public class editalumninfo extends HttpServlet {
                      image=new Image(file.getAbsolutePath(),fileName);
                      int imgId=ImageCRUD.createImage(JDBC.getCon(), image);
                      image.setImageId(imgId);
-                     AlumniProfile oldalumni=AlumniProfileCRUD.readStudentOrg(JDBC.getCon(), alumniID);
-                     //AlumniProfile newAlumni=new AlumniProfile( alumniID, firstName,  middleName, lastName, birthdate, gender,  address,  postalCode,  contactNumber,  company,  work,  email,  nationality,  civilStatus,  yearGraduated,  program, major, image);
-                     //AlumniProfileCRUD.editProfile(JDBC.getCon(), newAlumni);
-                     ImageCRUD.deleteImage(JDBC.getCon(), oldalumni.getImage().getImageId());
-                     if(!oldalumni.getImage().equals(null)){
-                        File oldFile=new File(oldalumni.getImage().getImgFilePath());
-                        if(oldFile.delete()){
-                            System.out.println("Delete Image Success");
-                        }
-                     }
-                     HttpSession session=request.getSession(true);
-                     //newAlumni=AlumniProfileCRUD.readStudentOrg(JDBC.getCon(), alumniID);
-                     //session.setAttribute("alumni",newAlumni);
+                     noImage=false;
                }
                 else{
                     System.out.println("No Image");
-                    //AlumniProfile newAlumni=new AlumniProfile( alumniID, firstName,  middleName, lastName, birthdate, gender,  address,  postalCode,  contactNumber,  company,  work,  email,  nationality,  civilStatus,  yearGraduated,  program, major);
-                    //AlumniProfileCRUD.editProfileNoImage(JDBC.getCon(), newAlumni);
-                    HttpSession session=request.getSession(true);
-                    //newAlumni=AlumniProfileCRUD.readStudentOrg(JDBC.getCon(), alumniID);
-                    //session.setAttribute("alumni",newAlumni);
+                    noImage=true;
                 
                 }
 
             }                    
             
-         }  
-                    response.sendRedirect("profile.jsp");
-
+         }
+         if(noImage==false){
+            AlumniProfile oldalumni=AlumniProfileCRUD.readAlumniProfile(JDBC.getCon(), alumniID);
+            AlumniProfile newAlumni=new AlumniProfile( alumniID,lastName,address, contactNumber, nationality,civilStatus,emailPrimary,emailSecondary, company, companyAddress,Integer.parseInt(yearStarted),companyNumber,work,image);
+            System.out.println(newAlumni.getImage().getImageId());
+            AlumniProfileCRUD.editProfile(JDBC.getCon(), newAlumni);
+            if(!oldalumni.getImage().equals(null)){
+                File oldFile=new File(oldalumni.getImage().getImgFilePath());
+                if(oldFile.delete()){
+                    System.out.println("Delete Image Success");
+                }
+            }
+            ImageCRUD.deleteImage(JDBC.getCon(), oldalumni.getImage().getImageId());
+            HttpSession session=request.getSession(true);
+            newAlumni=AlumniProfileCRUD.readAlumniProfile(JDBC.getCon(), alumniID);
+            session.setAttribute("alumni",newAlumni);
+         }
+         else{
+            AlumniProfile newAlumni=new AlumniProfile( alumniID,lastName,address, contactNumber, nationality,civilStatus,emailPrimary,emailSecondary, company, companyAddress,Integer.parseInt(yearStarted),companyNumber,work,null);
+            AlumniProfileCRUD.editProfileNoImage(JDBC.getCon(), newAlumni);
+            HttpSession session=request.getSession(true);
+            newAlumni=AlumniProfileCRUD.readAlumniProfile(JDBC.getCon(), alumniID);
+            session.setAttribute("alumni",newAlumni);
+         }
+         if(!password.equals("")){
+             if(password.equals(confirmpassword)){
+                 AlumniProfileCRUD.changePassword(JDBC.getCon(), password, alumniID);
+                 HttpSession session=request.getSession(true);
+                 session.removeAttribute("alumni");
+                 response.sendRedirect("home");
+                 
+             }
+         }
+         else{
+            response.sendRedirect("profile.jsp");
+         }
          } catch(Exception ex) {
             ex.printStackTrace();
          }

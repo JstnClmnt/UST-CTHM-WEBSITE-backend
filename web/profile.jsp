@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="bean.AlumniProfile"%>
+<%@page import="bean.Image"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -40,8 +41,8 @@
         <div>
             <img class="header-img img-fluid" src="ImageServlet?imgId=${headerimage.image.imageId}" />
         </div>
-        <div class="white-bg navcol bottom-spacer">
-            <nav class="navbar navbar-expand-lg lato">
+        <div class="white-bg navco">
+            <nav class="navbar navbar-expand-lg sticky-top lato">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -118,6 +119,17 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
+                                <div class="col-sm-12">
+                                    <table class="table-sm">
+                                        <tbody>
+                                            <tr>
+                                                <td class="info-head">&nbsp;PERSONAL INFORMATION </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div><br>
+                            <div class="row">
                                 <div class="col-sm-6">
                                     <table class="table-sm">
                                         <tbody>
@@ -166,25 +178,6 @@
                                                 <td class="value-bg">${alumni.nationality}</td>
                                             </tr>
                                             <tr><td></td><td></td></tr>
-                                            <tr>
-                                                <td class="label-bg">Civil Status</td>
-                                                <td class="value-bg">${alumni.civilStatus}</td>
-                                            </tr>
-                                            <tr><td></td><td></td></tr>
-                                            <tr>
-                                                <td class="label-bg">Year Graduated</td>
-                                                <td class="value-bg">${alumni.yearGraduated}</td>
-                                            </tr>
-                                            <tr><td></td><td></td></tr>
-                                            <tr>
-                                                <td class="label-bg">Program</td>
-                                                <td class="value-bg">${alumni.program}</td>
-                                            </tr>
-                                            <tr><td></td><td></td></tr><tr>
-                                                <td class="label-bg">Student Number</td>
-                                                <td class="value-bg">${alumni.studentNumber}</td>
-                                            </tr>
-                                            <tr><td></td><td></td></tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -193,12 +186,16 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <img src="img/profilePic.PNG"/>
+                                                    <img class="profile-avatar" src="ImageServlet?imgId=${alumni.image.imageId}"/>
                                                 </td>
                                                 <td></td>
                                             </tr>
                                             <tr><td></td><td></td></tr>
-                                            
+                                            <tr>
+                                                <td class="label-bg">Civil Status</td>
+                                                <td class="value-bg">${alumni.civilStatus}</td>
+                                            </tr>
+                                            <tr><td></td><td></td></tr>
                                             <tr>
                                                 <td class="label-bg">Major</td>
                                                 <td class="value-bg">${alumni.major}</td>
@@ -213,19 +210,77 @@
                                                 <td class="value-bg">${alumni.emailSecondary}</td>
                                             </tr>
                                             <tr><td></td><td></td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table class="table-sm">
+                                        <tbody>
+                                            <tr>
+                                                <td class="info-head">&nbsp;EDUCATIONAL BACKGROUND </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <table class="table-sm">
+                                        <tbody>
+                                            <tr>
+                                                <td class="label-bg">Student Number</td>
+                                                <td class="value-bg">${alumni.studentNumber}</td>
+                                            </tr>
+                                            <tr><td></td><td></td></tr>
+                                            <tr>
+                                                <td class="label-bg">Year Graduated</td>
+                                                <td class="value-bg">${alumni.yearGraduated}</td>
+                                            </tr>
+                                            <tr><td></td><td></td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-sm-6">
+                                    <table class="table-sm">
+                                        <tbody>
+                                            <tr>
+                                                <td class="label-bg">Program</td>
+                                                <td class="value-bg">${alumni.program}</td>
+                                            </tr>
+                                            <tr><td></td><td></td></tr><tr>
+                                                <td class="label-bg">Major</td>
+                                                <td class="value-bg">${alumni.major}</td>
+                                            </tr>
+                                            <tr><td></td><td></td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table class="table-sm">
+                                        <tbody>
+                                            <tr>
+                                                <td class="info-head">&nbsp;WORK INFORMATION </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <table class="table-sm">
+                                        <tbody>
                                             <tr>
                                                 <td class="label-bg">Company</td>
                                                 <td class="value-bg">${alumni.company}</td>
                                             </tr>
                                             <tr><td></td><td></td></tr>
                                             <tr>
-                                                <td class="label-bg">Work Address</td>
+                                                <td class="label-bg">Company Address</td>
                                                 <td class="value-bg">${alumni.workAddress}</td>
-                                            </tr>
-                                            <tr><td></td><td></td></tr>
-                                            <tr>
-                                                <td class="label-bg">Year Started</td>
-                                                <td class="value-bg">${alumni.yearStarted}</td>
                                             </tr>
                                             <tr><td></td><td></td></tr>
                                             <tr>
@@ -233,13 +288,19 @@
                                                 <td class="value-bg">${alumni.companyNumber}</td>
                                             </tr>
                                             <tr><td></td><td></td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-sm-6">
+                                    <table class="table-sm">
+                                        <tbody>
                                             <tr>
-                                                <td class="label-bg">Company Email</td>
-                                                <td class="value-bg">${alumni.companyEmail}</td>
+                                                <td class="label-bg">Date Started</td>
+                                                <td class="value-bg">${alumni.yearStarted}</td>
                                             </tr>
                                             <tr><td></td><td></td></tr>
                                             <tr>
-                                                <td class="label-bg">Work</td>
+                                                <td class="label-bg">Position</td>
                                                 <td class="value-bg">${alumni.work}</td>
                                             </tr>
                                             <tr><td></td><td></td></tr>
@@ -271,65 +332,48 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="editalumninfo" method="POST"enctype = "multipart/form-data" >
+                    <h6>PERSONAL INFORMATION</h6><hr>
                     <div class="form-group row">
-                        <label for="midname" class="col-sm-2 col-form-label">Mid. Name</label>
+                        <label for="lname" class="col-sm-2 col-form-label">Last Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="midname" placeholder="MARTIN">
+                            <input type="text" class="form-control" id="lname" name="lname" placeholder="VELASCO">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="address" class="col-sm-2 col-form-label">Address</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="address" placeholder="--">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="postcode" class="col-sm-2 col-form-label">Postal Code</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="postcode" placeholder="1600">
+                            <input type="text" class="form-control" id="address" name="address" placeholder="--">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="contactnum" class="col-sm-2 col-form-label">Contact #</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="contactnum" placeholder="09xx xxxx xxx">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="company" class="col-sm-2 col-form-label">Company</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="company" placeholder="--">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="work" class="col-sm-2 col-form-label">Work</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="work" placeholder="--">
+                            <input type="text" class="form-control" id="contactnum" name="contactnum" placeholder="09xx xxxx xxx">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-2 col-form-label">Email (Primary)</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                            <input type="email" class="form-control" id="inputEmail3" name="inputEmail3" placeholder="Email">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="Email2" class="col-sm-2 col-form-label">Email (Secondary)</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="Email2" placeholder="Email">
+                            <input type="email" class="form-control" id="Email2" name="Email2" placeholder="Email">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="nationality" class="col-sm-2 col-form-label">Nationality</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="nationality" placeholder="FILIPINO">
+                            <input type="text" class="form-control" id="nationality" name="nationality" placeholder="FILIPINO">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="civstatus" class="col-sm-2 col-form-label">Civil Status</label>
                         <div class="col-sm-10">
-                            <select class="custom-select civstatus">
+                            <select class="custom-select civstatus" id="civstatus" name="civstatus">
                                 <option selected>---Select Civil Status---</option>
                                 <option value="single">Single</option>
                                 <option value="married">Married</option>
@@ -338,19 +382,63 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="pw" class="col-sm-2 col-form-label">Change Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="pw" name="pw">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="cpw" class="col-sm-2 col-form-label">Confirm Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="cpw" name="cpw" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="avatar" class="col-sm-2 col-form-label">Profile Photo</label>
                         <div class="col-sm-10">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="profile-pic">
+                                <input type="file" class="custom-file-input" id="file" name="file">
                                 <label class="custom-file-label" for="profile-pic">Choose file</label>
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
+                    <h6>WORK INFORMATION</h6><hr>
+                    <div class="form-group row">
+                        <label for="company" class="col-sm-2 col-form-label">Company</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="company" class="form-control" id="company" placeholder="--">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="companyAdd" class="col-sm-2 col-form-label">Company Address</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="companyAddress" id="companyAddress" placeholder="--">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="companyNum" class="col-sm-2 col-form-label">Company Number</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="companyNum" id="companyNum" placeholder="--">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="yrstart" class="col-sm-2 col-form-label">Year Started</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="yrstart" id="yrstart" placeholder="--">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="position" class="col-sm-2 col-form-label">Position</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="position" id="position" placeholder="--">
+                        </div>
+                    </div>
+                    <input type="hidden" name="alumniid" id="alumniid">
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+                </form>
             </div>
             </div>
         </div>

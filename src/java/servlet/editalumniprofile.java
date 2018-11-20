@@ -38,7 +38,7 @@ public class editalumniprofile extends HttpServlet {
         try {
             String id=request.getParameter("alumniID");
             System.out.println("Hello"+id);
-            AlumniProfile alumni=AlumniProfileCRUD.readStudentOrg(JDBC.getCon(), Integer.parseInt(id));
+            AlumniProfile alumni=AlumniProfileCRUD.readAlumniProfile(JDBC.getCon(), Integer.parseInt(id));
             response.getWriter().print(alumni.getJSON().toString());
         } catch (SQLException ex) {
             Logger.getLogger(editalumniprofile.class.getName()).log(Level.SEVERE, null, ex);

@@ -104,6 +104,23 @@ public class AlumniProfile {
         this.password = password;
         this.image = image;
     }
+
+    public AlumniProfile(int alumniID, String lastName, String address, String contactNumber, String nationality, String civilStatus, String emailPrimary, String emailSecondary, String company, String workAddress, int yearStarted, String companyNumber, String work, Image image) {
+        this.alumniID = alumniID;
+        this.lastName = lastName;
+        this.address = address;
+        this.contactNumber = contactNumber;
+        this.nationality = nationality;
+        this.civilStatus = civilStatus;
+        this.emailPrimary = emailPrimary;
+        this.emailSecondary = emailSecondary;
+        this.company = company;
+        this.workAddress = workAddress;
+        this.yearStarted = yearStarted;
+        this.companyNumber = companyNumber;
+        this.work = work;
+        this.image = image;
+    }
         
     
     public AlumniProfile(ResultSet rs) throws SQLException{
