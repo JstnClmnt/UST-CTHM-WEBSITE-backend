@@ -501,7 +501,8 @@ CREATE TABLE ALUMNI_PROFILE(
     PRIMARY KEY(alumni_id),
 	FOREIGN KEY(img_id) REFERENCES IMAGE(img_id)
 );
-
+SELECT * FROM ALUMNI_PROFILE;
+SELECT * FROM IMAGE;
 INSERT INTO ALUMNI_PROFILE(first_name,middle_name,last_name,birthdate,gender,address,postal_code,contact_number,nationality,civil_status,year_graduated,program,student_number,major,email_primary,email_secondary,company,work_address,year_started,company_number,company_email,work,username,password,img_id) 
 VALUES('Henry','Martin','Velasco','1996-02-21','M','42-Wallaby Way, Sydney','1600','091712345679','Australian','Single',2015,'BS Information Systems',2015081838,'Business Analytics','sample1@gmail.com','sample2@gmail.com','Hotel? Trivago','sample company address',2015,'251-10-17','samplecompanyemail@gmail.com','sushi chef','velasco.henry','02211996',5);
 CREATE TABLE HEADER(

@@ -42,7 +42,9 @@ public class cmsindustry extends HttpServlet {
                 /**request.setAttribute("hotels", IndustryCRUD.listIndustry(JDBC.getCon(), "Hotels"));
                 request.setAttribute("airlines", IndustryCRUD.listIndustry(JDBC.getCon(), "Airlines"));
                 request.setAttribute("restaurants", IndustryCRUD.listIndustry(JDBC.getCon(), "Restaurants"));**/
-                request.setAttribute("industry", IndustryCRUD.listIndustry(JDBC.getCon()));
+                request.setAttribute("hotels",IndustryCRUD.listIndustry(JDBC.getCon(), "Hotels"));
+                request.setAttribute("airlines",IndustryCRUD.listIndustry(JDBC.getCon(), "Airlines"));
+                request.setAttribute("restaurants",IndustryCRUD.listIndustry(JDBC.getCon(), "Restaurants"));
                 RequestDispatcher view=request.getRequestDispatcher("industry.jsp");
                 view.forward(request,response);
             } catch (SQLException ex) {

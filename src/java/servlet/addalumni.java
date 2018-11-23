@@ -97,14 +97,20 @@ public class addalumni extends HttpServlet {
          String address="";
          String postalCode="";
          String contactNumber="";
-         String company="";
-         String work="";
-         String email="";
          String nationality="";
          String civilStatus="";
          int yearGraduated=0;
+         int studentNumber=0;
          String program="";
          String major="";
+         String emailPrimary="";
+         String emailSecondary="";
+         String company="";
+         String companyAddress="";
+         int yearStarted=0;
+         String companyNumber="";
+         String companyEmail="";
+         String work="";
          int alumniID=0;
          String fileName="";
          String fieldName;
@@ -141,15 +147,6 @@ public class addalumni extends HttpServlet {
                  else if(fi.getFieldName().equals("number")){
                      contactNumber=fi.getString();
                  }            
-                 else if(fi.getFieldName().equals("company")){
-                     company=fi.getString();
-                 }
-                 else if(fi.getFieldName().equals("work")){
-                     work=fi.getString();
-                 }
-                 else if(fi.getFieldName().equals("email")){
-                     email=fi.getString();
-                 }
                  else if(fi.getFieldName().equals("nationality")){
                      nationality=fi.getString();
                  }
@@ -159,11 +156,38 @@ public class addalumni extends HttpServlet {
                  else if(fi.getFieldName().equals("year")){
                      yearGraduated=Integer.parseInt(fi.getString());
                  }
-                 else if(fi.getFieldName().equals("program")){
+                 else if(fi.getFieldName().equals("studentnumber")){
+                     studentNumber=Integer.parseInt(fi.getString());
+                 }
+                  else if(fi.getFieldName().equals("program")){
                      program=fi.getString();
                  }                 
                  else if(fi.getFieldName().equals("major")){
                      major=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("emailprimary")){
+                     emailPrimary=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("emailsecondary")){
+                     emailSecondary=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("company")){
+                     company=fi.getString();
+                 }
+                else if(fi.getFieldName().equals("companyaddress")){
+                     companyAddress=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("yearstarted")){
+                     yearStarted=Integer.parseInt(fi.getString());
+                 }
+                else if(fi.getFieldName().equals("companynumber")){
+                     companyNumber=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("companyemail")){
+                     companyEmail=fi.getString();
+                 }
+                 else if(fi.getFieldName().equals("work")){
+                     work=fi.getString();
                  }
              }
             else{
@@ -187,9 +211,8 @@ public class addalumni extends HttpServlet {
                      System.out.println("img\\"+fileName);
                      image=new Image(file.getAbsolutePath(),fileName);
                      int imgId=ImageCRUD.createImage(JDBC.getCon(), image);
-                     System.out.println(birthdate);
+                     //System.out.println(birthdate);
                      image.setImageId(imgId);
-                     //AlumniProfile newAlumni=new AlumniProfile( alumniID, firstName,  middleName, lastName, birthdate, gender,  address,  postalCode,  contactNumber,  company,  work,  email,  nationality,  civilStatus,  yearGraduated,  program, major, image);
                      String username="";
                      if(firstName.split(" ").length==2){
                                 username=lastName.toLowerCase()+"."+firstName.split(" ")[0].toLowerCase()+firstName.split(" ")[1].toLowerCase();
@@ -199,9 +222,10 @@ public class addalumni extends HttpServlet {
                        }
                      String[] datearray=birthdate.split("-");
                      String password=datearray[1]+datearray[2]+datearray[0];
+                     AlumniProfile newAlumni=new AlumniProfile(firstName,  middleName,  lastName,  birthdate,  gender,  address,  postalCode,  contactNumber, nationality, civilStatus,  yearGraduated,  program,  studentNumber,  major,  emailPrimary,  emailSecondary,  company,  companyAddress,  yearStarted, companyNumber, companyEmail, work,  username,  password,  image);
                      //newAlumni.setUsername(username);
                      //newAlumni.setPassword(password);
-                     //AlumniProfileCRUD.createProfile(JDBC.getCon(), newAlumni);
+                     AlumniProfileCRUD.createProfile(JDBC.getCon(), newAlumni);
                }
 
             }                    

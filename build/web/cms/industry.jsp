@@ -124,31 +124,108 @@
                     </div>
                     <hr>
                     <div>
-                        <form>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCompanyModal"><i class="fa fa-plus"></i> &nbsp;Add Company</button>
-                        </form>
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Company Name</th>
-                                    <th>Category</th>
-                                    <th>Website Link</th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach items="${industry}" var="ind">
-                                <tr>
-                                    <td>${ind.companyName}</td>
-                                    <td>${ind.category}</td>
-                                    <td>${ind.websiteLink}</td>
-                                    <td><button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#editCompanyModal" onclick="editIndustry(${ind.companyID})">Edit</button></td>
-                                    <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCompanyModal"  onclick="deleteIndustry(${ind.companyID})">Delete</button></td>
-                                </tr>
-                                </c:forEach>
-                            </tbody>
-                        </table>
+                        <div class="container">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="active">
+                                    <a href="#airlines" role="tab" data-toggle="tab">Airlines</a>
+                                </li>
+                                <li>
+                                    <a href="#hotels" role="tab" data-toggle="tab">Hotels</a>
+                                </li>
+                                <li>
+                                    <a href="#resto" role="tab" data-toggle="tab">Restaurants</a>
+                                </li>
+                            </ul>
+                            
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane fade active in" id="airlines">
+                                    <br>
+                                    <form>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCompanyModal"><i class="fa fa-plus"></i> &nbsp;Add Company</button>
+                                    </form>
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Company Name</th>
+                                                <th>Category</th>
+                                                <th>Website Link</th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <c:forEach items="${airlines}" var="ind">
+                                        <tr>
+                                            <td>${ind.companyName}</td>
+                                            <td>${ind.category}</td>
+                                            <td>${ind.websiteLink}</td>
+                                            <td><button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#editCompanyModal" onclick="editIndustry(${ind.companyID})">Edit</button></td>
+                                            <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCompanyModal"  onclick="deleteIndustry(${ind.companyID})">Delete</button></td>
+                                        </tr>
+                                        </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="hotels">
+                                    <br>
+                                    <form>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCompanyModal"><i class="fa fa-plus"></i> &nbsp;Add Company</button>
+                                    </form>
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Company Name</th>
+                                                <th>Category</th>
+                                                <th>Website Link</th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <c:forEach items="${hotels}" var="ind">
+                                        <tr>
+                                            <td>${ind.companyName}</td>
+                                            <td>${ind.category}</td>
+                                            <td>${ind.websiteLink}</td>
+                                            <td><button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#editCompanyModal" onclick="editIndustry(${ind.companyID})">Edit</button></td>
+                                            <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCompanyModal"  onclick="deleteIndustry(${ind.companyID})">Delete</button></td>
+                                        </tr>
+                                        </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="resto">
+                                    <br>
+                                    <form>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCompanyModal"><i class="fa fa-plus"></i> &nbsp;Add Company</button>
+                                    </form>
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Company Name</th>
+                                                <th>Category</th>
+                                                <th>Website Link</th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <c:forEach items="${restaurants}" var="ind">
+                                        <tr>
+                                            <td>${ind.companyName}</td>
+                                            <td>${ind.category}</td>
+                                            <td>${ind.websiteLink}</td>
+                                            <td><button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#editCompanyModal" onclick="editIndustry(${ind.companyID})">Edit</button></td>
+                                            <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCompanyModal"  onclick="deleteIndustry(${ind.companyID})">Delete</button></td>
+                                        </tr>
+                                        </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

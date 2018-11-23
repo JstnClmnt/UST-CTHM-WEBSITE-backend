@@ -104,6 +104,32 @@ public class AlumniProfile {
         this.password = password;
         this.image = image;
     }
+        public AlumniProfile(String firstName, String middleName, String lastName, String birthdate, String gender, String address, String postalCode, String contactNumber, String nationality, String civilStatus, int yearGraduated, String program, int studentNumber, String major, String emailPrimary, String emailSecondary, String company, String workAddress, int yearStarted, String companyNumber, String companyEmail, String work, String username, String password) {
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.birthdate = birthdate;
+        this.gender = gender;
+        this.address = address;
+        this.postalCode = postalCode;
+        this.contactNumber = contactNumber;
+        this.nationality = nationality;
+        this.civilStatus = civilStatus;
+        this.yearGraduated = yearGraduated;
+        this.program = program;
+        this.studentNumber = studentNumber;
+        this.major = major;
+        this.emailPrimary = emailPrimary;
+        this.emailSecondary = emailSecondary;
+        this.company = company;
+        this.workAddress = workAddress;
+        this.yearStarted = yearStarted;
+        this.companyNumber = companyNumber;
+        this.companyEmail = companyEmail;
+        this.work = work;
+        this.username = username;
+        this.password = password;
+    }
 
     public AlumniProfile(int alumniID, String lastName, String address, String contactNumber, String nationality, String civilStatus, String emailPrimary, String emailSecondary, String company, String workAddress, int yearStarted, String companyNumber, String work, Image image) {
         this.alumniID = alumniID;

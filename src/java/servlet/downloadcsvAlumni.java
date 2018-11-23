@@ -40,7 +40,7 @@ public class downloadcsvAlumni extends HttpServlet {
         {
             OutputStream outputStream = response.getOutputStream();
             ArrayList<AlumniProfile> alumnae=AlumniProfileCRUD.listAlumniProfile(JDBC.getCon());
-            String outputResult = "First Name,Middle Name,Last Name,Birthdate,Gender,Address,Postal Code,Contact Number,Company,Work,Email,Nationality,Civil Status,Year Graduated,Program,Major\n";
+            String outputResult = "First Name,Middle Name,Last Name,Birthdate,Gender,Address,Postal Code,Contact Number,Nationality,Civil Status,Year Graduated,Student Number,Program,Major,Primary Email, Secondary Email,Company,Work Address, Year Started,Company Number, Company Email, Work\n";
             for(AlumniProfile alumni:alumnae){
                 outputResult+=alumni.toString()+"\n";
             }

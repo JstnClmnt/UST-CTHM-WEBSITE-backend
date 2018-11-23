@@ -3,14 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/web/support.jsp</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/servlet/industry.java</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/web/aboutUs.jsp</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/web/index.jsp</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/alumniProfile.jsp</file>
+            <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/newscms.jsp</file>
+            <file>file:/D:/NetBeans/USTCTHMWebsite/web/cms/events.jsp</file>
+            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/bean/AlumniProfile.java</file>
+            <file>file:/D:/NetBeans/USTCTHMWebsite/web/js/script.js</file>
+            <file>file:/D:/NetBeans/USTCTHMWebsite/web/profile.jsp</file>
             <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/servlet/importcsv.java</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/web/students.jsp</file>
-            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/servlet/addalumni.java</file>
+            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/servlet/editalumninfo.java</file>
+            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/servlet/editalumniprofile.java</file>
+            <file>file:/D:/NetBeans/USTCTHMWebsite/src/java/helper/AlumniProfileCRUD.java</file>
         </group>
     </open-files>
 </project-private>

@@ -141,44 +141,57 @@
                             <table class="table table-hover table-responsive">
                                 <thead>
                                 <tr>
-                                    <th>Last Name</th>
+<tr>
                                     <th>First Name</th>
                                     <th>Middle Name</th>
+                                    <th>Last Name</th>
                                     <th>Birthdate</th>
                                     <th>Gender</th>
                                     <th>Address</th>
                                     <th>Postal Code</th>
                                     <th>Contact #</th>
-                                    <th>Company</th>
-                                    <th>Work</th>
-                                    <th>Email</th>
                                     <th>Nationality</th>
                                     <th>Civil Status</th>
                                     <th>Year Graduated</th>
+                                    <th>Student Number</th>
                                     <th>Program</th>
                                     <th>Major</th>
+                                    <th>Email (Primary)</th>
+                                    <th>Email (Secondary)</th>
+                                    <th>Company</th>
+                                    <th>Company Address</th>
+                                    <th>Date Started</th>
+                                    <th>Company Number</th>
+                                    <th>Company Email</th>
+                                    <th>Position</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                     <c:forEach items="${alumnae}" var="alumni">
-                                    <tr>
-                                        <td>${alumni.lastName}</td>
-                                        <td>${alumni.firstName}</td>
-                                        <td>${alumni.middleName}</td>
-                                        <td>${alumni.birthdate}</td>
-                                        <td>${alumni.gender}</td>
-                                        <td>${alumni.address}</td>
-                                        <td>${alumni.postalCode}</td>
-                                        <td>${alumni.contactNumber}</td>
-                                        <td>${alumni.company}</td>
-                                        <td>${alumni.work}</td>
-                                        <td>${alumni.email}</td>
-                                        <td>${alumni.nationality}</td>
-                                        <td>${alumni.civilStatus}</td>
-                                        <td>${alumni.yearGraduated}</td>
-                                        <td>${alumni.program}</td>
-                                        <td>${alumni.major}</td>
-                                    </tr>
+                                <tr>
+                                    <td>${alumni.firstName}</td>
+                                    <td>${alumni.middleName}</td>
+                                    <td>${alumni.lastName}</td>
+                                    <td>${alumni.birthdate}</td>
+                                    <td>${alumni.gender}</td>
+                                    <td>${alumni.address}</td>
+                                    <td>${alumni.postalCode}</td>
+                                    <td>${alumni.contactNumber}</td>
+                                    <td>${alumni.nationality}</td>
+                                    <td>${alumni.civilStatus}</td>
+                                    <td>${alumni.yearGraduated}</td>
+                                    <td>${alumni.studentNumber}</td>
+                                    <td>${alumni.program}</td>
+                                    <td>${alumni.major}</td>
+                                    <td>${alumni.emailPrimary}</td>
+                                    <td>${alumni.emailSecondary}</td>
+                                    <td>${alumni.company}</td>
+                                    <td>${alumni.workAddress}</td>
+                                    <td>${alumni.yearStarted}</td>
+                                    <td>${alumni.companyNumber}</td>
+                                    <td>${alumni.companyEmail}</td>
+                                    <td>${alumni.work}</td>
+                                </tr>
                                     </c:forEach>
                                 </tbody>
                             </table>
@@ -248,7 +261,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="address" class="col-sm-2 col-form-label">Address</label>
+                                <label for="address" class="col-sm-2 col-form-label">Home Address</label>
                                 <div class="col-sm-10">
                                     <input id="address" name="address" type="text" class="form-control" id="address" placeholder="--">
                                 </div>
@@ -266,24 +279,6 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="company" class="col-sm-2 col-form-label">Company</label>
-                                <div class="col-sm-10">
-                                    <input name="company" id="company" type="text" class="form-control" id="company" placeholder="--">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="work" class="col-sm-2 col-form-label">Work</label>
-                                <div class="col-sm-10">
-                                    <input id="work" name="work"type="text" class="form-control" id="work" placeholder="--">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                                <div class="col-sm-10">
-                                    <input id="email" name="email" type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="form-group row">
                                 <label for="nationality" class="col-sm-2 col-form-label">Nationality</label>
                                 <div class="col-sm-10">
                                     <input id="nationality" name="nationality" type="text" class="form-control" id="nationality" placeholder="FILIPINO">
@@ -296,13 +291,20 @@
                                         <option selected>---Select Civil Status---</option>
                                         <option value="Single">Single</option>
                                         <option value="Married">Married</option>
+                                        <option value="Widowed">Widowed</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group row">
+                             <div class="form-group row">
                                 <label for="yeargraduated" class="col-sm-2 col-form-label">Year Graduated</label>
                                 <div class="col-sm-10">
                                     <input name="year" id="year" type="text" class="form-control" id="yeargraduated" placeholder="--">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="studNum_e"  class="col-sm-2 col-form-label">Student Number</label>
+                                <div class="col-sm-10">
+                                <input id="studentnumber" name="studentnumber" type="text" class="form-control"/>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -315,6 +317,54 @@
                                 <label for="major" class="col-sm-2 col-form-label">Major</label>
                                 <div class="col-sm-10">
                                     <input name="major" id="major" type="text" class="form-control" id="major" placeholder="--">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Email Primary</label>
+                                <div class="col-sm-10">
+                                    <input id="emailprimary" name="emailprimary" type="email" class="form-control"placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Email Secondary</label>
+                                <div class="col-sm-10">
+                                    <input id="emailsecondary" name="emailsecondary" type="email" class="form-control" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="company" class="col-sm-2 col-form-label">Company</label>
+                                <div class="col-sm-10">
+                                    <input name="company" id="company" type="text" class="form-control" id="company" placeholder="--">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="company" class="col-sm-2 col-form-label">Company Address</label>
+                                <div class="col-sm-10">
+                                    <input name="companyaddress" id="companyaddress" type="text" class="form-control" id="company" placeholder="--">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="bdate" class="col-sm-2 col-form-label">Year Started</label>
+                                <div class="col-sm-10">
+                                    <input id="yearstarted" name="yearstarted" type="text" class="form-control" id="bdate">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="company" class="col-sm-2 col-form-label">Company Number</label>
+                                <div class="col-sm-10">
+                                    <input name="companynumber" id="companynumber" type="text" class="form-control" id="company" placeholder="--">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="company" class="col-sm-2 col-form-label">Company Email</label>
+                                <div class="col-sm-10">
+                                    <input name="companyemail" id="companyemail" type="text" class="form-control" id="company" placeholder="--">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="work" class="col-sm-2 col-form-label">Work</label>
+                                <div class="col-sm-10">
+                                    <input id="work" name="work"type="text" class="form-control" id="work" placeholder="--">
                                 </div>
                             </div>
                             <div class="form-group row">

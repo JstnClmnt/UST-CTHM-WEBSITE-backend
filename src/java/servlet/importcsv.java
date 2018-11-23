@@ -117,14 +117,20 @@ public class importcsv extends HttpServlet {
                     String address="";
                     String postalCode="";
                     String contactNumber="";
-                    String company="";
-                    String work="";
-                    String email="";
                     String nationality="";
                     String civilStatus="";
                     int yearGraduated=0;
+                    int studentNumber=0;
                     String program="";
                     String major="";
+                    String emailPrimary="";
+                    String emailSecondary="";
+                    String company="";
+                    String companyAddress="";
+                    int yearStarted=0;
+                    String companyNumber="";
+                    String companyEmail="";
+                    String work="";
                     fi.write( file ) ;
                     String username="";
                     String[] datearray=null;
@@ -145,14 +151,20 @@ public class importcsv extends HttpServlet {
                             address=data[5];
                             postalCode=data[6];
                             contactNumber=data[7];
-                            company=data[8];
-                            work=data[9];
-                            email=data[10];
-                            nationality=data[11];
-                            civilStatus=data[12];
-                            yearGraduated=Integer.parseInt(data[13]);
-                            program=data[14];
-                            major=data[15];
+                            nationality=data[8];
+                            civilStatus=data[9];
+                            yearGraduated=Integer.parseInt(data[10]);
+                            studentNumber=Integer.parseInt(data[11]);
+                            program=data[12];
+                            major=data[13];
+                            emailPrimary=data[14];
+                            emailSecondary=data[15];
+                            company=data[16];
+                            companyAddress=data[17];
+                            yearStarted=Integer.parseInt(data[18]);
+                            companyNumber=data[19];
+                            companyEmail=data[20];
+                            work=data[21];
                             if(firstName.split(" ").length==2){
                                 username=lastName.toLowerCase()+"."+firstName.split(" ")[0].toLowerCase()+firstName.split(" ")[1].toLowerCase();
                             }
@@ -170,8 +182,8 @@ public class importcsv extends HttpServlet {
                             }
                             System.out.println(birthdate);
                             System.out.println("Password: "+password);
-                            //alumni=new AlumniProfile(firstName,  middleName,  lastName, birthdate, gender,  address,  postalCode,  contactNumber,  company, work,  email, nationality,  civilStatus, yearGraduated,  program,  major,  username, password, null);
-                            AlumniProfileCRUD.createProfileNoImage(JDBC.getCon(), alumni);
+                            AlumniProfile newAlumni=new AlumniProfile(firstName,  middleName,  lastName,  birthdate,  gender,  address,  postalCode,  contactNumber, nationality, civilStatus,  yearGraduated,  program,  studentNumber,  major,  emailPrimary,  emailSecondary,  company,  companyAddress,  yearStarted, companyNumber, companyEmail, work,  username,  password);
+                            AlumniProfileCRUD.createProfileNoImage(JDBC.getCon(), newAlumni);
                             
                         }
                         y++;
